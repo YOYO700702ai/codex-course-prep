@@ -114,10 +114,10 @@
     <div class="card" style="margin-top:1.4em">
       <p style="margin:.2em 0"><span class="check">⓪</span> <b style="color:var(--accent)">訂閱 ChatGPT Plus</b>（Codex 一定要付費帳號才能用）</p>
       <p style="margin:.2em 0"><span class="check">①</span> 下載安裝 <b>Codex 桌面 App</b> 並用 ChatGPT 帳號登入</p>
-      <p style="margin:.2em 0"><span class="check">②</span> 申請一組 <b>GitHub</b> 帳號</p>
-      <p style="margin:.2em 0"><span class="check">③</span> 安裝 <b>Git</b>（程式碼版本管理工具）</p>
-      <p style="margin:.2em 0"><span class="check">④</span> 讓電腦「登入」你的 <b>GitHub</b>（裝 <code>gh</code>）</p>
-      <p style="margin:.2em 0"><span class="check">⑤</span> <b style="color:var(--accent)">準備好你的題庫</b>（選擇題 + 標好正確答案）</p>
+      <p style="margin:.2em 0"><span class="check">②</span> <b style="color:var(--accent)">準備題庫</b>，並變成一條 <b>CSV 網址</b></p>
+      <p style="margin:.2em 0"><span class="check">③</span> 申請一組 <b>GitHub</b> 帳號</p>
+      <p style="margin:.2em 0"><span class="check">④</span> 安裝 <b>Git</b>（程式碼版本管理工具）</p>
+      <p style="margin:.2em 0"><span class="check">⑤</span> 讓電腦「登入」你的 <b>GitHub</b>（裝 <code>gh</code>）</p>
     </div>
     <p class="muted" style="margin-top:1.4em">使用 <kbd>→</kbd> 或 <kbd>空白鍵</kbd> 切換下一頁</p>
   </section>
@@ -184,9 +184,59 @@
     <p class="muted" style="margin-top:.8em">⚠️ 如果出現「無法驗證開發者」之類的提示，是正常的，照系統指示允許開啟即可。</p>
   </section>
 
-  <!-- 4 任務② 介紹 -->
+  <!-- 3.5 任務② 準備題庫 + 把題庫變成 CSV 網址（不分頁）-->
   <section class="slide">
-    <span class="tag">任務 ②</span>
+    <span class="tag">任務 ② · 最重要</span>
+    <h2>準備題庫，並變成「活的 CSV 網址」</h2>
+    <p>課堂後半段要把你的題庫變成<b>遊戲</b>。請先照下面兩步準備好：<b>① 整理題庫 → ② 變成一條 CSV 網址</b>。沒有題庫等於沒有彈藥 ⚠️</p>
+
+    <h3 style="margin-top:1em">① 先準備題庫</h3>
+    <div class="grid">
+      <div class="card" style="border-color:var(--accent)"><p style="margin:0 0 .3em"><b>✅ 題型：選擇題（四選一）</b></p><p class="muted" style="margin:0">每題一個題幹 + 四個選項（A/B/C/D）</p></div>
+      <div class="card" style="border-color:var(--accent)"><p style="margin:0 0 .3em"><b>✅ 一定要附正確答案</b></p><p class="muted" style="margin:0">沒有答案，遊戲沒辦法判斷對錯</p></div>
+      <div class="card"><p style="margin:0 0 .3em"><b>📦 數量</b></p><p class="muted" style="margin:0">最少 10 題，建議 20~30 題</p></div>
+      <div class="card"><p style="margin:0 0 .3em"><b>📄 格式不拘</b></p><p class="muted" style="margin:0">Word / PDF / 純文字 / 拍照都行</p></div>
+    </div>
+
+    <h3 style="margin-top:1.2em">② 把題庫變成 CSV 網址</h3>
+    <p class="muted" style="margin:0 0 .4em">用 <b>NotebookLM</b>（Google 的免費 AI 筆記，不算 AI 額度）整理，再發布成一條「活網址」。</p>
+
+    <div class="step"><div class="num">1</div><div>
+      <p style="margin:0"><b>把題目丟進 NotebookLM</b>：打開 <a class="url" href="https://notebooklm.google.com/" target="_blank" rel="noopener">notebooklm.google.com</a> → 建立新筆記本 → 把題庫檔（PDF / Word / 拍照都行）拖進去，等它跑出「來源摘要」。</p>
+    </div></div>
+
+    <div class="step"><div class="num">2</div><div>
+      <p style="margin:0"><b>下這段提示詞</b>，讓它整理成標準表格（貼進 NotebookLM 對話框送出）：</p>
+      <code class="cmd">請幫我把這份題庫整理成「四選一選擇題」的標準表格。
+格式要求：
+1. 每一列就是一題
+2. 欄位順序：題目 | A | B | C | D
+3. A 欄位「一律放正確答案」（不管原本標哪個，正解都搬到 A）
+4. B、C、D 欄位放剩下 3 個錯誤選項
+5. 不要題號、不要分節、不要其他說明
+6. 如果某題未滿 4 個選項，缺的格子用「空」補上
+7. 用 Markdown 表格格式輸出</code>
+      <p class="muted" style="margin:.2em 0;font-size:.9em">⚠️ 檢查：A 欄是不是<b>全部都是正確答案</b>？沒有就叫它「A 欄要放正解，請重新整理」。</p>
+    </div></div>
+
+    <div class="step"><div class="num">3</div><div>
+      <p style="margin:0"><b>存成試算表</b>：表格下方點「<b>儲存到筆記</b>」→ 該記事右邊「<b>⋮</b>」→「<b>匯出為試算表</b>」→ 會自動開一份 Google Sheets，重新命名 <code>【科目】題庫_v1</code>。</p>
+    </div></div>
+
+    <div class="step"><div class="num">4</div><div>
+      <p style="margin:0"><b>發布成 CSV，拿到活網址</b>（⭐ 關鍵）：在 Sheets 點 <b>檔案 → 共用 → 發布到網路</b> → 左邊選「<b>整份文件</b>」、右邊選「<b>逗號分隔值 (.csv)</b>」（⚠️ 不要選網頁/Excel）→ 點 <b>發布</b> → <b>複製</b>跳出來的那條網址。</p>
+      <p class="muted" style="margin:.3em 0;font-size:.9em">驗證能用：把網址貼到瀏覽器按 Enter，會下載 .csv 或顯示「題目,A,B,C,D」= 成功 ✓</p>
+    </div></div>
+
+    <div class="card" style="margin-top:.6em;border-color:var(--accent)">
+      <p style="margin:0"><b>🎉 你拿到「活的題庫網址」了，把它先記下來（上課要用）。</b></p>
+      <p class="muted" style="margin:.3em 0">之後想改題目？直接改 Google Sheets → 存檔 → 網址內容自動更新，不用重做。</p>
+    </div>
+  </section>
+
+  <!-- 4 任務③ GitHub 介紹 -->
+  <section class="slide">
+    <span class="tag">任務 ③</span>
     <h2>申請 GitHub 帳號</h2>
     <p>GitHub 是全世界工程師存放程式碼的地方，課程中我們會用它來<b>備份、分享、把你的作品發布成一條網址</b>給學生玩。免費。</p>
     <div class="card">
@@ -198,7 +248,7 @@
 
   <!-- 5 任務② 步驟 -->
   <section class="slide">
-    <span class="tag">任務 ② · 步驟</span>
+    <span class="tag">任務 ③ · 步驟</span>
     <h2>怎麼申請？</h2>
     <div class="step"><div class="num">1</div><p>打開 <a class="url" href="https://github.com/signup" target="_blank" rel="noopener">github.com/signup</a></p></div>
     <div class="step"><div class="num">2</div><p>輸入 <b>Email</b>（建議用常用的）、設定 <b>密碼</b> 和 <b>使用者名稱（username）</b></p></div>
@@ -211,7 +261,7 @@
 
   <!-- 6 任務③ Git 介紹 -->
   <section class="slide">
-    <span class="tag">任務 ③</span>
+    <span class="tag">任務 ④</span>
     <h2>安裝 Git</h2>
     <p>Git 是<b>程式碼版本管理</b>的工具，可以想成「程式碼的存檔系統」。要把作品發布上網（GitHub）都靠它，<b>沒裝 Git 後面所有步驟都會卡關</b>。</p>
     <div class="card">
@@ -224,7 +274,7 @@
 
   <!-- 7 任務③ Git Mac/Win 並列步驟 -->
   <section class="slide">
-    <span class="tag">任務 ③ · 安裝步驟</span>
+    <span class="tag">任務 ④ · 安裝步驟</span>
     <h2>依你的系統選一邊</h2>
     <div class="two">
       <div class="os win">
@@ -267,7 +317,7 @@
 
   <!-- 8 任務④ 介紹 -->
   <section class="slide">
-    <span class="tag">任務 ④</span>
+    <span class="tag">任務 ⑤</span>
     <h2>讓電腦「登入」你的 GitHub</h2>
     <p>申請完帳號 <b>還不夠</b>。要讓 Codex 之後能<b>直接幫你建 repo、把作品上傳發布</b>，必須先讓電腦也認識你的 GitHub 帳號。</p>
     <div class="card">
@@ -277,15 +327,15 @@
     <div class="card" style="margin-top:1em;border-color:var(--accent)">
       <p style="margin:0 0 .6em"><b>👇 接下來請依照你的電腦選一條路走（點選下方按鈕直接跳轉）</b></p>
       <div class="pathbtns">
-        <a class="pathbtn" href="#" onclick="show(9);return false;">🍎 <b>我是 Mac 使用者</b><span class="muted">點此開始 Step 1~5</span></a>
-        <a class="pathbtn" href="#" onclick="show(13);return false;">🪟 <b>我是 Windows 使用者</b><span class="muted">點此開始 Step 1~5</span></a>
+        <a class="pathbtn" href="#" onclick="show(10);return false;">🍎 <b>我是 Mac 使用者</b><span class="muted">點此開始 Step 1~5</span></a>
+        <a class="pathbtn" href="#" onclick="show(14);return false;">🪟 <b>我是 Windows 使用者</b><span class="muted">點此開始 Step 1~5</span></a>
       </div>
     </div>
   </section>
 
   <!-- 9 Mac · Step 1 + 2 -->
   <section class="slide">
-    <span class="tag">任務 ④ · 🍎 Mac · Step 1~2</span>
+    <span class="tag">任務 ⑤ · 🍎 Mac · Step 1~2</span>
     <h2>打開終端機 + 確認 Homebrew</h2>
     <div class="step"><div class="num">1</div><div>
       <p style="margin:0"><b>打開終端機</b></p>
@@ -326,7 +376,7 @@ eval "$(/usr/local/bin/brew shellenv)"</code>
 
   <!-- 10 Mac · Step 3 -->
   <section class="slide">
-    <span class="tag">任務 ④ · 🍎 Mac · Step 3</span>
+    <span class="tag">任務 ⑤ · 🍎 Mac · Step 3</span>
     <h2>安裝 GitHub CLI</h2>
     <div class="step"><div class="num">3</div><div>
       <p style="margin:0">在終端機輸入：</p>
@@ -340,7 +390,7 @@ eval "$(/usr/local/bin/brew shellenv)"</code>
 
   <!-- 11 Mac · Step 4 登入 -->
   <section class="slide">
-    <span class="tag">任務 ④ · 🍎 Mac · Step 4</span>
+    <span class="tag">任務 ⑤ · 🍎 Mac · Step 4</span>
     <h2>登入 GitHub（最關鍵的一步）</h2>
     <div class="step"><div class="num">4</div><div>
       <p style="margin:0">在終端機輸入：</p>
@@ -362,7 +412,7 @@ eval "$(/usr/local/bin/brew shellenv)"</code>
 
   <!-- 12 Mac · Step 5 + 常見坑 -->
   <section class="slide">
-    <span class="tag">任務 ④ · 🍎 Mac · Step 5</span>
+    <span class="tag">任務 ⑤ · 🍎 Mac · Step 5</span>
     <h2>驗證 + 常見坑</h2>
     <div class="step"><div class="num">5</div><div>
       <p style="margin:0">🧪 <b>最終驗證</b>，輸入：</p>
@@ -380,20 +430,20 @@ eval "$(/usr/local/bin/brew shellenv)"</code>
     <div class="card" style="border-color:#ef4444;background:#1a0e0e">
       <p style="margin:0 0 .3em"><b>💡 常見坑</b></p>
       <p style="margin:.2em 0">🔴 <b>裝完 Homebrew、重開終端機還是 <code>command not found</code></b> <span style="color:#fca5a5">（每屆都有人踩）</span></p>
-      <p class="muted" style="margin:.1em 0 .3em 1.6em;font-size:.9em">→ 你 <b>沒有跑「Next steps」那兩行指令</b>。Homebrew 雖然裝好了，但終端機還不知道它在哪。<a class="jumpbtn" href="#" onclick="show(9);return false;">↩ 回 Step 2 補做 Next steps</a></p>
+      <p class="muted" style="margin:.1em 0 .3em 1.6em;font-size:.9em">→ 你 <b>沒有跑「Next steps」那兩行指令</b>。Homebrew 雖然裝好了，但終端機還不知道它在哪。<a class="jumpbtn" href="#" onclick="show(10);return false;">↩ 回 Step 2 補做 Next steps</a></p>
       <p class="muted" style="margin:.1em 0 .4em 1.6em;font-size:.9em">→ 簡單版：直接複製下面兩行貼進終端機按 Enter（Apple Silicon Mac 用）：</p>
       <code class="cmd" style="margin-left:1.6em">echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' &gt;&gt; ~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"</code>
       <p class="muted" style="margin:.2em 0 .4em 1.6em;font-size:.9em">→ 如果你是 Intel Mac（2019 年以前），把 <code>/opt/homebrew/</code> 改成 <code>/usr/local/</code></p>
       <p style="margin:.4em 0"><b style="color:#fbbf24">📌 一句話解釋</b>：「<i>Homebrew 已經裝好了，但你的終端機還不知道它在哪裡。上面那兩行就是『告訴終端機 Homebrew 的位置』。</i>」</p>
-      <p style="margin:.4em 0">🔴 <b>卡在 web browser 那步</b> → 重跑 <code>gh auth login</code> <a class="jumpbtn" href="#" onclick="show(11);return false;">↩ 回 Step 4 重做</a>，最後一題改選 <code>Paste an authentication token</code>，到 <a class="url" href="https://github.com/settings/tokens" target="_blank" rel="noopener">github.com/settings/tokens</a> 產生 Personal Access Token 貼進去</p>
-      <p style="margin:.2em 0">🔴 <b>gh auth status 顯示 not logged in</b> → 重跑 <code>gh auth login</code> 一次 <a class="jumpbtn" href="#" onclick="show(11);return false;">↩ 回 Step 4 重做</a></p>
+      <p style="margin:.4em 0">🔴 <b>卡在 web browser 那步</b> → 重跑 <code>gh auth login</code> <a class="jumpbtn" href="#" onclick="show(12);return false;">↩ 回 Step 4 重做</a>，最後一題改選 <code>Paste an authentication token</code>，到 <a class="url" href="https://github.com/settings/tokens" target="_blank" rel="noopener">github.com/settings/tokens</a> 產生 Personal Access Token 貼進去</p>
+      <p style="margin:.2em 0">🔴 <b>gh auth status 顯示 not logged in</b> → 重跑 <code>gh auth login</code> 一次 <a class="jumpbtn" href="#" onclick="show(12);return false;">↩ 回 Step 4 重做</a></p>
     </div>
   </section>
 
   <!-- 13 Windows · Step 1 + 2 -->
   <section class="slide">
-    <span class="tag">任務 ④ · 🪟 Windows · Step 1~2</span>
+    <span class="tag">任務 ⑤ · 🪟 Windows · Step 1~2</span>
     <h2>打開 PowerShell + 確認 winget</h2>
     <div class="step"><div class="num">1</div><div>
       <p style="margin:0"><b>打開 PowerShell（終端機）</b></p>
@@ -411,7 +461,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
 
   <!-- 14 Windows · Step 3 -->
   <section class="slide">
-    <span class="tag">任務 ④ · 🪟 Windows · Step 3</span>
+    <span class="tag">任務 ⑤ · 🪟 Windows · Step 3</span>
     <h2>安裝 GitHub CLI</h2>
     <div class="step"><div class="num">3</div><div>
       <p style="margin:0">在 PowerShell 輸入：</p>
@@ -430,7 +480,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
 
   <!-- 15 Windows · Step 4 登入 -->
   <section class="slide">
-    <span class="tag">任務 ④ · 🪟 Windows · Step 4</span>
+    <span class="tag">任務 ⑤ · 🪟 Windows · Step 4</span>
     <h2>登入 GitHub（最關鍵的一步）</h2>
     <div class="step"><div class="num">4</div><div>
       <p style="margin:0">在 PowerShell 輸入：</p>
@@ -452,7 +502,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
 
   <!-- 16 Windows · Step 5 + 常見坑 -->
   <section class="slide">
-    <span class="tag">任務 ④ · 🪟 Windows · Step 5</span>
+    <span class="tag">任務 ⑤ · 🪟 Windows · Step 5</span>
     <h2>驗證 + 常見坑</h2>
     <div class="step"><div class="num">5</div><div>
       <p style="margin:0">🧪 <b>最終驗證</b>，輸入：</p>
@@ -471,46 +521,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
       <p style="margin:0 0 .3em"><b>💡 常見坑</b></p>
       <p style="margin:.2em 0">🔴 <b>裝完輸入 gh 找不到指令</b> → PowerShell <b>沒重開</b>。整個視窗關掉再打開一個新的。</p>
       <p style="margin:.2em 0">🔴 <b>winget 一直失敗</b> → 直接到 <a class="url" href="https://cli.github.com" target="_blank" rel="noopener">cli.github.com</a> 下載 <code>.msi</code> 雙擊安裝，再回來跑 <code>gh --version</code>。</p>
-      <p style="margin:.2em 0">🔴 <b>卡在 web browser 那步</b> → 重跑 <code>gh auth login</code> <a class="jumpbtn" href="#" onclick="show(15);return false;">↩ 回 Step 4 重做</a>，最後一題改選 <code>Paste an authentication token</code>，到 <a class="url" href="https://github.com/settings/tokens" target="_blank" rel="noopener">github.com/settings/tokens</a> 產生 Personal Access Token 貼進去。</p>
-      <p style="margin:.2em 0">🔴 <b>gh auth status 顯示 not logged in</b> → 重跑 <code>gh auth login</code> 一次 <a class="jumpbtn" href="#" onclick="show(15);return false;">↩ 回 Step 4 重做</a>。</p>
-    </div>
-  </section>
-
-  <!-- 17 準備題庫 -->
-  <section class="slide">
-    <span class="tag">最後一件事 · 最重要</span>
-    <h2>📝 請準備好你的題庫</h2>
-    <p class="hero">課堂後半段，我們要把你的題庫變成<b>遊戲</b>。<br>沒有題庫，等於沒有彈藥 ⚠️ 請務必先準備好。</p>
-
-    <div class="grid" style="margin-top:1em">
-      <div class="card" style="border-color:var(--accent)">
-        <p style="margin:0 0 .4em"><b>✅ 題型：選擇題（四選一）</b></p>
-        <p class="muted" style="margin:.2em 0">每題一個題幹 + 四個選項（A / B / C / D）</p>
-      </div>
-      <div class="card" style="border-color:var(--accent)">
-        <p style="margin:0 0 .4em"><b>✅ 一定要附正確答案</b></p>
-        <p class="muted" style="margin:.2em 0">沒有答案，遊戲沒辦法判斷對錯</p>
-      </div>
-      <div class="card">
-        <p style="margin:0 0 .4em"><b>📦 數量建議</b></p>
-        <p class="muted" style="margin:.2em 0">最少 <b>10 題</b>，建議 <b>20~30 題</b>，多多益善</p>
-      </div>
-      <div class="card">
-        <p style="margin:0 0 .4em"><b>📄 格式不拘</b></p>
-        <p class="muted" style="margin:.2em 0">Word / PDF / Excel / 純文字 / 拍照都行，課堂會<b>直接把檔案丟給 Codex</b> 讀，它自己整理成遊戲題目</p>
-      </div>
-    </div>
-
-    <div class="card" style="margin-top:1.2em;border-color:var(--accent2)">
-      <p style="margin:0 0 .3em"><b>💡 題目範例（給你參考格式）</b></p>
-      <p style="margin:.2em 0">題目：唐朝的首都是哪裡？</p>
-      <p style="margin:.2em 0">A. 北京　B. 長安　C. 洛陽　D. 開封</p>
-      <p style="margin:.2em 0;color:var(--ok)"><b>正確答案：B</b></p>
-    </div>
-
-    <div class="card" style="margin-top:.8em;border-color:#fca5a5">
-      <p style="margin:0"><b>⚠️ 沒準備題庫的話</b></p>
-      <p class="muted" style="margin:.2em 0">課堂只能用我們提供的範例題庫練習，<b>帶不走「你自己科目」的成品</b>。</p>
+      <p style="margin:.2em 0">🔴 <b>卡在 web browser 那步</b> → 重跑 <code>gh auth login</code> <a class="jumpbtn" href="#" onclick="show(16);return false;">↩ 回 Step 4 重做</a>，最後一題改選 <code>Paste an authentication token</code>，到 <a class="url" href="https://github.com/settings/tokens" target="_blank" rel="noopener">github.com/settings/tokens</a> 產生 Personal Access Token 貼進去。</p>
+      <p style="margin:.2em 0">🔴 <b>gh auth status 顯示 not logged in</b> → 重跑 <code>gh auth login</code> 一次 <a class="jumpbtn" href="#" onclick="show(16);return false;">↩ 回 Step 4 重做</a>。</p>
     </div>
   </section>
 
@@ -528,25 +540,24 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
         <p><span class="check">☐</span> 電腦能打開 <b>Codex 桌面 App</b></p>
         <p><span class="check">☐</span> 已用 <b>ChatGPT 帳號</b>登入</p>
       </div>
+      <div class="card" style="border-color:var(--accent)">
+        <p><b>② 題庫 + CSV</b></p>
+        <p><span class="check">☐</span> 選擇題（四選一）、標好正解、至少 10 題</p>
+        <p><span class="check">☐</span> 已發布成 <b>CSV 網址</b>並記下來</p>
+      </div>
       <div class="card">
-        <p><b>② GitHub 帳號</b></p>
+        <p><b>③ GitHub 帳號</b></p>
         <p><span class="check">☐</span> 擁有可登入的 <b>GitHub 帳號</b></p>
         <p><span class="check">☐</span> 記得自己的 username</p>
       </div>
       <div class="card">
-        <p><b>③ Git</b></p>
+        <p><b>④ Git</b></p>
         <p><span class="check">☐</span> 終端機輸入 <code>git --version</code> 有版本號</p>
       </div>
       <div class="card">
-        <p><b>④ 電腦登入 GitHub</b></p>
+        <p><b>⑤ 電腦登入 GitHub</b></p>
         <p><span class="check">☐</span> 終端機輸入 <code>gh --version</code> 有版本號</p>
         <p><span class="check">☐</span> <code>gh auth status</code> 看到 ✓ Logged in</p>
-      </div>
-      <div class="card" style="border-color:var(--accent)">
-        <p><b>⑤ 題庫</b></p>
-        <p><span class="check">☐</span> 題目是<b>選擇題</b>（四選一）</p>
-        <p><span class="check">☐</span> 每題都標好<b>正確答案</b></p>
-        <p><span class="check">☐</span> 至少 <b>10 題</b> 以上</p>
       </div>
     </div>
     <div class="card" style="margin-top:1.2em;border-color:var(--accent2)">
@@ -562,6 +573,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
     <p class="hero">幾個重要網址再給你一次，存著備用：</p>
     <div class="card"><a class="url" href="https://chatgpt.com/pricing" target="_blank" rel="noopener">https://chatgpt.com/pricing</a>　<span class="muted">（訂閱 ChatGPT Plus）</span></div>
     <div class="card"><a class="url" href="https://developers.openai.com/codex/app" target="_blank" rel="noopener">https://developers.openai.com/codex/app</a>　<span class="muted">（Codex 桌面 App）</span></div>
+    <div class="card"><a class="url" href="https://notebooklm.google.com/" target="_blank" rel="noopener">https://notebooklm.google.com/</a>　<span class="muted">（NotebookLM · 題庫變 CSV）</span></div>
     <div class="card"><a class="url" href="https://github.com/signup" target="_blank" rel="noopener">https://github.com/signup</a>　<span class="muted">（GitHub 帳號）</span></div>
     <div class="card"><a class="url" href="https://git-scm.com/download/win" target="_blank" rel="noopener">https://git-scm.com/download/win</a>　<span class="muted">（Git，Windows 用）</span></div>
     <div class="card"><a class="url" href="https://cli.github.com" target="_blank" rel="noopener">https://cli.github.com</a>　<span class="muted">（GitHub CLI 備案）</span></div>
@@ -585,10 +597,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
     slides[i].classList.add('active');
     document.getElementById('cur').textContent=i+1;
   }
-  // Mac Step 5 (12) → 下一頁跳過 Win 整段，直接到準備題庫 (17)
-  // Win Step 1 (13) → 上一頁跳回分歧頁 (8)，不要跑回 Mac Step 5
-  const nextMap={12:17};
-  const prevMap={13:8};
+  // Mac Step 5 (13) → 下一頁跳過 Win 整段，直接到自我檢核 (18)
+  // Win Step 1 (14) → 上一頁跳回分歧頁 gh 介紹 (9)，不要跑回 Mac Step 5
+  const nextMap={13:18};
+  const prevMap={14:9};
   function go(d){
     if(d===1&&nextMap[i]!=null)return show(nextMap[i]);
     if(d===-1&&prevMap[i]!=null)return show(prevMap[i]);
