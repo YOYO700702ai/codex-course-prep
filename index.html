@@ -114,7 +114,7 @@
     <div class="card" style="margin-top:1.4em">
       <p style="margin:.2em 0"><span class="check">⓪</span> <b style="color:var(--accent)">訂閱 ChatGPT Plus</b>（Codex 一定要付費帳號才能用）</p>
       <p style="margin:.2em 0"><span class="check">①</span> 下載安裝 <b>Codex 桌面 App</b> 並用 ChatGPT 帳號登入</p>
-      <p style="margin:.2em 0"><span class="check">②</span> <b style="color:var(--accent)">準備題庫</b>，並變成一條 <b>CSV 網址</b></p>
+      <p style="margin:.2em 0"><span class="check">②</span> <b style="color:var(--accent)">準備好一份自己的題庫</b></p>
       <p style="margin:.2em 0"><span class="check">③</span> 申請一組 <b>GitHub</b> 帳號</p>
       <p style="margin:.2em 0"><span class="check">④</span> 安裝 <b>Git</b>（程式碼版本管理工具）</p>
       <p style="margin:.2em 0"><span class="check">⑤</span> 讓電腦「登入」你的 <b>GitHub</b>（裝 <code>gh</code>）</p>
@@ -192,13 +192,13 @@
     <p class="muted" style="margin-top:.8em">⚠️ 如果出現「無法驗證開發者」之類的提示，是正常的，照系統指示允許開啟即可。</p>
   </section>
 
-  <!-- 3.5 任務② 準備題庫 + 把題庫變成 CSV 網址（不分頁）-->
+  <!-- 3.5 任務② 準備題庫 -->
   <section class="slide">
     <span class="tag">任務 ② · 最重要</span>
-    <h2>準備題庫，並變成「活的 CSV 網址」</h2>
-    <p>課堂後半段要把你的題庫變成<b>遊戲</b>。請先照下面兩步準備好：<b>① 整理題庫 → ② 變成一條 CSV 網址</b>。沒有題庫等於沒有彈藥 ⚠️</p>
+    <h2>準備好一份自己的題庫</h2>
+    <p>課堂後半段要把你的題庫變成<b>遊戲</b>。上課前只要準備好題目和答案，帶著原始檔案來就可以。沒有題庫等於沒有彈藥 ⚠️</p>
 
-    <h3 style="margin-top:1em">① 先準備題庫</h3>
+    <h3 style="margin-top:1em">題庫準備原則</h3>
     <div class="grid">
       <div class="card" style="border-color:var(--accent)"><p style="margin:0 0 .3em"><b>✅ 題型：選擇題（四選一）</b></p><p class="muted" style="margin:0">每題一個題幹 + 四個選項（A/B/C/D）</p></div>
       <div class="card" style="border-color:var(--accent)"><p style="margin:0 0 .3em"><b>✅ 一定要附正確答案</b></p><p class="muted" style="margin:0">沒有答案，遊戲沒辦法判斷對錯</p></div>
@@ -206,39 +206,9 @@
       <div class="card"><p style="margin:0 0 .3em"><b>📄 格式不拘</b></p><p class="muted" style="margin:0">Word / PDF / 純文字 / 拍照都行</p></div>
     </div>
 
-    <h3 style="margin-top:1.2em">② 把題庫變成 CSV 網址</h3>
-    <p class="muted" style="margin:0 0 .4em">用 <b>NotebookLM</b>（Google 的免費 AI 筆記，不算 AI 額度）整理，再發布成一條「活網址」。</p>
-
-    <div class="step"><div class="num">1</div><div>
-      <p style="margin:0"><b>把題目丟進 NotebookLM</b>：打開 <a class="url" href="https://notebooklm.google.com/" target="_blank" rel="noopener">notebooklm.google.com</a> → 建立新筆記本 → 把題庫檔（PDF / Word / 拍照都行）拖進去，等它跑出「來源摘要」。</p>
-    </div></div>
-
-    <div class="step"><div class="num">2</div><div>
-      <p style="margin:0"><b>下這段提示詞</b>，讓它整理成標準表格（貼進 NotebookLM 對話框送出）：</p>
-      <code class="cmd">請幫我把這份題庫整理成「四選一選擇題」的標準表格。
-格式要求：
-1. 每一列就是一題
-2. 欄位順序：題目 | A | B | C | D
-3. A 欄位「一律放正確答案」（不管原本標哪個，正解都搬到 A）
-4. B、C、D 欄位放剩下 3 個錯誤選項
-5. 不要題號、不要分節、不要其他說明
-6. 如果某題未滿 4 個選項，缺的格子用「空」補上
-7. 用 Markdown 表格格式輸出</code>
-      <p class="muted" style="margin:.2em 0;font-size:.9em">⚠️ 檢查：A 欄是不是<b>全部都是正確答案</b>？沒有就叫它「A 欄要放正解，請重新整理」。</p>
-    </div></div>
-
-    <div class="step"><div class="num">3</div><div>
-      <p style="margin:0"><b>存成試算表</b>：表格下方點「<b>儲存到筆記</b>」→ 該記事右邊「<b>⋮</b>」→「<b>匯出為試算表</b>」→ 會自動開一份 Google Sheets，重新命名 <code>【科目】題庫_v1</code>。</p>
-    </div></div>
-
-    <div class="step"><div class="num">4</div><div>
-      <p style="margin:0"><b>發布成 CSV，拿到活網址</b>（⭐ 關鍵）：在 Sheets 點 <b>檔案 → 共用 → 發布到網路</b> → 左邊選「<b>整份文件</b>」、右邊選「<b>逗號分隔值 (.csv)</b>」（⚠️ 不要選網頁/Excel）→ 點 <b>發布</b> → <b>複製</b>跳出來的那條網址。</p>
-      <p class="muted" style="margin:.3em 0;font-size:.9em">驗證能用：把網址貼到瀏覽器按 Enter，會下載 .csv 或顯示「題目,A,B,C,D」= 成功 ✓</p>
-    </div></div>
-
-    <div class="card" style="margin-top:.6em;border-color:var(--accent)">
-      <p style="margin:0"><b>🎉 你拿到「活的題庫網址」了，把它先記下來（上課要用）。</b></p>
-      <p class="muted" style="margin:.3em 0">之後想改題目？直接改 Google Sheets → 存檔 → 網址內容自動更新，不用重做。</p>
+    <div class="card" style="margin-top:1.2em;border-color:var(--accent)">
+      <p style="margin:0"><b>🎉 準備到這裡就完成了！</b></p>
+      <p class="muted" style="margin:.3em 0">不用先整理成表格，也不用轉檔或發布網址；上課時把題庫交給 Codex 就好。</p>
     </div>
   </section>
 
@@ -549,9 +519,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
         <p><span class="check">☐</span> 已用 <b>ChatGPT 帳號</b>登入</p>
       </div>
       <div class="card" style="border-color:var(--accent)">
-        <p><b>② 題庫 + CSV</b></p>
+        <p><b>② 題庫</b></p>
         <p><span class="check">☐</span> 選擇題（四選一）、標好正解、至少 10 題</p>
-        <p><span class="check">☐</span> 已發布成 <b>CSV 網址</b>並記下來</p>
+        <p><span class="check">☐</span> 題庫原始檔已準備好，上課可以直接使用</p>
       </div>
       <div class="card">
         <p><b>③ GitHub 帳號</b></p>
@@ -581,7 +551,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
     <p class="hero">幾個重要網址再給你一次，存著備用：</p>
     <div class="card"><a class="url" href="https://chatgpt.com/pricing" target="_blank" rel="noopener">https://chatgpt.com/pricing</a>　<span class="muted">（訂閱 ChatGPT Plus）</span></div>
     <div class="card"><a class="url" href="https://developers.openai.com/codex/app" target="_blank" rel="noopener">https://developers.openai.com/codex/app</a>　<span class="muted">（Codex 桌面 App）</span></div>
-    <div class="card"><a class="url" href="https://notebooklm.google.com/" target="_blank" rel="noopener">https://notebooklm.google.com/</a>　<span class="muted">（NotebookLM · 題庫變 CSV）</span></div>
     <div class="card"><a class="url" href="https://github.com/signup" target="_blank" rel="noopener">https://github.com/signup</a>　<span class="muted">（GitHub 帳號）</span></div>
     <div class="card"><a class="url" href="https://git-scm.com/download/win" target="_blank" rel="noopener">https://git-scm.com/download/win</a>　<span class="muted">（Git，Windows 用）</span></div>
     <div class="card"><a class="url" href="https://cli.github.com" target="_blank" rel="noopener">https://cli.github.com</a>　<span class="muted">（GitHub CLI 備案）</span></div>
