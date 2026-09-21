@@ -109,15 +109,14 @@
   <!-- 0 封面 -->
   <section class="slide active">
     <span class="tag">AI 程式 × Codex 實戰 · 課前作業</span>
-    <h1>開課前，請先完成 6 件事</h1>
-    <p class="hero">為了讓上課當天可以直接動手做，麻煩在開課前先把下面六項準備好。預計 <b>30 分鐘</b> 就能搞定。</p>
+    <h1>開課前，請先完成 5 件事</h1>
+    <p class="hero">為了讓上課當天可以直接動手做，麻煩在開課前先把下面五項準備好。預計 <b>30 分鐘</b> 就能搞定。</p>
     <div class="card" style="margin-top:1.4em">
       <p style="margin:.2em 0"><span class="check">⓪</span> <b style="color:var(--accent)">訂閱 ChatGPT Plus</b>（Codex 一定要付費帳號才能用）</p>
       <p style="margin:.2em 0"><span class="check">①</span> 下載安裝 <b>Codex 桌面 App</b> 並用 ChatGPT 帳號登入</p>
       <p style="margin:.2em 0"><span class="check">②</span> <b style="color:var(--accent)">準備好一份自己的題庫</b></p>
       <p style="margin:.2em 0"><span class="check">③</span> 申請一組 <b>GitHub</b> 帳號</p>
-      <p style="margin:.2em 0"><span class="check">④</span> 安裝 <b>Git</b>（程式碼版本管理工具）</p>
-      <p style="margin:.2em 0"><span class="check">⑤</span> 讓電腦「登入」你的 <b>GitHub</b>（裝 <code>gh</code>）</p>
+      <p style="margin:.2em 0"><span class="check">④</span> 讓電腦「登入」你的 <b>GitHub</b>（裝 <code>gh</code>）</p>
     </div>
     <p class="muted" style="margin-top:1.4em">使用 <kbd>→</kbd> 或 <kbd>空白鍵</kbd> 切換下一頁</p>
   </section>
@@ -192,7 +191,7 @@
     <p class="muted" style="margin-top:.8em">⚠️ 如果出現「無法驗證開發者」之類的提示，是正常的，照系統指示允許開啟即可。</p>
   </section>
 
-  <!-- 3.5 任務② 準備題庫 -->
+  <!-- 4 任務② 準備題庫 -->
   <section class="slide">
     <span class="tag">任務 ② · 最重要</span>
     <h2>準備好一份自己的題庫</h2>
@@ -212,7 +211,7 @@
     </div>
   </section>
 
-  <!-- 4 任務③ GitHub 介紹 -->
+  <!-- 5 任務③ GitHub 介紹 -->
   <section class="slide">
     <span class="tag">任務 ③</span>
     <h2>申請 GitHub 帳號</h2>
@@ -224,7 +223,7 @@
     <p class="muted">已經有帳號的同學可以跳過這一步 🎉</p>
   </section>
 
-  <!-- 5 任務② 步驟 -->
+  <!-- 6 任務③ 步驟 -->
   <section class="slide">
     <span class="tag">任務 ③ · 步驟</span>
     <h2>怎麼申請？</h2>
@@ -237,65 +236,9 @@
     </div>
   </section>
 
-  <!-- 6 任務③ Git 介紹 -->
+  <!-- 7 任務④ 介紹 -->
   <section class="slide">
     <span class="tag">任務 ④</span>
-    <h2>安裝 Git</h2>
-    <p>Git 是<b>程式碼版本管理</b>的工具，可以想成「程式碼的存檔系統」。要把作品發布上網（GitHub）都靠它，<b>沒裝 Git 後面所有步驟都會卡關</b>。</p>
-    <div class="card">
-      <p style="margin:.2em 0"><b>下載網址（Windows 用）</b></p>
-      <a class="url" href="https://git-scm.com/download/win" target="_blank" rel="noopener">https://git-scm.com/download/win</a>
-      <p class="muted" style="margin:.4em 0 0">🍎 Mac 不用下載，用終端機指令觸發系統安裝即可（下一頁說明）。</p>
-    </div>
-    <p class="muted">下一頁是 Windows 和 Mac 的安裝方式，看自己用的系統就好 👇</p>
-  </section>
-
-  <!-- 7 任務③ Git Mac/Win 並列步驟 -->
-  <section class="slide">
-    <span class="tag">任務 ④ · 安裝步驟</span>
-    <h2>依你的系統選一邊</h2>
-    <div class="two">
-      <div class="os win">
-        <h3>🪟 Windows</h3>
-        <div class="step"><div class="num">1</div><p>打開 <a class="url" href="https://git-scm.com/download/win" target="_blank" rel="noopener">git-scm.com/download/win</a></p></div>
-        <div class="step"><div class="num">2</div><div>
-          <p style="margin:0">頁面打開後，<b>只點下圖紅框那行</b>，其他通通無視 🙈</p>
-          <div class="mock">
-            <div class="tabs"><span class="tab on">Windows</span><span class="tab">macOS</span><span class="tab">Linux</span></div>
-            <div><span class="target">Click here to download</span><span class="arrow">← 點這個！</span></div>
-            <div style="margin-top:.4em" class="ignore">Other Git for Windows downloads</div>
-            <div class="ignore">Standalone Installer · Portable · winget...</div>
-          </div>
-        </div></div>
-        <div class="step"><div class="num">3</div><p>雙擊下載好的安裝檔，<b>一路下一步</b>到底</p></div>
-        <div class="step"><div class="num">4</div><div>
-          <p style="margin:0"><b>打開 PowerShell 驗證</b>：按 <kbd>Win</kbd>+<kbd>X</kbd> → 選「<b>Windows PowerShell</b>」或「<b>終端機</b>」（或開始選單搜尋 <code>PowerShell</code>）</p>
-          <p style="margin:.4em 0 .15em">輸入：</p>
-          <code class="cmd">git --version</code>
-          <p class="muted" style="margin:.2em 0">看到 <code>git version 2.x.x</code> = 完成 <span class="check">✓</span></p>
-        </div></div>
-        <p class="muted" style="margin:.4em 0 0">⚠️ Windows 安裝精靈選項看起來嚇人，<b>真的一路下一步就好</b>，不會出事。</p>
-      </div>
-      <div class="os mac">
-        <h3>🍎 Mac</h3>
-        <div class="step"><div class="num">1</div><p>打開「<b>終端機</b>」（按 <kbd>⌘</kbd>+<kbd>空白鍵</kbd> 搜 <code>終端機</code>）</p></div>
-        <div class="step"><div class="num">2</div><div>
-          <p style="margin:0">輸入：</p>
-          <code class="cmd">git --version</code>
-        </div></div>
-        <div class="step"><div class="num">3</div><p>跳出「需要安裝命令列開發者工具」視窗 → 按「<b>安裝</b>」→ 等 3–5 分鐘</p></div>
-        <div class="step"><div class="num">4</div><div>
-          <p style="margin:0">再輸入一次：</p>
-          <code class="cmd">git --version</code>
-          <p class="muted" style="margin:.2em 0">看到類似 <code>git version 2.39.x</code> 就成功 <span class="check">✓</span></p>
-        </div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8 任務④ 介紹 -->
-  <section class="slide">
-    <span class="tag">任務 ⑤</span>
     <h2>讓電腦「登入」你的 GitHub</h2>
     <p>申請完帳號 <b>還不夠</b>。要讓 Codex 之後能<b>直接幫你建 repo、把作品上傳發布</b>，必須先讓電腦也認識你的 GitHub 帳號。</p>
     <div class="card">
@@ -305,15 +248,15 @@
     <div class="card" style="margin-top:1em;border-color:var(--accent)">
       <p style="margin:0 0 .6em"><b>👇 接下來請依照你的電腦選一條路走（點選下方按鈕直接跳轉）</b></p>
       <div class="pathbtns">
-        <a class="pathbtn" href="#" onclick="show(10);return false;">🍎 <b>我是 Mac 使用者</b><span class="muted">點此開始 Step 1~5</span></a>
-        <a class="pathbtn" href="#" onclick="show(14);return false;">🪟 <b>我是 Windows 使用者</b><span class="muted">點此開始 Step 1~5</span></a>
+        <a class="pathbtn" href="#" onclick="show(8);return false;">🍎 <b>我是 Mac 使用者</b><span class="muted">點此開始 Step 1~5</span></a>
+        <a class="pathbtn" href="#" onclick="show(12);return false;">🪟 <b>我是 Windows 使用者</b><span class="muted">點此開始 Step 1~5</span></a>
       </div>
     </div>
   </section>
 
-  <!-- 9 Mac · Step 1 + 2 -->
+  <!-- 8 Mac · Step 1 + 2 -->
   <section class="slide">
-    <span class="tag">任務 ⑤ · 🍎 Mac · Step 1~2</span>
+    <span class="tag">任務 ④ · 🍎 Mac · Step 1~2</span>
     <h2>打開終端機 + 確認 Homebrew</h2>
     <div class="step"><div class="num">1</div><div>
       <p style="margin:0"><b>打開終端機</b></p>
@@ -352,9 +295,9 @@ eval "$(/usr/local/bin/brew shellenv)"</code>
     </div></div>
   </section>
 
-  <!-- 10 Mac · Step 3 -->
+  <!-- 9 Mac · Step 3 -->
   <section class="slide">
-    <span class="tag">任務 ⑤ · 🍎 Mac · Step 3</span>
+    <span class="tag">任務 ④ · 🍎 Mac · Step 3</span>
     <h2>安裝 GitHub CLI</h2>
     <div class="step"><div class="num">3</div><div>
       <p style="margin:0">在終端機輸入：</p>
@@ -366,9 +309,9 @@ eval "$(/usr/local/bin/brew shellenv)"</code>
     </div></div>
   </section>
 
-  <!-- 11 Mac · Step 4 登入 -->
+  <!-- 10 Mac · Step 4 登入 -->
   <section class="slide">
-    <span class="tag">任務 ⑤ · 🍎 Mac · Step 4</span>
+    <span class="tag">任務 ④ · 🍎 Mac · Step 4</span>
     <h2>登入 GitHub（最關鍵的一步）</h2>
     <div class="step"><div class="num">4</div><div>
       <p style="margin:0">在終端機輸入：</p>
@@ -388,9 +331,9 @@ eval "$(/usr/local/bin/brew shellenv)"</code>
     </div></div>
   </section>
 
-  <!-- 12 Mac · Step 5 + 常見坑 -->
+  <!-- 11 Mac · Step 5 + 常見坑 -->
   <section class="slide">
-    <span class="tag">任務 ⑤ · 🍎 Mac · Step 5</span>
+    <span class="tag">任務 ④ · 🍎 Mac · Step 5</span>
     <h2>驗證 + 常見坑</h2>
     <div class="step"><div class="num">5</div><div>
       <p style="margin:0">🧪 <b>最終驗證</b>，輸入：</p>
@@ -408,20 +351,20 @@ eval "$(/usr/local/bin/brew shellenv)"</code>
     <div class="card" style="border-color:#ef4444;background:#1a0e0e">
       <p style="margin:0 0 .3em"><b>💡 常見坑</b></p>
       <p style="margin:.2em 0">🔴 <b>裝完 Homebrew、重開終端機還是 <code>command not found</code></b> <span style="color:#fca5a5">（每屆都有人踩）</span></p>
-      <p class="muted" style="margin:.1em 0 .3em 1.6em;font-size:.9em">→ 你 <b>沒有跑「Next steps」那兩行指令</b>。Homebrew 雖然裝好了，但終端機還不知道它在哪。<a class="jumpbtn" href="#" onclick="show(10);return false;">↩ 回 Step 2 補做 Next steps</a></p>
+      <p class="muted" style="margin:.1em 0 .3em 1.6em;font-size:.9em">→ 你 <b>沒有跑「Next steps」那兩行指令</b>。Homebrew 雖然裝好了，但終端機還不知道它在哪。<a class="jumpbtn" href="#" onclick="show(8);return false;">↩ 回 Step 2 補做 Next steps</a></p>
       <p class="muted" style="margin:.1em 0 .4em 1.6em;font-size:.9em">→ 簡單版：直接複製下面兩行貼進終端機按 Enter（Apple Silicon Mac 用）：</p>
       <code class="cmd" style="margin-left:1.6em">echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' &gt;&gt; ~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"</code>
       <p class="muted" style="margin:.2em 0 .4em 1.6em;font-size:.9em">→ 如果你是 Intel Mac（2019 年以前），把 <code>/opt/homebrew/</code> 改成 <code>/usr/local/</code></p>
       <p style="margin:.4em 0"><b style="color:#fbbf24">📌 一句話解釋</b>：「<i>Homebrew 已經裝好了，但你的終端機還不知道它在哪裡。上面那兩行就是『告訴終端機 Homebrew 的位置』。</i>」</p>
-      <p style="margin:.4em 0">🔴 <b>卡在 web browser 那步</b> → 重跑 <code>gh auth login</code> <a class="jumpbtn" href="#" onclick="show(12);return false;">↩ 回 Step 4 重做</a>，最後一題改選 <code>Paste an authentication token</code>，到 <a class="url" href="https://github.com/settings/tokens" target="_blank" rel="noopener">github.com/settings/tokens</a> 產生 Personal Access Token 貼進去</p>
-      <p style="margin:.2em 0">🔴 <b>gh auth status 顯示 not logged in</b> → 重跑 <code>gh auth login</code> 一次 <a class="jumpbtn" href="#" onclick="show(12);return false;">↩ 回 Step 4 重做</a></p>
+      <p style="margin:.4em 0">🔴 <b>卡在 web browser 那步</b> → 重跑 <code>gh auth login</code> <a class="jumpbtn" href="#" onclick="show(10);return false;">↩ 回 Step 4 重做</a>，最後一題改選 <code>Paste an authentication token</code>，到 <a class="url" href="https://github.com/settings/tokens" target="_blank" rel="noopener">github.com/settings/tokens</a> 產生 Personal Access Token 貼進去</p>
+      <p style="margin:.2em 0">🔴 <b>gh auth status 顯示 not logged in</b> → 重跑 <code>gh auth login</code> 一次 <a class="jumpbtn" href="#" onclick="show(10);return false;">↩ 回 Step 4 重做</a></p>
     </div>
   </section>
 
-  <!-- 13 Windows · Step 1 + 2 -->
+  <!-- 12 Windows · Step 1 + 2 -->
   <section class="slide">
-    <span class="tag">任務 ⑤ · 🪟 Windows · Step 1~2</span>
+    <span class="tag">任務 ④ · 🪟 Windows · Step 1~2</span>
     <h2>打開 PowerShell + 確認 winget</h2>
     <div class="step"><div class="num">1</div><div>
       <p style="margin:0"><b>打開 PowerShell（終端機）</b></p>
@@ -437,9 +380,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
     </div></div>
   </section>
 
-  <!-- 14 Windows · Step 3 -->
+  <!-- 13 Windows · Step 3 -->
   <section class="slide">
-    <span class="tag">任務 ⑤ · 🪟 Windows · Step 3</span>
+    <span class="tag">任務 ④ · 🪟 Windows · Step 3</span>
     <h2>安裝 GitHub CLI</h2>
     <div class="step"><div class="num">3</div><div>
       <p style="margin:0">在 PowerShell 輸入：</p>
@@ -456,9 +399,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
     </div></div>
   </section>
 
-  <!-- 15 Windows · Step 4 登入 -->
+  <!-- 14 Windows · Step 4 登入 -->
   <section class="slide">
-    <span class="tag">任務 ⑤ · 🪟 Windows · Step 4</span>
+    <span class="tag">任務 ④ · 🪟 Windows · Step 4</span>
     <h2>登入 GitHub（最關鍵的一步）</h2>
     <div class="step"><div class="num">4</div><div>
       <p style="margin:0">在 PowerShell 輸入：</p>
@@ -478,9 +421,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
     </div></div>
   </section>
 
-  <!-- 16 Windows · Step 5 + 常見坑 -->
+  <!-- 15 Windows · Step 5 + 常見坑 -->
   <section class="slide">
-    <span class="tag">任務 ⑤ · 🪟 Windows · Step 5</span>
+    <span class="tag">任務 ④ · 🪟 Windows · Step 5</span>
     <h2>驗證 + 常見坑</h2>
     <div class="step"><div class="num">5</div><div>
       <p style="margin:0">🧪 <b>最終驗證</b>，輸入：</p>
@@ -499,12 +442,12 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
       <p style="margin:0 0 .3em"><b>💡 常見坑</b></p>
       <p style="margin:.2em 0">🔴 <b>裝完輸入 gh 找不到指令</b> → PowerShell <b>沒重開</b>。整個視窗關掉再打開一個新的。</p>
       <p style="margin:.2em 0">🔴 <b>winget 一直失敗</b> → 直接到 <a class="url" href="https://cli.github.com" target="_blank" rel="noopener">cli.github.com</a> 下載 <code>.msi</code> 雙擊安裝，再回來跑 <code>gh --version</code>。</p>
-      <p style="margin:.2em 0">🔴 <b>卡在 web browser 那步</b> → 重跑 <code>gh auth login</code> <a class="jumpbtn" href="#" onclick="show(16);return false;">↩ 回 Step 4 重做</a>，最後一題改選 <code>Paste an authentication token</code>，到 <a class="url" href="https://github.com/settings/tokens" target="_blank" rel="noopener">github.com/settings/tokens</a> 產生 Personal Access Token 貼進去。</p>
-      <p style="margin:.2em 0">🔴 <b>gh auth status 顯示 not logged in</b> → 重跑 <code>gh auth login</code> 一次 <a class="jumpbtn" href="#" onclick="show(16);return false;">↩ 回 Step 4 重做</a>。</p>
+      <p style="margin:.2em 0">🔴 <b>卡在 web browser 那步</b> → 重跑 <code>gh auth login</code> <a class="jumpbtn" href="#" onclick="show(14);return false;">↩ 回 Step 4 重做</a>，最後一題改選 <code>Paste an authentication token</code>，到 <a class="url" href="https://github.com/settings/tokens" target="_blank" rel="noopener">github.com/settings/tokens</a> 產生 Personal Access Token 貼進去。</p>
+      <p style="margin:.2em 0">🔴 <b>gh auth status 顯示 not logged in</b> → 重跑 <code>gh auth login</code> 一次 <a class="jumpbtn" href="#" onclick="show(14);return false;">↩ 回 Step 4 重做</a>。</p>
     </div>
   </section>
 
-  <!-- 18 自我檢核 -->
+  <!-- 16 自我檢核 -->
   <section class="slide">
     <span class="tag">課前自我檢核</span>
     <h2>上課前，請確認以下都 ✓</h2>
@@ -529,11 +472,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
         <p><span class="check">☐</span> 記得自己的 username</p>
       </div>
       <div class="card">
-        <p><b>④ Git</b></p>
-        <p><span class="check">☐</span> 終端機輸入 <code>git --version</code> 有版本號</p>
-      </div>
-      <div class="card">
-        <p><b>⑤ 電腦登入 GitHub</b></p>
+        <p><b>④ 電腦登入 GitHub</b></p>
         <p><span class="check">☐</span> 終端機輸入 <code>gh --version</code> 有版本號</p>
         <p><span class="check">☐</span> <code>gh auth status</code> 看到 ✓ Logged in</p>
       </div>
@@ -545,20 +484,19 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
     </div>
   </section>
 
-  <!-- 19 結尾 -->
+  <!-- 17 結尾 -->
   <section class="slide">
     <h1>準備好了，課堂見 👋</h1>
     <p class="hero">幾個重要網址再給你一次，存著備用：</p>
     <div class="card"><a class="url" href="https://chatgpt.com/pricing" target="_blank" rel="noopener">https://chatgpt.com/pricing</a>　<span class="muted">（訂閱 ChatGPT Plus）</span></div>
     <div class="card"><a class="url" href="https://developers.openai.com/codex/app" target="_blank" rel="noopener">https://developers.openai.com/codex/app</a>　<span class="muted">（Codex 桌面 App）</span></div>
     <div class="card"><a class="url" href="https://github.com/signup" target="_blank" rel="noopener">https://github.com/signup</a>　<span class="muted">（GitHub 帳號）</span></div>
-    <div class="card"><a class="url" href="https://git-scm.com/download/win" target="_blank" rel="noopener">https://git-scm.com/download/win</a>　<span class="muted">（Git，Windows 用）</span></div>
     <div class="card"><a class="url" href="https://cli.github.com" target="_blank" rel="noopener">https://cli.github.com</a>　<span class="muted">（GitHub CLI 備案）</span></div>
   </section>
 
 </div>
 
-<div class="counter"><span id="cur">1</span> / <span id="total">20</span></div>
+<div class="counter"><span id="cur">1</span> / <span id="total">18</span></div>
 <div class="nav">
   <button onclick="go(-1)">← 上一頁</button>
   <button onclick="go(1)">下一頁 →</button>
@@ -574,10 +512,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
     slides[i].classList.add('active');
     document.getElementById('cur').textContent=i+1;
   }
-  // Mac Step 5 (13) → 下一頁跳過 Win 整段，直接到自我檢核 (18)
-  // Win Step 1 (14) → 上一頁跳回分歧頁 gh 介紹 (9)，不要跑回 Mac Step 5
-  const nextMap={13:18};
-  const prevMap={14:9};
+  // Mac Step 5 (11) → 下一頁跳過 Win 整段，直接到自我檢核 (16)
+  // Win Step 1 (12) → 上一頁跳回分歧頁 gh 介紹 (7)，不要跑回 Mac Step 5
+  const nextMap={11:16};
+  const prevMap={12:7};
   function go(d){
     if(d===1&&nextMap[i]!=null)return show(nextMap[i]);
     if(d===-1&&prevMap[i]!=null)return show(prevMap[i]);
