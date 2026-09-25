@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>課前作業｜AI 程式 × Codex 實戰</title>
+<title>課前作業｜AI 程式 × ChatGPT 實戰</title>
 <style>
   :root{
     --bg:#0f172a; --fg:#f8fafc; --muted:#94a3b8;
@@ -108,12 +108,12 @@
 
   <!-- 0 封面 -->
   <section class="slide active">
-    <span class="tag">AI 程式 × Codex 實戰 · 課前作業</span>
+    <span class="tag">AI 程式 × ChatGPT 實戰 · 課前作業</span>
     <h1>開課前，請先完成 5 件事</h1>
     <p class="hero">為了讓上課當天可以直接動手做，麻煩在開課前先把下面五項準備好。預計 <b>30 分鐘</b> 就能搞定。</p>
     <div class="card" style="margin-top:1.4em">
-      <p style="margin:.2em 0"><span class="check">⓪</span> <b style="color:var(--accent)">訂閱 ChatGPT Plus</b>（Codex 一定要付費帳號才能用）</p>
-      <p style="margin:.2em 0"><span class="check">①</span> 下載安裝 <b>Codex 桌面 App</b> 並用 ChatGPT 帳號登入</p>
+      <p style="margin:.2em 0"><span class="check">⓪</span> <b style="color:var(--accent)">準備 ChatGPT Plus（或以上）</b>，配合本課實作</p>
+      <p style="margin:.2em 0"><span class="check">①</span> 下載安裝 <b>ChatGPT 桌面 App</b> 並用同一個帳號登入</p>
       <p style="margin:.2em 0"><span class="check">②</span> <b style="color:var(--accent)">準備好一份自己的題庫</b></p>
       <p style="margin:.2em 0"><span class="check">③</span> 申請一組 <b>GitHub</b> 帳號</p>
       <p style="margin:.2em 0"><span class="check">④</span> 讓電腦「登入」你的 <b>GitHub</b>（裝 <code>gh</code>）</p>
@@ -123,20 +123,20 @@
 
   <!-- 1 任務 ⓪：訂閱 ChatGPT Plus + 裝置建議 -->
   <section class="slide">
-    <span class="tag">任務 ⓪ · 必備（缺這個無法上課）</span>
-    <h2>訂閱 ChatGPT Plus</h2>
-    <p>這堂課的主角是 <b>Codex</b>——OpenAI 的 AI 程式代理。它<b>一定要用付費的 ChatGPT 帳號</b>才能啟用，所以開課前請務必先訂閱好。</p>
+    <span class="tag">任務 ⓪ · 本課準備</span>
+    <h2>準備 ChatGPT Plus</h2>
+    <p>這堂課使用 <b>ChatGPT 桌面版</b>做程式與圖像實作，請準備 <b>ChatGPT Plus（或以上）</b>。這是本課的準備要求；免費方案能用哪些功能，仍以官方當前開放為準。</p>
 
     <div class="card" style="margin-top:1em;border-color:#10b981;border-width:2px">
       <p style="margin:0 0 .3em;font-size:1.25em"><b style="color:#10b981">🤖 ChatGPT Plus</b> <span style="background:#10b981;color:#fff;padding:.1em .5em;border-radius:6px;font-size:.6em;margin-left:.4em">本課必備</span></p>
-      <p style="margin:.2em 0"><b>約 US$20 / 月（約 NT$660）</b></p>
-      <p class="muted" style="margin:.3em 0">訂閱後，同一個帳號就能用 Codex 桌面 App、雲端版、手機版，額度共用。</p>
+      <p style="margin:.2em 0"><b>US$20 / 月</b>，實際結帳金額以官方頁面為準。</p>
+      <p class="muted" style="margin:.3em 0">桌面 App 請登入已訂閱的同一個 ChatGPT 帳號，避免誤用另一個免費帳號。</p>
       <a class="url" href="https://chatgpt.com/pricing" target="_blank" rel="noopener" style="display:inline-block;margin-top:.3em">chatgpt.com/pricing</a>
     </div>
 
     <div class="card" style="margin-top:1em;border-color:var(--accent)">
       <p style="margin:.2em 0"><b>💡 只上一堂課划算嗎？</b></p>
-      <p class="muted" style="margin:.3em 0;font-size:.95em">訂一個月就能上完課＋課後練習，之後要不要續訂由你決定。Plus 以上（Pro / Business / Edu）都可以，<b>Plus 就夠用</b>。</p>
+      <p class="muted" style="margin:.3em 0;font-size:.95em">可先訂一個月，之後要不要續訂由你決定。已使用 Pro、Business 或 Edu 等方案者，先確認課堂功能與使用額度即可，<b>不必另訂一份 Plus</b>。</p>
     </div>
 
     <h3 style="margin-top:1.4em">💻 裝置準備（強烈建議）</h3>
@@ -151,44 +151,44 @@
   <!-- 2 任務① 介紹 -->
   <section class="slide">
     <span class="tag">任務 ①</span>
-    <h2>下載 Codex 桌面 App</h2>
-    <p>Codex 是 OpenAI 推出的 <b>AI 程式代理</b>——你用中文講一句話，它就能<b>直接在你的電腦上動手</b>：建檔案、寫程式、畫圖、開瀏覽器給你看。課程全程都用它。</p>
+    <h2>下載 ChatGPT 桌面 App</h2>
+    <p>課程使用 <b>ChatGPT 桌面版</b>：你用中文說明目標，它就能在你選定的專案中協助建檔、寫程式與製作圖片，完成後一起檢查作品。</p>
     <div class="card">
       <p style="margin:0 0 .4em"><b>官方下載網址</b></p>
-      <a class="url" href="https://developers.openai.com/codex/app" target="_blank" rel="noopener">https://developers.openai.com/codex/app</a>
+      <a class="url" href="https://chatgpt.com/download/" target="_blank" rel="noopener">https://chatgpt.com/download/</a>
       <div style="margin:.7em 0 .2em;border:1px solid #334155;border-radius:10px;overflow:hidden">
-        <img src="assets/codex-download-page.png" alt="Codex 官方下載頁" style="display:block;width:100%;max-width:760px;margin:0 auto">
+        <img src="assets/codex-download-page.png" alt="ChatGPT 桌面版官方介紹頁" style="display:block;width:100%;max-width:760px;margin:0 auto">
       </div>
-      <p class="muted" style="margin:.2em 0;font-size:.9em">↑ 下載頁長這樣，點 <b>Download</b> 那顆鈕（頁面會依你的系統自動顯示 Windows 或 macOS 版）。</p>
+      <p class="muted" style="margin:.2em 0;font-size:.9em">↑ 官方桌面版介紹頁示意；請從上方網址選擇你電腦適用的下載方式。</p>
     </div>
     <div class="card" style="margin-top:1em;border-color:var(--accent)">
       <p style="margin:0 0 .4em"><b>⚠️ 兩個重點</b></p>
-      <p class="muted" style="margin:.3em 0;font-size:.95em">1. Windows、macOS（Apple Silicon / Intel）都有官方版，<b>選你電腦對應的版本</b>下載。</p>
+      <p class="muted" style="margin:.3em 0;font-size:.95em">1. 選擇 Windows 或 macOS，<b>確認官方列出的系統與裝置需求</b>再安裝。</p>
       <p class="muted" style="margin:.3em 0;font-size:.95em">2. 登入時用你剛訂閱的 <b>ChatGPT 帳號</b>登入，<b>不用另外註冊</b>。</p>
     </div>
-    <p class="muted">跟以前的 IDE 課不一樣：Codex <b>不用裝中文語言包、不用裝監控插件、不用另外串大腦</b>——一體成形，登入即用。</p>
+    <p class="muted">官方安裝與操作說明：<a class="url" href="https://learn.chatgpt.com/docs/quickstart" target="_blank" rel="noopener">ChatGPT 桌面版入門</a></p>
   </section>
 
   <!-- 3 任務① 步驟 -->
   <section class="slide">
     <span class="tag">任務 ① · 步驟</span>
     <h2>怎麼裝？跟著做就好</h2>
-    <div class="step"><div class="num">1</div><p>打開網址 <a class="url" href="https://developers.openai.com/codex/app" target="_blank" rel="noopener">developers.openai.com/codex/app</a></p></div>
+    <div class="step"><div class="num">1</div><p>打開網址 <a class="url" href="https://chatgpt.com/download/" target="_blank" rel="noopener">chatgpt.com/download/</a></p></div>
     <div class="step"><div class="num">2</div><div>
       <p style="margin:0">找到 <b style="color:var(--ok)">下載區塊</b>，選你電腦對應的版本：</p>
-      <p class="muted" style="margin:.3em 0 .3em 1.2em">🪟 Windows　／　🍎 macOS（Apple Silicon，M1 之後）　／　🍎 macOS（Intel，舊款）</p>
-      <p class="muted" style="margin:.2em 0 .2em 1.2em;font-size:.9em">不確定 Mac 是哪種？左上角 蘋果圖示 → 關於這台 Mac，看「晶片」那行寫 <b>Apple M…</b> 就是 Apple Silicon。</p>
+      <p class="muted" style="margin:.3em 0 .3em 1.2em">🪟 Windows　／　🍎 macOS；可用版本與需求依官方頁面為準。</p>
+      <p class="muted" style="margin:.2em 0 .2em 1.2em;font-size:.9em">Mac 可在「蘋果選單 → 關於這台 Mac」查看晶片與系統版本，再對照下載頁。</p>
     </div></div>
-    <div class="step"><div class="num">3</div><p>下載完，<b>雙擊安裝檔</b>，一路下一步裝好</p></div>
+    <div class="step"><div class="num">3</div><p>依官方頁面進入應用程式商店或下載安裝檔，完成 <b>ChatGPT 桌面 App</b> 安裝。</p></div>
     <div class="step"><div class="num">4</div><div>
-      <p style="margin:0">打開 Codex → 點 <b>Sign in</b> → 用你的 <b>ChatGPT 帳號登入</b></p>
+      <p style="margin:0">打開 ChatGPT → 選擇<b>登入（Sign in）</b> → 使用你已訂閱的 <b>ChatGPT 帳號</b></p>
       <p class="muted" style="margin:.2em 0">看到主畫面（中間一個可以打字的對話框）就完成了 <span class="check">✓</span></p>
       <div style="margin:.6em 0 .2em;border:1px solid #334155;border-radius:10px;overflow:hidden">
-        <img src="assets/codex-app-preview.png" alt="Codex 桌面 App 主畫面" style="display:block;width:100%;max-width:760px;margin:0 auto">
+        <img src="assets/codex-app-preview.png" alt="ChatGPT 桌面版中的 Codex 程式模式截圖" style="display:block;width:100%;max-width:760px;margin:0 auto">
       </div>
-      <p class="muted" style="margin:.2em 0;font-size:.9em">↑ <b>Codex 主畫面長這樣</b>：左邊專案列表、中間對話框、右邊檔案變更。看到就對了 ✓</p>
+      <p class="muted" style="margin:.2em 0;font-size:.9em">↑ <b>ChatGPT 桌面版中的 Codex 程式模式</b>。App 名稱是 ChatGPT；課堂做程式時，從模式選單選 Codex。</p>
     </div></div>
-    <p class="muted" style="margin-top:.8em">⚠️ 如果出現「無法驗證開發者」之類的提示，是正常的，照系統指示允許開啟即可。</p>
+    <p class="muted" style="margin-top:.8em">若無法安裝或登入，請截下錯誤訊息並附上 Windows／macOS 版本，到課程群組提問。</p>
   </section>
 
   <!-- 4 任務② 準備題庫 -->
@@ -201,13 +201,13 @@
     <div class="grid">
       <div class="card" style="border-color:var(--accent)"><p style="margin:0 0 .3em"><b>✅ 題型：選擇題（四選一）</b></p><p class="muted" style="margin:0">每題一個題幹 + 四個選項（A/B/C/D）</p></div>
       <div class="card" style="border-color:var(--accent)"><p style="margin:0 0 .3em"><b>✅ 一定要附正確答案</b></p><p class="muted" style="margin:0">沒有答案，遊戲沒辦法判斷對錯</p></div>
-      <div class="card"><p style="margin:0 0 .3em"><b>📦 數量</b></p><p class="muted" style="margin:0">最少 10 題，建議 20~30 題</p></div>
+      <div class="card"><p style="margin:0 0 .3em"><b>📦 數量</b></p><p class="muted" style="margin:0">至少 20 題，建議 20～30 題，供課堂打怪遊戲使用</p></div>
       <div class="card"><p style="margin:0 0 .3em"><b>📄 格式不拘</b></p><p class="muted" style="margin:0">Word / PDF / 純文字 / 拍照都行</p></div>
     </div>
 
     <div class="card" style="margin-top:1.2em;border-color:var(--accent)">
       <p style="margin:0"><b>🎉 準備到這裡就完成了！</b></p>
-      <p class="muted" style="margin:.3em 0">不用先整理成表格，也不用轉檔或發布網址；上課時把題庫交給 Codex 就好。</p>
+      <p class="muted" style="margin:.3em 0">不用先整理成表格，也不用轉檔或發布網址；上課時把題庫交給 ChatGPT 桌面版就好。</p>
     </div>
   </section>
 
@@ -240,7 +240,7 @@
   <section class="slide">
     <span class="tag">任務 ④</span>
     <h2>讓電腦「登入」你的 GitHub</h2>
-    <p>申請完帳號 <b>還不夠</b>。要讓 Codex 之後能<b>直接幫你建 repo、把作品上傳發布</b>，必須先讓電腦也認識你的 GitHub 帳號。</p>
+    <p>申請完帳號 <b>還不夠</b>。要讓 ChatGPT 桌面版之後能<b>協助建立作品倉庫、上傳發布</b>，必須先讓電腦也認識你的 GitHub 帳號。</p>
     <div class="card">
       <p style="margin:.2em 0"><b>做法</b>：裝一個叫 <code>gh</code>（GitHub CLI）的工具，再用它登入一次。</p>
       <p style="margin:.4em 0 0" class="muted">這步做完，<b>之後永遠不用再做</b>。</p>
@@ -457,13 +457,13 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
         <p><span class="check">☐</span> 已訂閱 <b>ChatGPT Plus</b>（或以上）</p>
       </div>
       <div class="card">
-        <p><b>① Codex App</b></p>
-        <p><span class="check">☐</span> 電腦能打開 <b>Codex 桌面 App</b></p>
+        <p><b>① ChatGPT App</b></p>
+        <p><span class="check">☐</span> 電腦能打開 <b>ChatGPT 桌面 App</b></p>
         <p><span class="check">☐</span> 已用 <b>ChatGPT 帳號</b>登入</p>
       </div>
       <div class="card" style="border-color:var(--accent)">
         <p><b>② 題庫</b></p>
-        <p><span class="check">☐</span> 選擇題（四選一）、標好正解、至少 10 題</p>
+        <p><span class="check">☐</span> 選擇題（四選一）、標好正解、至少 20 題</p>
         <p><span class="check">☐</span> 題庫原始檔已準備好，上課可以直接使用</p>
       </div>
       <div class="card">
@@ -489,7 +489,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
     <h1>準備好了，課堂見 👋</h1>
     <p class="hero">幾個重要網址再給你一次，存著備用：</p>
     <div class="card"><a class="url" href="https://chatgpt.com/pricing" target="_blank" rel="noopener">https://chatgpt.com/pricing</a>　<span class="muted">（訂閱 ChatGPT Plus）</span></div>
-    <div class="card"><a class="url" href="https://developers.openai.com/codex/app" target="_blank" rel="noopener">https://developers.openai.com/codex/app</a>　<span class="muted">（Codex 桌面 App）</span></div>
+    <div class="card"><a class="url" href="https://chatgpt.com/download/" target="_blank" rel="noopener">https://chatgpt.com/download/</a>　<span class="muted">（ChatGPT 桌面 App）</span></div>
     <div class="card"><a class="url" href="https://github.com/signup" target="_blank" rel="noopener">https://github.com/signup</a>　<span class="muted">（GitHub 帳號）</span></div>
     <div class="card"><a class="url" href="https://cli.github.com" target="_blank" rel="noopener">https://cli.github.com</a>　<span class="muted">（GitHub CLI 備案）</span></div>
   </section>
