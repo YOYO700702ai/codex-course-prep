@@ -112,8 +112,7 @@
   .troubleshooting details[open] summary{color:var(--accent)}
   .troubleshooting p{margin:.7em 0 .1em}
   .slide{bottom:76px;padding-bottom:32px}
-  .git-prompt{white-space:pre-wrap;line-height:1.7;padding:3.2em 1em 1em}
-  .git-prompt .copy-btn{top:8px;right:8px;transform:none}
+  .sample-output{display:block;white-space:pre-wrap;overflow-wrap:anywhere;padding:1em;background:#0b1220;border-radius:8px;color:var(--ok);font-size:1em}
   .source-links{font-size:14px;color:var(--muted)}
   .progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--accent);z-index:20;pointer-events:none}
   .nav button{min-height:44px}
@@ -134,7 +133,7 @@
       <p style="margin:.2em 0"><span class="check">①</span> 下載安裝 <b>ChatGPT 桌面 App</b> 並用同一個帳號登入</p>
       <p style="margin:.2em 0"><span class="check">②</span> <b style="color:var(--accent)">準備好一份自己的題庫</b></p>
       <p style="margin:.2em 0"><span class="check">③</span> 申請一組 <b>GitHub</b> 帳號</p>
-      <p style="margin:.2em 0"><span class="check">④</span> 安裝 <b>Git</b>，讓 AI 能幫作品存版本</p>
+      <p style="margin:.2em 0"><span class="check">④</span> 自行安裝 <b>Git</b>，並確認看得到版本號</p>
       <p style="margin:.2em 0"><span class="check">⑤</span> 讓電腦「登入」你的 <b>GitHub</b>（裝 <code>gh</code>）</p>
     </div>
     <p><a class="jumpbtn" href="#git-intro" onclick="show('git-intro');return false;">直接看 Git 安裝與排除問題</a></p>
@@ -252,18 +251,18 @@
 
   <section class="slide" id="git-intro">
     <span class="tag">任務 ④ · 安裝 Git</span>
-    <h2>讓 AI 幫作品「存版本」</h2>
-    <p>Git 會記錄你存下的修改版本，方便比較前後差異、回到先前的內容。<b>本課由 AI 協助操作，你不用背指令，也不必另外安裝圖形介面工具。</b></p>
+    <h2>先裝好 Git，上課再學存版本</h2>
+    <p>Git 會記錄你存下的修改版本，方便比較前後差異、回到先前的內容。<b>課前請照本教材自己安裝、自己檢查，不需要先會使用 AI。</b></p>
     <div class="card">
       <p style="margin:.2em 0"><b>這三個名稱各做一件事</b></p>
-      <p style="margin:.2em 0"><b>Git</b>：在電腦裡記錄作品版本。<b>GitHub</b>：線上存放與分享作品。<b>gh</b>：讓 AI 用指令操作 GitHub；下一個任務才安裝。</p>
-      <p class="muted" style="margin:.3em 0">安裝完 Git 不會自動保存所有修改；要請 AI 建立版本紀錄（commit）。只存在電腦的版本，也還不是雲端備份。</p>
+      <p style="margin:.2em 0"><b>Git</b>：在電腦裡記錄作品版本。<b>GitHub</b>：線上存放與分享作品。<b>gh</b>：操作 GitHub 的指令工具；下一個任務才安裝。</p>
+      <p class="muted" style="margin:.3em 0">這次先把工具準備好。作者姓名／信箱設定、建立版本紀錄（commit）與回復舊版，留到課堂跟老師一起做；安裝 Git 本身不會自動備份作品。</p>
     </div>
     <div class="pathbtns">
       <a class="pathbtn" href="#git-windows" onclick="show('git-windows');return false;"><b>Windows 安裝</b><span class="muted">下載 .exe → 選關鍵設定 → 驗證</span></a>
       <a class="pathbtn" href="#git-mac" onclick="show('git-mac');return false;"><b>Mac 安裝</b><span class="muted">安裝 Apple 命令列工具 → 驗證</span></a>
     </div>
-    <p class="muted">請跟著自己的系統操作。已經裝過的人，也請完成最後的「AI 實際存版本」檢查。</p>
+    <p class="muted">請跟著自己的系統操作。已經裝過的人，也請自己輸入 <code>git --version</code>，確認看到版本號。每段指令都有「複製」按鈕，不用背。</p>
   </section>
 
   <section class="slide" id="git-windows">
@@ -293,28 +292,28 @@
   <section class="slide" id="git-windows-help">
     <span class="tag">任務 ④ · Windows · 3 / 3</span>
     <h2>驗證安裝；卡在哪裡就展開哪題</h2>
-    <p><b>先完全關閉舊 PowerShell、終端機與 ChatGPT 桌面 App，再重新開啟。</b>在開始選單搜尋 PowerShell，輸入：</p>
+    <p><b>先完全關閉舊 PowerShell／Windows Terminal。</b>再按 Windows 開始按鈕，搜尋「PowerShell」並開啟；點下方「複製」，到 PowerShell 按 <kbd>Ctrl</kbd>＋<kbd>V</kbd> 貼上，再按 <kbd>Enter</kbd>：</p>
     <code class="cmd">git --version</code>
-    <p>看到 <b>git version 2.…</b> 代表這個終端機已能使用 Git。數字不必與老師一樣；接著做下一頁的 AI 實際檢查。</p>
+    <p>看到 <b>git version</b> 後面接著版本數字，就代表 Git 安裝檢查成功。數字不必與老師一樣；下一頁會再帶你確認完成標準。</p>
     <div class="troubleshooting">
-      <details><summary>出現「git 無法辨識」／not recognized／找不到指令</summary><p>① 確認安裝器已到 Finish。② 關掉舊視窗，從開始選單重開 PowerShell。③ 在新視窗輸入 <code>where.exe git</code>，應顯示 Git 路徑。仍找不到時，重新執行官方安裝器，確認 PATH 選項為「Git from the command line and also from 3rd-party software」；完成後重開 App，必要時重新啟動電腦。先不要自己刪改整段 PATH。</p></details>
-      <details><summary>PowerShell 查得到，AI 卻說沒有 Git</summary><p>AI 的 App 可能在安裝前就已開啟，尚未讀到新的環境。保存工作後完全結束並重新開啟 App，再請 AI 執行 <code>git --version</code> 並回報實際路徑。仍失敗時，把 PowerShell 的結果和 AI 錯誤一起貼到群組；兩邊可能在不同執行環境，不要反覆安裝多份。</p></details>
+      <details><summary>出現「git 無法辨識」／not recognized／找不到指令</summary><p>① 確認安裝器已到 Finish。② 關掉舊視窗，從開始選單重開 PowerShell。③ 在新視窗輸入 <code>where.exe git</code>，應顯示 Git 路徑。仍找不到時，重新執行官方安裝器，確認 PATH 選項為「Git from the command line and also from 3rd-party software」；完成後重新開啟 PowerShell，再輸入 <code>git --version</code>；必要時重新啟動電腦。先不要自己刪改整段 PATH。</p></details>
+      <details><summary>Git Bash 可以用，PowerShell 卻找不到 Git</summary><p>先完全關閉 Windows Terminal／PowerShell，再從開始選單重新開啟 PowerShell，輸入 <code>git --version</code>。仍找不到時，重跑官方安裝器，確認 PATH 選「Git from the command line and also from 3rd-party software」，不要選成只在 Git Bash 使用。完成後再重開 PowerShell；仍失敗就截圖到群組。</p></details>
       <details><summary>跳出 SmartScreen／Windows 已保護您的電腦／防毒警告</summary><p>先取消，確認下載起點是本教材的 Git 官方頁，而不是廣告或陌生附件。可在安裝檔「內容 → 數位簽章」檢查簽章是否有效。不確定時截圖詢問；學校／公司電腦請管理者協助。不要為了安裝關閉防毒或解除組織限制。</p></details>
       <details><summary>要求管理員密碼／Access denied／公司不准安裝</summary><p>由有權限的本人或設備管理者協助。不要猜密碼，也不要把密碼傳到群組。沒有權限時先回報，讓老師安排設備或課堂協助，不必下載來路不明的免安裝包。</p></details>
       <details><summary>下載失敗／檔案損壞／網路很慢</summary><p>確認網路與磁碟剩餘空間，等下載完成再開檔。若檔案損壞，刪除的是「失敗的安裝檔」，再從官方頁重下載；不要刪已安裝的 Git 或作品資料夾。組織網路擋住 GitHub 時請管理者協助，改天或換允許的網路再試。</p></details>
       <details><summary>「此應用程式無法在您的電腦上執行」</summary><p>重新檢查「系統類型」：x64 與 ARM64 要選相符的 Setup；確認下載完整。32 位元或較舊 Windows 不要硬裝現在的版本，請附系統版本、系統類型與錯誤截圖到群組確認。</p></details>
-      <details><summary>安裝顯示檔案使用中／已安裝其他版本</summary><p>先保存進度並結束會用到 Git 的 App／終端機，再繼續安裝。若原本 <code>git --version</code> 已能正常顯示版本，本課不要求與老師同一版，直接做 AI 驗證即可；不必先卸載。</p></details>
+      <details><summary>安裝顯示檔案使用中／已安裝其他版本</summary><p>先保存進度並結束會用到 Git 的 App／終端機，再繼續安裝。若原本 <code>git --version</code> 已能正常顯示版本，本課不要求與老師同一版，直接看下一頁的完成檢查即可；不必先卸載。</p></details>
     </div>
-    <p><a class="jumpbtn" href="#git-ready" onclick="show('git-ready');return false;">已看到版本號 → 讓 AI 實際存一個版本</a></p>
+    <p><a class="jumpbtn" href="#git-ready" onclick="show('git-ready');return false;">已看到版本號 → 確認安裝完成</a></p>
   </section>
 
   <section class="slide" id="git-mac">
     <span class="tag">任務 ④ · Mac · 1 / 2</span>
     <h2>Mac：安裝 Apple 命令列工具</h2>
-    <div class="step"><div class="num">1</div><div><p style="margin:0">按 <kbd>⌘</kbd>＋<kbd>空白鍵</kbd>，搜尋「終端機」並開啟，輸入：</p><code class="cmd">git --version</code><p>已有 <b>git version …</b>：可以往下完成 AI 檢查；顯示 Apple Git 也可以，不用追求與 Windows 相同的版本。</p></div></div>
+    <div class="step"><div class="num">1</div><div><p style="margin:0">按 <kbd>⌘</kbd>＋<kbd>空白鍵</kbd>，搜尋「終端機」並開啟。點下方「複製」，到終端機按 <kbd>⌘</kbd>＋<kbd>V</kbd> 貼上，再按 <kbd>Return</kbd>：</p><code class="cmd">git --version</code><p>已有 <b>git version</b> 加版本號：表示這台 Mac 的 Git 已可使用；顯示 Apple Git 也可以，不用追求與 Windows 相同的版本。</p></div></div>
     <div class="step"><div class="num">2</div><div><p style="margin:0">如果跳出安裝「<b>Command Line Developer Tools／命令列開發者工具</b>」的視窗，按<b>安裝</b>並同意授權。沒有跳出、也沒有版本號時，輸入：</p><code class="cmd">xcode-select --install</code><p class="muted">這組 Apple 工具包含 Git。本課只需要命令列工具，<b>不用為了 Git 下載完整 Xcode</b>。</p></div></div>
     <div class="step"><div class="num">3</div><div><p style="margin:0">保持網路連線與足夠空間，等系統顯示安裝完成。所需時間依網路與套件大小而異，<b>不一定幾分鐘就結束</b>。</p><p class="muted">如需密碼，由本人輸入 Mac 的登入密碼；若是在終端機輸入，沒有文字或星號回顯是正常的。輸入完按 Enter，不要把密碼貼給 AI 或群組。</p></div></div>
-    <div class="step"><div class="num">4</div><div><p style="margin:0">關閉並重開終端機，再輸入：</p><code class="cmd">git --version</code><p>看到版本號後，完全結束並重開 ChatGPT 桌面 App，再完成後面的 AI 檢查。</p></div></div>
+    <div class="step"><div class="num">4</div><div><p style="margin:0">安裝完成後，按 <kbd>⌘</kbd>＋<kbd>Q</kbd> 結束終端機，再重新開啟，貼上這行並按 Return：</p><code class="cmd">git --version</code><p>看到 <b>git version</b> 與版本數字，就完成 Git 安裝檢查。</p></div></div>
     <p class="muted">官方說明：<a href="https://git-scm.com/install/mac" target="_blank" rel="noopener">Git：macOS 安裝方式</a> · <a href="https://developer.apple.com/documentation/xcode/installing-the-command-line-tools" target="_blank" rel="noopener">Apple：命令列工具</a></p>
   </section>
 
@@ -328,30 +327,44 @@
       <details><summary>macOS 更新後出現 invalid active developer path／xcrun 錯誤</summary><p>可能是原有命令列工具需更新，或開發工具位置失效。先執行 <code>xcode-select --install</code>，若已安裝則檢查「軟體更新」，完成後重試 <code>git --version</code>。仍失敗時請老師協助診斷路徑；不要自行刪除系統開發工具資料夾，也不必為了排錯直接重裝整台電腦。</p></details>
       <details><summary>沒有管理員權限／學校或公司電腦禁止安裝</summary><p>請設備管理者協助；不要分享登入密碼，也不要嘗試繞過管理限制。把系統版本和錯誤截圖傳到群組，老師會協助安排。</p></details>
       <details><summary>已經有 Homebrew，需要再裝一份 Git 嗎？</summary><p>若 <code>git --version</code> 正常，本課可以直接使用。若 Homebrew 已正常運作但仍缺 Git，可用 <code>brew install git</code> 安裝後重開終端機；不要為了修 Git 同時重複裝好多套。Homebrew 本身有問題，留到下一個 gh 任務的說明處理。</p></details>
-      <details><summary>終端機成功，AI 卻說找不到 Git</summary><p>完全結束並重新開啟 ChatGPT 桌面 App，再請 AI 在它實際使用的終端機執行 <code>git --version</code>。仍失敗，請一起提供終端機結果與 AI 錯誤；先確認兩者使用同一台電腦與環境。</p></details>
+      <details><summary>安裝完重開終端機，仍然沒有版本號</summary><p>確認下載及安裝已完成，再把 <code>git --version</code> 複製貼上，按 Return。若仍跳出安裝提示或錯誤，先看本頁對應的訊息；找不到相同狀況時，把 macOS 版本及完整錯誤截圖傳到群組，不要反覆安裝不同來源的 Git。</p></details>
     </div>
-    <p><a class="jumpbtn" href="#git-ready" onclick="show('git-ready');return false;">已看到版本號 → 讓 AI 實際存一個版本</a></p>
+    <p><a class="jumpbtn" href="#git-ready" onclick="show('git-ready');return false;">已看到版本號 → 確認安裝完成</a></p>
   </section>
 
   <section class="slide" id="git-ready">
-    <span class="tag">任務 ④ · Windows / Mac 共用 · 完成驗證</span>
-    <h2>讓 AI 真的存一個版本</h2>
-    <p><b>看到版本號只是第一步。</b>請在 ChatGPT 桌面版切到能操作專案的 Codex 程式模式，選一個練習用的資料夾，把下面這段貼給 AI：</p>
-    <code class="cmd git-prompt">請檢查你實際使用的環境能否執行 git --version，回報 Git 版本與執行檔路徑。
-在我選定的資料夾內，另外建立一個全新的「Git安裝測試」子資料夾；若同名資料夾已存在，就使用新的名稱，不要覆蓋。
-只在這個新子資料夾初始化 Git，新增一份寫著「第一版測試成功」的文字檔。
-先確認 Git 的作者名稱與信箱是否已設定；缺少時先問我。若需補設定，只設定這個練習專案，不更動其他專案或全域設定。
-將這一份文字檔建立第一個 commit，回報 commit 編號與 git status 的結果。
-這次只做本機練習，不要上傳、不要刪除或修改其他資料夾。不能操作本機時，請直接說明原因，不要假裝完成。</code>
-    <div class="card emphasis"><p style="margin:0"><b>完成標準</b>：AI 回報 Git 版本與路徑、第一個 commit 編號，以及 <code>nothing to commit, working tree clean</code>（或相同意思）。這才表示它能在練習專案存版本。</p></div>
+    <span class="tag">任務 ④ · Windows / Mac 共用 · 自己完成檢查</span>
+    <h2>看到版本號，就完成 Git 安裝</h2>
+    <p>下面四步請自己操作。<b>不用打開 AI、不用建立專案，也不用先學存版本。</b></p>
+    <div class="step"><div class="num">1</div><div>
+      <p style="margin:0"><b>開啟一個新的指令視窗</b></p>
+      <p style="margin:.3em 0"><b>Windows</b>：先關閉原本的 PowerShell／Windows Terminal，按開始按鈕 → 搜尋 <b>PowerShell</b> → 開啟。</p>
+      <p style="margin:.3em 0"><b>Mac</b>：先結束原本的終端機，按 <kbd>⌘</kbd>＋<kbd>空白鍵</kbd> → 搜尋「<b>終端機</b>」→ Return。</p>
+      <p class="muted">視窗出現黑色、藍色或白色背景都正常。這個檢查不用選資料夾，也不需要以管理員身分開啟。</p>
+    </div></div>
+    <div class="step"><div class="num">2</div><div>
+      <p style="margin:0"><b>複製這一行，貼到剛開啟的視窗</b></p>
+      <code class="cmd" id="git-manual-check">git --version</code>
+      <p style="margin:.3em 0">按上方「複製」→ 切到 PowerShell／終端機 → Windows 按 <kbd>Ctrl</kbd>＋<kbd>V</kbd>，Mac 按 <kbd>⌘</kbd>＋<kbd>V</kbd> → 再按 <kbd>Enter / Return</kbd>。</p>
+      <p class="muted">請貼到 PowerShell／終端機，不是瀏覽器網址列或聊天輸入框。這行指令只查看版本，不會更改你的檔案。</p>
+    </div></div>
+    <div class="step"><div class="num">3</div><div>
+      <p style="margin:0"><b>看回應有沒有「git version」與版本數字</b></p>
+      <p class="muted">例如 Windows 可能看到下面這樣；這是回應範例，不用輸入：</p>
+      <samp class="sample-output">git version 2.55.0.windows.3</samp>
+      <p>你的數字不同也可以；Mac 後面可能寫著 <b>Apple Git</b>。只要正常回傳版本號，就通過。</p>
+    </div></div>
+    <div class="step"><div class="num">4</div><div>
+      <p style="margin:0"><b>看到版本號：勾選完成，接著做 GitHub 登入</b></p>
+      <p>課前做到這裡就好。作者姓名／信箱、第一次存版本與回復舊版，上課再跟老師一起操作。</p>
+      <a class="jumpbtn" href="#gh-intro" onclick="show('gh-intro');return false;">Git 安裝檢查成功 → 下一個任務</a>
+    </div></div>
     <div class="troubleshooting">
-      <details><summary>Author identity unknown／Please tell me who you are</summary><p>Git 需要記錄這次版本的作者名稱與信箱；這不是要求 GitHub 密碼。回覆你願意放在版本紀錄中的名稱與信箱，請 AI 只在練習專案設定。若不想公開私人信箱，可登入 GitHub 的「Settings → Emails」，複製自己帳號顯示的 GitHub noreply 信箱；不要猜格式或填老師的信箱。</p></details>
-      <details><summary>not a git repository／偵測到別人的資料夾（dubious ownership）</summary><p>前者先請 AI 確認目前位置，進入剛建立的練習子資料夾並確認已初始化；不要把整個桌面或文件資料夾加入版本管理。後者先停止，請老師確認路徑與擁有者；不要套用「信任所有資料夾」的設定。</p></details>
-      <details><summary>AI 只解釋步驟，沒有執行；或顯示沒有權限</summary><p>確認你在桌面版能操作專案的模式，並已選擇練習資料夾。一般純聊天或沒有本機工具的環境，無法替你實際安裝或建立版本。閱讀 App 顯示的權限要求，僅授權這次練習需要的範圍；仍卡住就截圖到群組。</p></details>
-      <details><summary>有版本號，但建立版本失敗／出現 lock 或 LF / CRLF 提示</summary><p>先看完整錯誤：<code>LF will be replaced by CRLF</code> 通常是換行提醒，要再看 commit 是否成功；不是看到 warning 就重裝。若有鎖定檔錯誤，先確認是否還有 Git 程序執行，請 AI 或老師診斷，不要直接刪 .git 或鎖定檔。</p></details>
+      <details><summary>按「複製」失敗，或不知道怎麼貼上</summary><p>可以直接在 PowerShell／終端機手動打 <code>git --version</code>，然後按 Enter／Return。git 後面有一個空格，version 前面是<b>兩個半形減號</b>。不要加引號，也不要把視窗原本的 <code>PS C:\…&gt;</code>、<code>$</code> 或 <code>%</code> 一起打進去。</p></details>
+      <details><summary>貼上了，卻沒有出現任何回應</summary><p>先確認你已按 Enter／Return。按完若出現 <code>git version</code>，接著又回到可以打字的位置，就是完成，不是程式突然關掉。若出現 Command Line Tools 安裝視窗，先回 Mac 安裝步驟，等安裝完成後再查一次。</p></details>
+      <details><summary>沒有版本號，出現錯誤或安裝提示</summary><p>先回到自己系統的排除問題：<a class="jumpbtn" href="#git-windows-help" onclick="show('git-windows-help');return false;">Windows 排錯</a> <a class="jumpbtn" href="#git-mac-help" onclick="show('git-mac-help');return false;">Mac 排錯</a>。照做後仍失敗，截下完整畫面，到課程群組說明「我用 Windows／Mac，停在 Git 安裝檢查這一步」。不要先卸載其他軟體。</p></details>
     </div>
-    <p class="muted">卡關請附「作業系統版本、正在做哪一步、完整錯誤截圖」。不要傳密碼、驗證碼或 token。完成 Git 檢查後，再往下安裝 gh 並登入 GitHub。</p>
-    <p class="source-links">查核依據：<a href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup" target="_blank" rel="noopener">Git 初次設定</a> · <a href="https://docs.github.com/en/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address" target="_blank" rel="noopener">GitHub 作者信箱</a></p>
+    <p class="muted">Git 版本號只表示 Git 可執行，還不代表 GitHub 已登入。下一個任務會另外帶你安裝 gh、完成登入；遇到問題就截圖問老師，不需先會使用 AI。</p>
   </section>
 
 
@@ -361,7 +374,7 @@
     <p>申請完帳號 <b>還不夠</b>。要讓 ChatGPT 桌面版之後能<b>協助建立作品倉庫、上傳發布</b>，必須先讓電腦也認識你的 GitHub 帳號。</p>
     <div class="card">
       <p style="margin:.2em 0"><b>做法</b>：裝一個叫 <code>gh</code>（GitHub CLI）的工具，再用它登入一次。</p>
-      <p style="margin:.4em 0 0" class="muted">這步做完，<b>之後永遠不用再做</b>。</p>
+      <p style="margin:.4em 0 0" class="muted">通常只需設定一次；日後換電腦、登出或授權失效時，可能需要重新登入。</p>
     </div>
     <div class="card" style="margin-top:1em;border-color:var(--accent)">
       <p style="margin:0 0 .6em"><b>👇 接下來請依照你的電腦選一條路走（點選下方按鈕直接跳轉）</b></p>
@@ -471,7 +484,7 @@ eval "$(/usr/local/bin/brew shellenv)"</code>
 eval "$(/opt/homebrew/bin/brew shellenv)"</code>
       <p class="muted" style="margin:.2em 0 .4em 1.6em;font-size:.9em">→ 如果你是 Intel Mac（2019 年以前），把 <code>/opt/homebrew/</code> 改成 <code>/usr/local/</code></p>
       <p style="margin:.4em 0"><b style="color:#fbbf24">📌 一句話解釋</b>：「<i>Homebrew 已經裝好了，但你的終端機還不知道它在哪裡。上面那兩行就是『告訴終端機 Homebrew 的位置』。</i>」</p>
-      <p style="margin:.4em 0">🔴 <b>卡在 web browser 那步</b> → 重跑 <code>gh auth login</code> <a class="jumpbtn" href="#" onclick="show('gh-mac-login');return false;">↩ 回 Step 4 重做</a>，最後一題改選 <code>Paste an authentication token</code>，到 <a class="url" href="https://github.com/settings/tokens" target="_blank" rel="noopener">github.com/settings/tokens</a> 產生 Personal Access Token 貼進去</p>
+      <p style="margin:.4em 0">🔴 <b>卡在 web browser 那步</b> → 重新輸入 <code>gh auth login</code>，仍選 <b>Login with a web browser</b>，取得新的驗證碼再試。<a class="jumpbtn" href="#gh-mac-login" onclick="show('gh-mac-login');return false;">↩ 回 Step 4 重做</a>。再次失敗時，截下錯誤畫面到群組詢問；不用自行產生或貼上 token。</p>
       <p style="margin:.2em 0">🔴 <b>gh auth status 顯示 not logged in</b> → 重跑 <code>gh auth login</code> 一次 <a class="jumpbtn" href="#" onclick="show('gh-mac-login');return false;">↩ 回 Step 4 重做</a></p>
     </div>
   </section>
@@ -552,7 +565,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
       <p style="margin:0 0 .3em"><b>💡 常見坑</b></p>
       <p style="margin:.2em 0">🔴 <b>裝完輸入 gh 找不到指令</b> → PowerShell <b>沒重開</b>。整個視窗關掉再打開一個新的。</p>
       <p style="margin:.2em 0">🔴 <b>winget 一直失敗</b> → 直接到 <a class="url" href="https://cli.github.com" target="_blank" rel="noopener">cli.github.com</a> 下載 <code>.msi</code> 雙擊安裝，再回來跑 <code>gh --version</code>。</p>
-      <p style="margin:.2em 0">🔴 <b>卡在 web browser 那步</b> → 重跑 <code>gh auth login</code> <a class="jumpbtn" href="#" onclick="show('gh-windows-login');return false;">↩ 回 Step 4 重做</a>，最後一題改選 <code>Paste an authentication token</code>，到 <a class="url" href="https://github.com/settings/tokens" target="_blank" rel="noopener">github.com/settings/tokens</a> 產生 Personal Access Token 貼進去。</p>
+      <p style="margin:.4em 0">🔴 <b>卡在 web browser 那步</b> → 重新輸入 <code>gh auth login</code>，仍選 <b>Login with a web browser</b>，取得新的驗證碼再試。<a class="jumpbtn" href="#gh-windows-login" onclick="show('gh-windows-login');return false;">↩ 回 Step 4 重做</a>。再次失敗時，截下錯誤畫面到群組詢問；不用自行產生或貼上 token。</p>
       <p style="margin:.2em 0">🔴 <b>gh auth status 顯示 not logged in</b> → 重跑 <code>gh auth login</code> 一次 <a class="jumpbtn" href="#" onclick="show('gh-windows-login');return false;">↩ 回 Step 4 重做</a>。</p>
     </div>
   </section>
@@ -582,8 +595,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
       </div>
       <div class="card" style="border-color:var(--ok)">
         <p><b>④ Git 版本管理</b></p>
-        <p><span class="check">☐</span> <code>git --version</code> 顯示版本</p>
-        <p><span class="check">☐</span> AI 在全新練習資料夾建立第一個 commit</p>
+        <p><span class="check">☐</span> 我已依照自己的系統完成 Git 安裝</p>
+        <p><span class="check">☐</span> 我在新開的 PowerShell／終端機輸入 <code>git --version</code>，看到版本號</p>
         <p><a class="jumpbtn" href="#git-ready" onclick="show('git-ready');return false;">回到 Git 完成驗證</a></p>
       </div>
       <div class="card">
