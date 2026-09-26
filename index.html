@@ -101,28 +101,47 @@
   .checkgrid .card p{font-size:1em;line-height:1.55;margin:.25em 0}
   @media (max-width:760px){.checkgrid{grid-template-columns:1fr 1fr}}
   @media (max-width:480px){.checkgrid{grid-template-columns:1fr}}
+
+  .slide a:not(.url):not(.pathbtn):not(.jumpbtn){color:var(--accent2)}
+  .option-list .card{padding:1em 1.3em}
+  .option-list h3{margin:0 0 .4em;font-size:1.05em}
+  .option-list p{margin:.3em 0}
+  .emphasis{border-color:var(--accent)}
+  .troubleshooting details{margin:.7em 0;padding:1em 1.2em;border:1px solid #475569;border-radius:12px;background:var(--card)}
+  .troubleshooting summary{cursor:pointer;font-size:clamp(17px,1.5vw,21px);font-weight:700;line-height:1.6;min-height:28px}
+  .troubleshooting details[open] summary{color:var(--accent)}
+  .troubleshooting p{margin:.7em 0 .1em}
+  .slide{bottom:76px;padding-bottom:32px}
+  .git-prompt{white-space:pre-wrap;line-height:1.7;padding:3.2em 1em 1em}
+  .git-prompt .copy-btn{top:8px;right:8px;transform:none}
+  .source-links{font-size:14px;color:var(--muted)}
+  .progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--accent);z-index:20;pointer-events:none}
+  .nav button{min-height:44px}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+  @media(max-width:640px){.slide{padding:64px 6vw 32px}.option-list .card{padding:1em}.troubleshooting details{padding:.9em 1em}}
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 <div class="deck" id="deck">
 
-  <!-- 0 封面 -->
-  <section class="slide active">
+  <section class="slide active" id="prep-home">
     <span class="tag">AI 程式 × ChatGPT 實戰 · 課前作業</span>
-    <h1>開課前，請先完成 5 件事</h1>
-    <p class="hero">為了讓上課當天可以直接動手做，麻煩在開課前先把下面五項準備好。預計 <b>30 分鐘</b> 就能搞定。</p>
+    <h1>開課前，請先完成 6 件事</h1>
+    <p class="hero">為了讓上課當天可以直接動手做，麻煩在開課前先把下面六項準備好。建議預留 <b>45～60 分鐘</b>；系統工具下載較久時，請提早準備。</p>
     <div class="card" style="margin-top:1.4em">
       <p style="margin:.2em 0"><span class="check">⓪</span> <b style="color:var(--accent)">準備 ChatGPT Plus（或以上）</b>，配合本課實作</p>
       <p style="margin:.2em 0"><span class="check">①</span> 下載安裝 <b>ChatGPT 桌面 App</b> 並用同一個帳號登入</p>
       <p style="margin:.2em 0"><span class="check">②</span> <b style="color:var(--accent)">準備好一份自己的題庫</b></p>
       <p style="margin:.2em 0"><span class="check">③</span> 申請一組 <b>GitHub</b> 帳號</p>
-      <p style="margin:.2em 0"><span class="check">④</span> 讓電腦「登入」你的 <b>GitHub</b>（裝 <code>gh</code>）</p>
+      <p style="margin:.2em 0"><span class="check">④</span> 安裝 <b>Git</b>，讓 AI 能幫作品存版本</p>
+      <p style="margin:.2em 0"><span class="check">⑤</span> 讓電腦「登入」你的 <b>GitHub</b>（裝 <code>gh</code>）</p>
     </div>
+    <p><a class="jumpbtn" href="#git-intro" onclick="show('git-intro');return false;">直接看 Git 安裝與排除問題</a></p>
     <p class="muted" style="margin-top:1.4em">使用 <kbd>→</kbd> 或 <kbd>空白鍵</kbd> 切換下一頁</p>
   </section>
 
-  <!-- 1 任務 ⓪：訂閱 ChatGPT Plus + 裝置建議 -->
-  <section class="slide">
+  <section class="slide" id="prep-plan">
     <span class="tag">任務 ⓪ · 本課準備</span>
     <h2>準備 ChatGPT Plus</h2>
     <p>這堂課使用 <b>ChatGPT 桌面版</b>做程式與圖像實作，請準備 <b>ChatGPT Plus（或以上）</b>。這是本課的準備要求；免費方案能用哪些功能，仍以官方當前開放為準。</p>
@@ -148,8 +167,7 @@
     </div>
   </section>
 
-  <!-- 2 任務① 介紹 -->
-  <section class="slide">
+  <section class="slide" id="prep-app">
     <span class="tag">任務 ①</span>
     <h2>下載 ChatGPT 桌面 App</h2>
     <p>課程使用 <b>ChatGPT 桌面版</b>：你用中文說明目標，它就能在你選定的專案中協助建檔、寫程式與製作圖片，完成後一起檢查作品。</p>
@@ -169,8 +187,7 @@
     <p class="muted">官方安裝與操作說明：<a class="url" href="https://learn.chatgpt.com/docs/quickstart" target="_blank" rel="noopener">ChatGPT 桌面版入門</a></p>
   </section>
 
-  <!-- 3 任務① 步驟 -->
-  <section class="slide">
+  <section class="slide" id="prep-app-steps">
     <span class="tag">任務 ① · 步驟</span>
     <h2>怎麼裝？跟著做就好</h2>
     <div class="step"><div class="num">1</div><p>打開網址 <a class="url" href="https://chatgpt.com/download/" target="_blank" rel="noopener">chatgpt.com/download/</a></p></div>
@@ -191,8 +208,7 @@
     <p class="muted" style="margin-top:.8em">若無法安裝或登入，請截下錯誤訊息並附上 Windows／macOS 版本，到課程群組提問。</p>
   </section>
 
-  <!-- 4 任務② 準備題庫 -->
-  <section class="slide">
+  <section class="slide" id="prep-questions">
     <span class="tag">任務 ② · 最重要</span>
     <h2>準備好一份自己的題庫</h2>
     <p>課堂後半段要把你的題庫變成<b>遊戲</b>。上課前只要準備好題目和答案，帶著原始檔案來就可以。沒有題庫等於沒有彈藥 ⚠️</p>
@@ -211,8 +227,7 @@
     </div>
   </section>
 
-  <!-- 5 任務③ GitHub 介紹 -->
-  <section class="slide">
+  <section class="slide" id="prep-account">
     <span class="tag">任務 ③</span>
     <h2>申請 GitHub 帳號</h2>
     <p>GitHub 是全世界工程師存放程式碼的地方，課程中我們會用它來<b>備份、分享、把你的作品發布成一條網址</b>給學生玩。免費。</p>
@@ -223,8 +238,7 @@
     <p class="muted">已經有帳號的同學可以跳過這一步 🎉</p>
   </section>
 
-  <!-- 6 任務③ 步驟 -->
-  <section class="slide">
+  <section class="slide" id="prep-account-steps">
     <span class="tag">任務 ③ · 步驟</span>
     <h2>怎麼申請？</h2>
     <div class="step"><div class="num">1</div><p>打開 <a class="url" href="https://github.com/signup" target="_blank" rel="noopener">github.com/signup</a></p></div>
@@ -236,9 +250,113 @@
     </div>
   </section>
 
-  <!-- 7 任務④ 介紹 -->
-  <section class="slide">
-    <span class="tag">任務 ④</span>
+  <section class="slide" id="git-intro">
+    <span class="tag">任務 ④ · 安裝 Git</span>
+    <h2>讓 AI 幫作品「存版本」</h2>
+    <p>Git 會記錄你存下的修改版本，方便比較前後差異、回到先前的內容。<b>本課由 AI 協助操作，你不用背指令，也不必另外安裝圖形介面工具。</b></p>
+    <div class="card">
+      <p style="margin:.2em 0"><b>這三個名稱各做一件事</b></p>
+      <p style="margin:.2em 0"><b>Git</b>：在電腦裡記錄作品版本。<b>GitHub</b>：線上存放與分享作品。<b>gh</b>：讓 AI 用指令操作 GitHub；下一個任務才安裝。</p>
+      <p class="muted" style="margin:.3em 0">安裝完 Git 不會自動保存所有修改；要請 AI 建立版本紀錄（commit）。只存在電腦的版本，也還不是雲端備份。</p>
+    </div>
+    <div class="pathbtns">
+      <a class="pathbtn" href="#git-windows" onclick="show('git-windows');return false;"><b>Windows 安裝</b><span class="muted">下載 .exe → 選關鍵設定 → 驗證</span></a>
+      <a class="pathbtn" href="#git-mac" onclick="show('git-mac');return false;"><b>Mac 安裝</b><span class="muted">安裝 Apple 命令列工具 → 驗證</span></a>
+    </div>
+    <p class="muted">請跟著自己的系統操作。已經裝過的人，也請完成最後的「AI 實際存版本」檢查。</p>
+  </section>
+
+  <section class="slide" id="git-windows">
+    <span class="tag">任務 ④ · Windows · 1 / 3</span>
+    <h2>下載正確的 Git 安裝檔</h2>
+    <div class="step"><div class="num">1</div><div><p style="margin:0">打開 Git 官方 Windows 安裝頁：</p><a class="url" href="https://git-scm.com/install/windows" target="_blank" rel="noopener">git-scm.com/install/windows</a><p class="muted">這個頁面免費，不需要註冊或填信用卡。</p></div></div>
+    <div class="step"><div class="num">2</div><div><p style="margin:0">先到「<b>設定 → 系統 → 關於 → 系統類型</b>」查看電腦架構。</p><p style="margin:.3em 0"><b>x64 型處理器</b>：點最上方 <b>Click here to download／點擊此處下載</b>，或 <b>Git for Windows/x64 Setup</b>。</p><p style="margin:.3em 0"><b>ARM 型處理器</b>：選 <b>Git for Windows/ARM64 Setup</b>。</p><p class="muted">本課選 <b>Setup 安裝版</b>；不要選 Portable、Source code 或其他作業系統。32 位元 Windows／較舊系統請先到群組確認相容性。</p></div></div>
+    <div class="step"><div class="num">3</div><div><p style="margin:0">等下載完成，在「下載」資料夾開啟 <b>Git-…-64-bit.exe</b> 或 <b>Git-…-arm64.exe</b>。</p><p class="muted">版本號會更新，不必與教材示例一模一樣。若跳出 Windows 權限確認，核對是剛下載的 Git 安裝程式；需要管理員密碼時，由本人或設備管理者輸入。</p></div></div>
+    <p><a class="jumpbtn" href="#git-windows-help" onclick="show('git-windows-help');return false;">下載或開啟失敗？看 Windows 排除問題</a></p>
+  </section>
+
+  <section class="slide" id="git-windows-options">
+    <span class="tag">任務 ④ · Windows · 2 / 3</span>
+    <h2>安裝精靈：這幾頁要看清楚</h2>
+    <p>看到授權說明後按 Next。安裝路徑與元件先保留預設；以下選項請特別確認。<b>不同版本可能多一頁或少一頁，依畫面標題找。</b></p>
+    <div class="option-list">
+      <div class="card"><h3>文字編輯器 · Choosing the default editor</h3><p>新手可選 <b>Use Notepad as Git's default editor</b>。有裝 VS Code 且熟悉的人也可選它；不要選尚未安裝的編輯器。這是填寫文字時用的工具。</p></div>
+      <div class="card emphasis"><h3>最重要：PATH · Adjusting your PATH environment</h3><p>選 <b lang="en">Git from the command line and also from 3rd-party software</b>。</p><p class="muted">這樣 PowerShell 和 AI 使用的終端機才找得到 Git。不要只選 Git Bash；也不需要把所有 Unix 工具都加進 PATH。</p></div>
+      <div class="card"><h3>預設分支名稱 · Initial branch</h3><p>可選 <b>Override the default branch name</b>，填 <code>main</code>。這只影響日後新建的專案；原有專案不會被改名。</p></div>
+      <div class="card"><h3>其他選項 · 沒有特別需求就保留預設</h3><p>SSH 使用內建 OpenSSH；HTTPS 保留安裝器的預設；換行選 <b>Checkout Windows-style, commit Unix-style line endings</b>。終端機、pull 行為與額外功能保留預設，<b>Git Credential Manager 維持啟用</b>，不用開啟額外實驗功能。</p></div>
+    </div>
+    <p>按 <b>Install</b>，等完成後按 <b>Finish</b>。可以取消 Launch Git Bash 和 View Release Notes；<b>Git 沒有跳出主視窗是正常的。</b></p>
+    <p class="source-links">官方步驟參考：<a href="https://accessibility.github.com/documentation/guide/cli/#installing-git-for-windows" target="_blank" rel="noopener">GitHub 的 Git for Windows 安裝導覽</a></p>
+    <p class="muted">若安裝器顯示檔案正在使用：先保存工作，關閉正在使用 Git 的 App／終端機，再重試。已安裝的人重跑會是更新／重新安裝，不是首次安裝。</p>
+  </section>
+
+  <section class="slide" id="git-windows-help">
+    <span class="tag">任務 ④ · Windows · 3 / 3</span>
+    <h2>驗證安裝；卡在哪裡就展開哪題</h2>
+    <p><b>先完全關閉舊 PowerShell、終端機與 ChatGPT 桌面 App，再重新開啟。</b>在開始選單搜尋 PowerShell，輸入：</p>
+    <code class="cmd">git --version</code>
+    <p>看到 <b>git version 2.…</b> 代表這個終端機已能使用 Git。數字不必與老師一樣；接著做下一頁的 AI 實際檢查。</p>
+    <div class="troubleshooting">
+      <details><summary>出現「git 無法辨識」／not recognized／找不到指令</summary><p>① 確認安裝器已到 Finish。② 關掉舊視窗，從開始選單重開 PowerShell。③ 在新視窗輸入 <code>where.exe git</code>，應顯示 Git 路徑。仍找不到時，重新執行官方安裝器，確認 PATH 選項為「Git from the command line and also from 3rd-party software」；完成後重開 App，必要時重新啟動電腦。先不要自己刪改整段 PATH。</p></details>
+      <details><summary>PowerShell 查得到，AI 卻說沒有 Git</summary><p>AI 的 App 可能在安裝前就已開啟，尚未讀到新的環境。保存工作後完全結束並重新開啟 App，再請 AI 執行 <code>git --version</code> 並回報實際路徑。仍失敗時，把 PowerShell 的結果和 AI 錯誤一起貼到群組；兩邊可能在不同執行環境，不要反覆安裝多份。</p></details>
+      <details><summary>跳出 SmartScreen／Windows 已保護您的電腦／防毒警告</summary><p>先取消，確認下載起點是本教材的 Git 官方頁，而不是廣告或陌生附件。可在安裝檔「內容 → 數位簽章」檢查簽章是否有效。不確定時截圖詢問；學校／公司電腦請管理者協助。不要為了安裝關閉防毒或解除組織限制。</p></details>
+      <details><summary>要求管理員密碼／Access denied／公司不准安裝</summary><p>由有權限的本人或設備管理者協助。不要猜密碼，也不要把密碼傳到群組。沒有權限時先回報，讓老師安排設備或課堂協助，不必下載來路不明的免安裝包。</p></details>
+      <details><summary>下載失敗／檔案損壞／網路很慢</summary><p>確認網路與磁碟剩餘空間，等下載完成再開檔。若檔案損壞，刪除的是「失敗的安裝檔」，再從官方頁重下載；不要刪已安裝的 Git 或作品資料夾。組織網路擋住 GitHub 時請管理者協助，改天或換允許的網路再試。</p></details>
+      <details><summary>「此應用程式無法在您的電腦上執行」</summary><p>重新檢查「系統類型」：x64 與 ARM64 要選相符的 Setup；確認下載完整。32 位元或較舊 Windows 不要硬裝現在的版本，請附系統版本、系統類型與錯誤截圖到群組確認。</p></details>
+      <details><summary>安裝顯示檔案使用中／已安裝其他版本</summary><p>先保存進度並結束會用到 Git 的 App／終端機，再繼續安裝。若原本 <code>git --version</code> 已能正常顯示版本，本課不要求與老師同一版，直接做 AI 驗證即可；不必先卸載。</p></details>
+    </div>
+    <p><a class="jumpbtn" href="#git-ready" onclick="show('git-ready');return false;">已看到版本號 → 讓 AI 實際存一個版本</a></p>
+  </section>
+
+  <section class="slide" id="git-mac">
+    <span class="tag">任務 ④ · Mac · 1 / 2</span>
+    <h2>Mac：安裝 Apple 命令列工具</h2>
+    <div class="step"><div class="num">1</div><div><p style="margin:0">按 <kbd>⌘</kbd>＋<kbd>空白鍵</kbd>，搜尋「終端機」並開啟，輸入：</p><code class="cmd">git --version</code><p>已有 <b>git version …</b>：可以往下完成 AI 檢查；顯示 Apple Git 也可以，不用追求與 Windows 相同的版本。</p></div></div>
+    <div class="step"><div class="num">2</div><div><p style="margin:0">如果跳出安裝「<b>Command Line Developer Tools／命令列開發者工具</b>」的視窗，按<b>安裝</b>並同意授權。沒有跳出、也沒有版本號時，輸入：</p><code class="cmd">xcode-select --install</code><p class="muted">這組 Apple 工具包含 Git。本課只需要命令列工具，<b>不用為了 Git 下載完整 Xcode</b>。</p></div></div>
+    <div class="step"><div class="num">3</div><div><p style="margin:0">保持網路連線與足夠空間，等系統顯示安裝完成。所需時間依網路與套件大小而異，<b>不一定幾分鐘就結束</b>。</p><p class="muted">如需密碼，由本人輸入 Mac 的登入密碼；若是在終端機輸入，沒有文字或星號回顯是正常的。輸入完按 Enter，不要把密碼貼給 AI 或群組。</p></div></div>
+    <div class="step"><div class="num">4</div><div><p style="margin:0">關閉並重開終端機，再輸入：</p><code class="cmd">git --version</code><p>看到版本號後，完全結束並重開 ChatGPT 桌面 App，再完成後面的 AI 檢查。</p></div></div>
+    <p class="muted">官方說明：<a href="https://git-scm.com/install/mac" target="_blank" rel="noopener">Git：macOS 安裝方式</a> · <a href="https://developer.apple.com/documentation/xcode/installing-the-command-line-tools" target="_blank" rel="noopener">Apple：命令列工具</a></p>
+  </section>
+
+  <section class="slide" id="git-mac-help">
+    <span class="tag">任務 ④ · Mac · 2 / 2</span>
+    <h2>Mac 安裝卡關，看這裡</h2>
+    <div class="troubleshooting">
+      <details open><summary>顯示 command line tools are already installed</summary><p>表示系統認為工具已安裝，不必一直重跑安裝指令。先用 <code>git --version</code> 驗證；若仍錯誤，檢查「系統設定 → 一般 → 軟體更新」有沒有命令列工具更新。</p></details>
+      <details><summary>一直在下載／預估時間很長</summary><p>保持網路、電源與磁碟空間充足，先等系統完成；不要看到時間跳動就反覆關閉。若明確顯示失敗，記下完整錯誤，檢查網路後再試。安裝可能比 Windows 久，請提前準備。</p></details>
+      <details><summary>「目前無法取得軟體」／找不到可安裝的工具</summary><p>先確認網路，並到「軟體更新」檢查與目前 macOS 相容的工具。若仍找不到，請附 macOS 版本與錯誤到群組；進階處理可以由老師依 Apple 官方下載頁選相容套件，別下載陌生網站的舊安裝檔。</p></details>
+      <details><summary>macOS 更新後出現 invalid active developer path／xcrun 錯誤</summary><p>可能是原有命令列工具需更新，或開發工具位置失效。先執行 <code>xcode-select --install</code>，若已安裝則檢查「軟體更新」，完成後重試 <code>git --version</code>。仍失敗時請老師協助診斷路徑；不要自行刪除系統開發工具資料夾，也不必為了排錯直接重裝整台電腦。</p></details>
+      <details><summary>沒有管理員權限／學校或公司電腦禁止安裝</summary><p>請設備管理者協助；不要分享登入密碼，也不要嘗試繞過管理限制。把系統版本和錯誤截圖傳到群組，老師會協助安排。</p></details>
+      <details><summary>已經有 Homebrew，需要再裝一份 Git 嗎？</summary><p>若 <code>git --version</code> 正常，本課可以直接使用。若 Homebrew 已正常運作但仍缺 Git，可用 <code>brew install git</code> 安裝後重開終端機；不要為了修 Git 同時重複裝好多套。Homebrew 本身有問題，留到下一個 gh 任務的說明處理。</p></details>
+      <details><summary>終端機成功，AI 卻說找不到 Git</summary><p>完全結束並重新開啟 ChatGPT 桌面 App，再請 AI 在它實際使用的終端機執行 <code>git --version</code>。仍失敗，請一起提供終端機結果與 AI 錯誤；先確認兩者使用同一台電腦與環境。</p></details>
+    </div>
+    <p><a class="jumpbtn" href="#git-ready" onclick="show('git-ready');return false;">已看到版本號 → 讓 AI 實際存一個版本</a></p>
+  </section>
+
+  <section class="slide" id="git-ready">
+    <span class="tag">任務 ④ · Windows / Mac 共用 · 完成驗證</span>
+    <h2>讓 AI 真的存一個版本</h2>
+    <p><b>看到版本號只是第一步。</b>請在 ChatGPT 桌面版切到能操作專案的 Codex 程式模式，選一個練習用的資料夾，把下面這段貼給 AI：</p>
+    <code class="cmd git-prompt">請檢查你實際使用的環境能否執行 git --version，回報 Git 版本與執行檔路徑。
+在我選定的資料夾內，另外建立一個全新的「Git安裝測試」子資料夾；若同名資料夾已存在，就使用新的名稱，不要覆蓋。
+只在這個新子資料夾初始化 Git，新增一份寫著「第一版測試成功」的文字檔。
+先確認 Git 的作者名稱與信箱是否已設定；缺少時先問我。若需補設定，只設定這個練習專案，不更動其他專案或全域設定。
+將這一份文字檔建立第一個 commit，回報 commit 編號與 git status 的結果。
+這次只做本機練習，不要上傳、不要刪除或修改其他資料夾。不能操作本機時，請直接說明原因，不要假裝完成。</code>
+    <div class="card emphasis"><p style="margin:0"><b>完成標準</b>：AI 回報 Git 版本與路徑、第一個 commit 編號，以及 <code>nothing to commit, working tree clean</code>（或相同意思）。這才表示它能在練習專案存版本。</p></div>
+    <div class="troubleshooting">
+      <details><summary>Author identity unknown／Please tell me who you are</summary><p>Git 需要記錄這次版本的作者名稱與信箱；這不是要求 GitHub 密碼。回覆你願意放在版本紀錄中的名稱與信箱，請 AI 只在練習專案設定。若不想公開私人信箱，可登入 GitHub 的「Settings → Emails」，複製自己帳號顯示的 GitHub noreply 信箱；不要猜格式或填老師的信箱。</p></details>
+      <details><summary>not a git repository／偵測到別人的資料夾（dubious ownership）</summary><p>前者先請 AI 確認目前位置，進入剛建立的練習子資料夾並確認已初始化；不要把整個桌面或文件資料夾加入版本管理。後者先停止，請老師確認路徑與擁有者；不要套用「信任所有資料夾」的設定。</p></details>
+      <details><summary>AI 只解釋步驟，沒有執行；或顯示沒有權限</summary><p>確認你在桌面版能操作專案的模式，並已選擇練習資料夾。一般純聊天或沒有本機工具的環境，無法替你實際安裝或建立版本。閱讀 App 顯示的權限要求，僅授權這次練習需要的範圍；仍卡住就截圖到群組。</p></details>
+      <details><summary>有版本號，但建立版本失敗／出現 lock 或 LF / CRLF 提示</summary><p>先看完整錯誤：<code>LF will be replaced by CRLF</code> 通常是換行提醒，要再看 commit 是否成功；不是看到 warning 就重裝。若有鎖定檔錯誤，先確認是否還有 Git 程序執行，請 AI 或老師診斷，不要直接刪 .git 或鎖定檔。</p></details>
+    </div>
+    <p class="muted">卡關請附「作業系統版本、正在做哪一步、完整錯誤截圖」。不要傳密碼、驗證碼或 token。完成 Git 檢查後，再往下安裝 gh 並登入 GitHub。</p>
+    <p class="source-links">查核依據：<a href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup" target="_blank" rel="noopener">Git 初次設定</a> · <a href="https://docs.github.com/en/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address" target="_blank" rel="noopener">GitHub 作者信箱</a></p>
+  </section>
+
+
+  <section class="slide" id="gh-intro">
+    <span class="tag">任務 ⑤</span>
     <h2>讓電腦「登入」你的 GitHub</h2>
     <p>申請完帳號 <b>還不夠</b>。要讓 ChatGPT 桌面版之後能<b>協助建立作品倉庫、上傳發布</b>，必須先讓電腦也認識你的 GitHub 帳號。</p>
     <div class="card">
@@ -248,15 +366,14 @@
     <div class="card" style="margin-top:1em;border-color:var(--accent)">
       <p style="margin:0 0 .6em"><b>👇 接下來請依照你的電腦選一條路走（點選下方按鈕直接跳轉）</b></p>
       <div class="pathbtns">
-        <a class="pathbtn" href="#" onclick="show(8);return false;">🍎 <b>我是 Mac 使用者</b><span class="muted">點此開始 Step 1~5</span></a>
-        <a class="pathbtn" href="#" onclick="show(12);return false;">🪟 <b>我是 Windows 使用者</b><span class="muted">點此開始 Step 1~5</span></a>
+        <a class="pathbtn" href="#" onclick="show('gh-mac-start');return false;">🍎 <b>我是 Mac 使用者</b><span class="muted">點此開始 Step 1~5</span></a>
+        <a class="pathbtn" href="#" onclick="show('gh-windows-start');return false;">🪟 <b>我是 Windows 使用者</b><span class="muted">點此開始 Step 1~5</span></a>
       </div>
     </div>
   </section>
 
-  <!-- 8 Mac · Step 1 + 2 -->
-  <section class="slide">
-    <span class="tag">任務 ④ · 🍎 Mac · Step 1~2</span>
+  <section class="slide" id="gh-mac-start">
+    <span class="tag">任務 ⑤ · 🍎 Mac · Step 1~2</span>
     <h2>打開終端機 + 確認 Homebrew</h2>
     <div class="step"><div class="num">1</div><div>
       <p style="margin:0"><b>打開終端機</b></p>
@@ -295,9 +412,8 @@ eval "$(/usr/local/bin/brew shellenv)"</code>
     </div></div>
   </section>
 
-  <!-- 9 Mac · Step 3 -->
-  <section class="slide">
-    <span class="tag">任務 ④ · 🍎 Mac · Step 3</span>
+  <section class="slide" id="gh-mac-install">
+    <span class="tag">任務 ⑤ · 🍎 Mac · Step 3</span>
     <h2>安裝 GitHub CLI</h2>
     <div class="step"><div class="num">3</div><div>
       <p style="margin:0">在終端機輸入：</p>
@@ -309,9 +425,8 @@ eval "$(/usr/local/bin/brew shellenv)"</code>
     </div></div>
   </section>
 
-  <!-- 10 Mac · Step 4 登入 -->
-  <section class="slide">
-    <span class="tag">任務 ④ · 🍎 Mac · Step 4</span>
+  <section class="slide" id="gh-mac-login">
+    <span class="tag">任務 ⑤ · 🍎 Mac · Step 4</span>
     <h2>登入 GitHub（最關鍵的一步）</h2>
     <div class="step"><div class="num">4</div><div>
       <p style="margin:0">在終端機輸入：</p>
@@ -331,9 +446,8 @@ eval "$(/usr/local/bin/brew shellenv)"</code>
     </div></div>
   </section>
 
-  <!-- 11 Mac · Step 5 + 常見坑 -->
-  <section class="slide">
-    <span class="tag">任務 ④ · 🍎 Mac · Step 5</span>
+  <section class="slide" id="gh-mac-done">
+    <span class="tag">任務 ⑤ · 🍎 Mac · Step 5</span>
     <h2>驗證 + 常見坑</h2>
     <div class="step"><div class="num">5</div><div>
       <p style="margin:0">🧪 <b>最終驗證</b>，輸入：</p>
@@ -351,20 +465,19 @@ eval "$(/usr/local/bin/brew shellenv)"</code>
     <div class="card" style="border-color:#ef4444;background:#1a0e0e">
       <p style="margin:0 0 .3em"><b>💡 常見坑</b></p>
       <p style="margin:.2em 0">🔴 <b>裝完 Homebrew、重開終端機還是 <code>command not found</code></b> <span style="color:#fca5a5">（每屆都有人踩）</span></p>
-      <p class="muted" style="margin:.1em 0 .3em 1.6em;font-size:.9em">→ 你 <b>沒有跑「Next steps」那兩行指令</b>。Homebrew 雖然裝好了，但終端機還不知道它在哪。<a class="jumpbtn" href="#" onclick="show(8);return false;">↩ 回 Step 2 補做 Next steps</a></p>
+      <p class="muted" style="margin:.1em 0 .3em 1.6em;font-size:.9em">→ 你 <b>沒有跑「Next steps」那兩行指令</b>。Homebrew 雖然裝好了，但終端機還不知道它在哪。<a class="jumpbtn" href="#" onclick="show('gh-mac-start');return false;">↩ 回 Step 2 補做 Next steps</a></p>
       <p class="muted" style="margin:.1em 0 .4em 1.6em;font-size:.9em">→ 簡單版：直接複製下面兩行貼進終端機按 Enter（Apple Silicon Mac 用）：</p>
       <code class="cmd" style="margin-left:1.6em">echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' &gt;&gt; ~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"</code>
       <p class="muted" style="margin:.2em 0 .4em 1.6em;font-size:.9em">→ 如果你是 Intel Mac（2019 年以前），把 <code>/opt/homebrew/</code> 改成 <code>/usr/local/</code></p>
       <p style="margin:.4em 0"><b style="color:#fbbf24">📌 一句話解釋</b>：「<i>Homebrew 已經裝好了，但你的終端機還不知道它在哪裡。上面那兩行就是『告訴終端機 Homebrew 的位置』。</i>」</p>
-      <p style="margin:.4em 0">🔴 <b>卡在 web browser 那步</b> → 重跑 <code>gh auth login</code> <a class="jumpbtn" href="#" onclick="show(10);return false;">↩ 回 Step 4 重做</a>，最後一題改選 <code>Paste an authentication token</code>，到 <a class="url" href="https://github.com/settings/tokens" target="_blank" rel="noopener">github.com/settings/tokens</a> 產生 Personal Access Token 貼進去</p>
-      <p style="margin:.2em 0">🔴 <b>gh auth status 顯示 not logged in</b> → 重跑 <code>gh auth login</code> 一次 <a class="jumpbtn" href="#" onclick="show(10);return false;">↩ 回 Step 4 重做</a></p>
+      <p style="margin:.4em 0">🔴 <b>卡在 web browser 那步</b> → 重跑 <code>gh auth login</code> <a class="jumpbtn" href="#" onclick="show('gh-mac-login');return false;">↩ 回 Step 4 重做</a>，最後一題改選 <code>Paste an authentication token</code>，到 <a class="url" href="https://github.com/settings/tokens" target="_blank" rel="noopener">github.com/settings/tokens</a> 產生 Personal Access Token 貼進去</p>
+      <p style="margin:.2em 0">🔴 <b>gh auth status 顯示 not logged in</b> → 重跑 <code>gh auth login</code> 一次 <a class="jumpbtn" href="#" onclick="show('gh-mac-login');return false;">↩ 回 Step 4 重做</a></p>
     </div>
   </section>
 
-  <!-- 12 Windows · Step 1 + 2 -->
-  <section class="slide">
-    <span class="tag">任務 ④ · 🪟 Windows · Step 1~2</span>
+  <section class="slide" id="gh-windows-start">
+    <span class="tag">任務 ⑤ · 🪟 Windows · Step 1~2</span>
     <h2>打開 PowerShell + 確認 winget</h2>
     <div class="step"><div class="num">1</div><div>
       <p style="margin:0"><b>打開 PowerShell（終端機）</b></p>
@@ -380,9 +493,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
     </div></div>
   </section>
 
-  <!-- 13 Windows · Step 3 -->
-  <section class="slide">
-    <span class="tag">任務 ④ · 🪟 Windows · Step 3</span>
+  <section class="slide" id="gh-windows-install">
+    <span class="tag">任務 ⑤ · 🪟 Windows · Step 3</span>
     <h2>安裝 GitHub CLI</h2>
     <div class="step"><div class="num">3</div><div>
       <p style="margin:0">在 PowerShell 輸入：</p>
@@ -399,9 +511,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
     </div></div>
   </section>
 
-  <!-- 14 Windows · Step 4 登入 -->
-  <section class="slide">
-    <span class="tag">任務 ④ · 🪟 Windows · Step 4</span>
+  <section class="slide" id="gh-windows-login">
+    <span class="tag">任務 ⑤ · 🪟 Windows · Step 4</span>
     <h2>登入 GitHub（最關鍵的一步）</h2>
     <div class="step"><div class="num">4</div><div>
       <p style="margin:0">在 PowerShell 輸入：</p>
@@ -421,9 +532,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
     </div></div>
   </section>
 
-  <!-- 15 Windows · Step 5 + 常見坑 -->
-  <section class="slide">
-    <span class="tag">任務 ④ · 🪟 Windows · Step 5</span>
+  <section class="slide" id="gh-windows-done">
+    <span class="tag">任務 ⑤ · 🪟 Windows · Step 5</span>
     <h2>驗證 + 常見坑</h2>
     <div class="step"><div class="num">5</div><div>
       <p style="margin:0">🧪 <b>最終驗證</b>，輸入：</p>
@@ -442,13 +552,12 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
       <p style="margin:0 0 .3em"><b>💡 常見坑</b></p>
       <p style="margin:.2em 0">🔴 <b>裝完輸入 gh 找不到指令</b> → PowerShell <b>沒重開</b>。整個視窗關掉再打開一個新的。</p>
       <p style="margin:.2em 0">🔴 <b>winget 一直失敗</b> → 直接到 <a class="url" href="https://cli.github.com" target="_blank" rel="noopener">cli.github.com</a> 下載 <code>.msi</code> 雙擊安裝，再回來跑 <code>gh --version</code>。</p>
-      <p style="margin:.2em 0">🔴 <b>卡在 web browser 那步</b> → 重跑 <code>gh auth login</code> <a class="jumpbtn" href="#" onclick="show(14);return false;">↩ 回 Step 4 重做</a>，最後一題改選 <code>Paste an authentication token</code>，到 <a class="url" href="https://github.com/settings/tokens" target="_blank" rel="noopener">github.com/settings/tokens</a> 產生 Personal Access Token 貼進去。</p>
-      <p style="margin:.2em 0">🔴 <b>gh auth status 顯示 not logged in</b> → 重跑 <code>gh auth login</code> 一次 <a class="jumpbtn" href="#" onclick="show(14);return false;">↩ 回 Step 4 重做</a>。</p>
+      <p style="margin:.2em 0">🔴 <b>卡在 web browser 那步</b> → 重跑 <code>gh auth login</code> <a class="jumpbtn" href="#" onclick="show('gh-windows-login');return false;">↩ 回 Step 4 重做</a>，最後一題改選 <code>Paste an authentication token</code>，到 <a class="url" href="https://github.com/settings/tokens" target="_blank" rel="noopener">github.com/settings/tokens</a> 產生 Personal Access Token 貼進去。</p>
+      <p style="margin:.2em 0">🔴 <b>gh auth status 顯示 not logged in</b> → 重跑 <code>gh auth login</code> 一次 <a class="jumpbtn" href="#" onclick="show('gh-windows-login');return false;">↩ 回 Step 4 重做</a>。</p>
     </div>
   </section>
 
-  <!-- 16 自我檢核 -->
-  <section class="slide">
+  <section class="slide" id="prep-checklist">
     <span class="tag">課前自我檢核</span>
     <h2>上課前，請確認以下都 ✓</h2>
     <div class="checkgrid">
@@ -471,8 +580,14 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
         <p><span class="check">☐</span> 擁有可登入的 <b>GitHub 帳號</b></p>
         <p><span class="check">☐</span> 記得自己的 username</p>
       </div>
+      <div class="card" style="border-color:var(--ok)">
+        <p><b>④ Git 版本管理</b></p>
+        <p><span class="check">☐</span> <code>git --version</code> 顯示版本</p>
+        <p><span class="check">☐</span> AI 在全新練習資料夾建立第一個 commit</p>
+        <p><a class="jumpbtn" href="#git-ready" onclick="show('git-ready');return false;">回到 Git 完成驗證</a></p>
+      </div>
       <div class="card">
-        <p><b>④ 電腦登入 GitHub</b></p>
+        <p><b>⑤ 電腦登入 GitHub</b></p>
         <p><span class="check">☐</span> 終端機輸入 <code>gh --version</code> 有版本號</p>
         <p><span class="check">☐</span> <code>gh auth status</code> 看到 ✓ Logged in</p>
       </div>
@@ -484,49 +599,69 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
     </div>
   </section>
 
-  <!-- 17 結尾 -->
-  <section class="slide">
+  <section class="slide" id="prep-finish">
     <h1>準備好了，課堂見 👋</h1>
     <p class="hero">幾個重要網址再給你一次，存著備用：</p>
     <div class="card"><a class="url" href="https://chatgpt.com/pricing" target="_blank" rel="noopener">https://chatgpt.com/pricing</a>　<span class="muted">（訂閱 ChatGPT Plus）</span></div>
     <div class="card"><a class="url" href="https://chatgpt.com/download/" target="_blank" rel="noopener">https://chatgpt.com/download/</a>　<span class="muted">（ChatGPT 桌面 App）</span></div>
     <div class="card"><a class="url" href="https://github.com/signup" target="_blank" rel="noopener">https://github.com/signup</a>　<span class="muted">（GitHub 帳號）</span></div>
+    <div class="card"><a class="url" href="https://git-scm.com/install/" target="_blank" rel="noopener">https://git-scm.com/install/</a>　<span class="muted">（Git 官方安裝）</span></div>
     <div class="card"><a class="url" href="https://cli.github.com" target="_blank" rel="noopener">https://cli.github.com</a>　<span class="muted">（GitHub CLI 備案）</span></div>
   </section>
 
 </div>
 
-<div class="counter"><span id="cur">1</span> / <span id="total">18</span></div>
+<div class="counter"><span id="cur">1</span> / <span id="total">25</span></div>
+<div class="progress-bar" id="progress" aria-hidden="true"></div>
 <div class="nav">
-  <button onclick="go(-1)">← 上一頁</button>
-  <button onclick="go(1)">下一頁 →</button>
+  <button class="nav-btn prev" onclick="go(-1)">← 上一頁</button>
+  <button class="nav-btn next" onclick="go(1)">下一頁 →</button>
 </div>
 
 <script>
   const slides=[...document.querySelectorAll('.slide')];
   let i=0;
   document.getElementById('total').textContent=slides.length;
-  function show(n){
-    slides[i].classList.remove('active');
-    i=(n+slides.length)%slides.length;
-    slides[i].classList.add('active');
-    document.getElementById('cur').textContent=i+1;
+  function savedPath(key,fallback){
+    try{const value=sessionStorage.getItem(key);return value==='mac'||value==='windows'?value:fallback;}catch{return fallback;}
   }
-  // Mac Step 5 (11) → 下一頁跳過 Win 整段，直接到自我檢核 (16)
-  // Win Step 1 (12) → 上一頁跳回分歧頁 gh 介紹 (7)，不要跑回 Mac Step 5
-  const nextMap={11:16};
-  const prevMap={12:7};
+  let gitPath=savedPath('prep-git-path','windows'), ghPath=savedPath('prep-gh-path','mac');
+  function show(n){
+    const target=typeof n==='string'?slides.findIndex(slide=>slide.id===n):n;
+    if(!Number.isInteger(target)||target<0||target>=slides.length)return;
+    slides[i].classList.remove('active');
+    i=target;
+    const slide=slides[i];
+    if(slide.id.startsWith('git-windows'))gitPath='windows';
+    if(slide.id.startsWith('git-mac'))gitPath='mac';
+    if(slide.id.startsWith('gh-windows'))ghPath='windows';
+    if(slide.id.startsWith('gh-mac'))ghPath='mac';
+    try{sessionStorage.setItem('prep-git-path',gitPath);sessionStorage.setItem('prep-gh-path',ghPath);}catch{}
+    slide.classList.add('active');
+    document.getElementById('cur').textContent=i+1;
+    document.getElementById('progress').style.width=((i+1)/slides.length*100)+'%';
+    history.replaceState(null,'','#'+slide.id);
+  }
+  const nextMap={'git-windows-help':'git-ready','gh-mac-done':'prep-checklist'};
+  const prevMap={'git-mac':'git-intro','gh-windows-start':'gh-intro'};
   function go(d){
-    if(d===1&&nextMap[i]!=null)return show(nextMap[i]);
-    if(d===-1&&prevMap[i]!=null)return show(prevMap[i]);
-    show(i+d);
+    const id=slides[i].id;
+    if(d===-1&&id==='git-ready')return show(gitPath==='mac'?'git-mac-help':'git-windows-help');
+    if(d===-1&&id==='prep-checklist')return show(ghPath==='mac'?'gh-mac-done':'gh-windows-done');
+    if(d===1&&nextMap[id])return show(nextMap[id]);
+    if(d===-1&&prevMap[id])return show(prevMap[id]);
+    show((i+d+slides.length)%slides.length);
   }
   document.addEventListener('keydown',e=>{
-    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown')go(1);
-    if(e.key==='ArrowLeft'||e.key==='PageUp')go(-1);
-    if(e.key==='Home')show(0);
-    if(e.key==='End')show(slides.length-1);
+    if(e.target.closest('input,textarea,select,summary,button,a,[contenteditable="true"]'))return;
+    if(['ArrowRight',' ','PageDown'].includes(e.key)){e.preventDefault();go(1);}
+    if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(-1);}
+    if(e.key==='Home'){e.preventDefault();show(0);}
+    if(e.key==='End'){e.preventDefault();show(slides.length-1);}
   });
+  function showFromHash(){const id=decodeURIComponent(location.hash.slice(1));show(slides.some(s=>s.id===id)?id:0);}
+  window.addEventListener('hashchange',showFromHash);
+  showFromHash();
   function copyToClipboard(text){
     return new Promise((resolve, reject)=>{
       if(navigator.clipboard && window.isSecureContext){
