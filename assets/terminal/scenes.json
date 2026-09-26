@@ -1,0 +1,1677 @@
+[
+  {
+    "id": "win-empty",
+    "os": "windows",
+    "label": "剛打開",
+    "title": "看到這樣，代表視窗正在等你輸入",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "前面的名稱與符號是電腦自己顯示的，不用刪除、不用照打。在最後面的游標位置貼上指令。"
+  },
+  {
+    "id": "win-pasted",
+    "os": "windows",
+    "label": "貼上但還沒執行",
+    "title": "文字出現後，還要按 Enter／Return",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> git --version",
+        "kind": "command"
+      }
+    ],
+    "next": "按一次 Enter（Mac 叫 Return）。「複製」按鈕只把文字放到剪貼簿，不會替你執行。"
+  },
+  {
+    "id": "win-unfinished",
+    "os": "windows",
+    "label": "出現 > 或 >>",
+    "title": "引號不成對，電腦還在等後半段",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> git --version \"",
+        "kind": "command"
+      },
+      {
+        "text": ">> ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "按 Ctrl＋C 取消這次尚未完成的輸入，回到原來提示字元，再從教材完整複製一次。這是鍵盤快捷鍵，不用打 Ctrl+C 這串文字。"
+  },
+  {
+    "id": "mac-empty",
+    "os": "mac",
+    "label": "剛打開",
+    "title": "看到這樣，代表視窗正在等你輸入",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "前面的名稱與符號是電腦自己顯示的，不用刪除、不用照打。在最後面的游標位置貼上指令。"
+  },
+  {
+    "id": "mac-pasted",
+    "os": "mac",
+    "label": "貼上但還沒執行",
+    "title": "文字出現後，還要按 Enter／Return",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % git --version",
+        "kind": "command"
+      }
+    ],
+    "next": "按一次 Enter（Mac 叫 Return）。「複製」按鈕只把文字放到剪貼簿，不會替你執行。"
+  },
+  {
+    "id": "mac-unfinished",
+    "os": "mac",
+    "label": "出現 > 或 >>",
+    "title": "引號不成對，電腦還在等後半段",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % git --version \"",
+        "kind": "command"
+      },
+      {
+        "text": "dquote> ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "按 Ctrl＋C 取消這次尚未完成的輸入，回到原來提示字元，再從教材完整複製一次。這是鍵盤快捷鍵，不用打 Ctrl+C 這串文字。"
+  },
+  {
+    "id": "git-win-ok",
+    "os": "windows",
+    "label": "成功",
+    "title": "看到 Git 版本號，就代表這個視窗能使用 Git",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> git --version",
+        "kind": "command"
+      },
+      {
+        "text": "git version 2.55.0.windows.3",
+        "kind": "success"
+      },
+      {
+        "text": "PS C:\\Users\\teacher>",
+        "kind": "prompt"
+      }
+    ],
+    "next": "看到 git version 加上一串版本號即可繼續。版本號不必和示意圖相同。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。",
+    "excerpt": true
+  },
+  {
+    "id": "git-win-missing",
+    "os": "windows",
+    "label": "找不到",
+    "title": "這個 PowerShell 視窗還找不到 Git",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> git --version",
+        "kind": "command"
+      },
+      {
+        "text": "git : The term 'git' is not recognized as the name of a cmdlet, function, script file, or operable program.",
+        "kind": "error"
+      },
+      {
+        "text": "PS C:\\Users\\teacher>",
+        "kind": "prompt"
+      }
+    ],
+    "next": "如果剛完成安裝，關閉整個終端機視窗，再重新開啟 PowerShell，重跑 git --version。仍失敗時，用本頁下方「git 無法辨識」問題中的 where.exe git 指令檢查。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。此圖節錄 Windows PowerShell 的主要錯誤行，省略位置與錯誤分類；PowerShell 7 或中文 Windows 的措辭可能不同。",
+    "excerpt": true
+  },
+  {
+    "id": "where-git-ok",
+    "os": "windows",
+    "label": "找到路徑",
+    "title": "找到 Git 的程式位置",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> where.exe git",
+        "kind": "command"
+      },
+      {
+        "text": "C:\\Program Files\\Git\\cmd\\git.exe",
+        "kind": "success"
+      },
+      {
+        "text": "PS C:\\Users\\teacher>",
+        "kind": "prompt"
+      }
+    ],
+    "next": "找到路徑後，再跑 git --version 確認能啟動；路徑與示意圖不同也可能正常。若出現多個路徑或版本指令仍失敗，截圖交給講師。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。",
+    "excerpt": true
+  },
+  {
+    "id": "where-git-missing",
+    "os": "windows",
+    "label": "找不到",
+    "title": "目前搜尋路徑裡沒有找到 Git",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> where.exe git",
+        "kind": "command"
+      },
+      {
+        "text": "INFO: Could not find files for the given pattern(s).",
+        "kind": "error"
+      },
+      {
+        "text": "PS C:\\Users\\teacher>",
+        "kind": "prompt"
+      }
+    ],
+    "next": "先確認 Git 安裝已完成，再關閉並重開整個終端機。如果仍找不到，回安裝步驟確認 Git 可供命令列使用，或截圖請講師協助。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。這表示目前目錄與 PATH 未找到匹配程式，不能單憑此訊息判定整台電腦完全沒有安裝 Git。",
+    "excerpt": true
+  },
+  {
+    "id": "winget-ok",
+    "os": "windows",
+    "label": "成功",
+    "title": "看到 v 開頭的版本號，代表 WinGet 可以使用",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> winget --version",
+        "kind": "command"
+      },
+      {
+        "text": "v1.29.380",
+        "kind": "success"
+      },
+      {
+        "text": "PS C:\\Users\\teacher>",
+        "kind": "prompt"
+      }
+    ],
+    "next": "接著執行安裝 GitHub CLI 的指令。這是 WinGet 的版本號，和 Git 或 GitHub CLI 的版本不同。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。",
+    "excerpt": true
+  },
+  {
+    "id": "winget-missing",
+    "os": "windows",
+    "label": "找不到",
+    "title": "PowerShell 找不到 WinGet",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> winget --version",
+        "kind": "command"
+      },
+      {
+        "text": "winget : The term 'winget' is not recognized as the name of a cmdlet, function, script file, or operable program.",
+        "kind": "error"
+      },
+      {
+        "text": "PS C:\\Users\\teacher>",
+        "kind": "prompt"
+      }
+    ],
+    "next": "開啟 Microsoft Store，搜尋並安裝或更新 Microsoft 的「應用程式安裝程式／App Installer」，再重開終端機檢查。若學校電腦限制商店，依課程的 GitHub CLI 官方安裝檔備案處理。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。節錄主要錯誤行，省略位置與錯誤分類。",
+    "excerpt": true
+  },
+  {
+    "id": "winget-agree",
+    "os": "windows",
+    "label": "等待回答",
+    "title": "出現條款問題時，先閱讀，再輸入 Y 並按 Enter",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> winget install --id GitHub.cli -e",
+        "kind": "command"
+      },
+      {
+        "text": "Do you agree to all the source agreements terms?",
+        "kind": "prompt"
+      },
+      {
+        "text": "[Y] Yes  [N] No:",
+        "kind": "focus"
+      }
+    ],
+    "next": "閱讀終端機上方的來源條款，願意接受才輸入 Y 並按 Enter；不同版本也可能出現安裝套件的條款問題。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。節錄條款確認區，省略上方條款內容。尚未回答時，程式是在等待輸入。",
+    "excerpt": true
+  },
+  {
+    "id": "winget-installing",
+    "os": "windows",
+    "label": "安裝中",
+    "title": "正在下載或安裝，先等待",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> winget install --id GitHub.cli -e",
+        "kind": "command"
+      },
+      {
+        "text": "Found GitHub CLI [GitHub.cli] Version 2.101.0",
+        "kind": "output"
+      },
+      {
+        "text": "Successfully verified installer hash",
+        "kind": "output"
+      },
+      {
+        "text": "Starting package install...",
+        "kind": "focus"
+      }
+    ],
+    "next": "等待安裝完成。如果跳出 Windows 權限視窗，確認是你剛開始的 GitHub CLI 安裝再允許。尚未看到完成訊息時，不要重複貼上安裝指令。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。節錄安裝進度，省略授權說明、下載網址和進度條；完成前可能暫時沒有新的文字。",
+    "excerpt": true
+  },
+  {
+    "id": "winget-installed",
+    "os": "windows",
+    "label": "成功",
+    "title": "看到 Successfully installed，代表安裝程式完成",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> winget install --id GitHub.cli -e",
+        "kind": "command"
+      },
+      {
+        "text": "Successfully installed",
+        "kind": "success"
+      },
+      {
+        "text": "PS C:\\Users\\teacher>",
+        "kind": "prompt"
+      }
+    ],
+    "next": "關閉整個終端機視窗並重新開啟，再輸入 gh --version。這一步讓新視窗讀取更新後的程式路徑。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。節錄最後的完成訊息，省略前面的下載和安裝過程。",
+    "excerpt": true
+  },
+  {
+    "id": "winget-existing",
+    "os": "windows",
+    "label": "已經裝過",
+    "title": "已裝過且沒有可用更新，不必反覆安裝",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> winget install --id GitHub.cli -e",
+        "kind": "command"
+      },
+      {
+        "text": "Found an existing package already installed. Trying to upgrade the installed package...",
+        "kind": "output"
+      },
+      {
+        "text": "No available upgrade found.",
+        "kind": "success"
+      },
+      {
+        "text": "No newer package versions are available from the configured sources.",
+        "kind": "output"
+      },
+      {
+        "text": "PS C:\\Users\\teacher>",
+        "kind": "prompt"
+      }
+    ],
+    "next": "這個情況代表目前來源沒有更新可裝。重新開啟終端機，輸入 gh --version 檢查即可；若系統另有其他錯誤，依實際訊息處理。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。",
+    "excerpt": true
+  },
+  {
+    "id": "winget-failed",
+    "os": "windows",
+    "label": "未完成",
+    "title": "沒有找到符合指令的安裝套件",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> winget install --id GitHub.cli -e",
+        "kind": "command"
+      },
+      {
+        "text": "No package found matching input criteria.",
+        "kind": "error"
+      },
+      {
+        "text": "PS C:\\Users\\teacher>",
+        "kind": "prompt"
+      }
+    ],
+    "next": "確認指令沒有打錯、網路可以連線。仍失敗就使用 cli.github.com 的官方 Windows 安裝檔備案，裝完重開終端機，再檢查 gh --version。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。這是其中一種失敗範例。其他錯誤碼、網路、權限或安全性警告，請截圖交給講師，不要套用略過安全檢查的指令。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-win-version",
+    "os": "windows",
+    "label": "成功",
+    "title": "GitHub CLI 已能啟動，下一步是登入",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> gh --version",
+        "kind": "command"
+      },
+      {
+        "text": "gh version 2.101.0 (2026-09-15)",
+        "kind": "success"
+      },
+      {
+        "text": "https://github.com/cli/cli/releases/tag/v2.101.0",
+        "kind": "output"
+      },
+      {
+        "text": "PS C:\\Users\\teacher>",
+        "kind": "prompt"
+      }
+    ],
+    "next": "看到 gh version 就可以開始 gh auth login。下面的網址是版本說明，不必另外點開，也不代表你已經登入。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-win-missing",
+    "os": "windows",
+    "label": "找不到",
+    "title": "這個 PowerShell 視窗還找不到 GitHub CLI",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> gh --version",
+        "kind": "command"
+      },
+      {
+        "text": "gh : The term 'gh' is not recognized as the name of a cmdlet, function, script file, or operable program.",
+        "kind": "error"
+      },
+      {
+        "text": "PS C:\\Users\\teacher>",
+        "kind": "prompt"
+      }
+    ],
+    "next": "如果剛安裝完成，先關閉整個終端機再重新開啟。如果使用課程工具內的終端機，也先完全關閉並重開該工具；仍失敗再檢查安裝是否完成。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。節錄主要錯誤行，省略位置與錯誤分類。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-win-menu-host",
+    "os": "windows",
+    "label": "選哪個",
+    "title": "第一題：選 GitHub.com",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> gh auth login",
+        "kind": "command"
+      },
+      {
+        "text": "? Where do you use GitHub?  [Use arrows to move, type to filter]",
+        "kind": "prompt"
+      },
+      {
+        "text": "> GitHub.com",
+        "kind": "focus"
+      },
+      {
+        "text": "  Other",
+        "kind": "output"
+      }
+    ],
+    "next": "用鍵盤上下方向鍵選 GitHub.com，再按 Enter。不要用滑鼠點終端機裡的選項。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。選項樣式可能因 GitHub CLI 的無障礙設定而顯示為數字選單；選擇 GitHub.com 的原則相同。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-win-menu-protocol",
+    "os": "windows",
+    "label": "選哪個",
+    "title": "第二題：選 HTTPS",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> gh auth login",
+        "kind": "command"
+      },
+      {
+        "text": "? Where do you use GitHub? GitHub.com",
+        "kind": "output"
+      },
+      {
+        "text": "? What is your preferred protocol for Git operations on this host?",
+        "kind": "prompt"
+      },
+      {
+        "text": "> HTTPS",
+        "kind": "focus"
+      },
+      {
+        "text": "  SSH",
+        "kind": "output"
+      }
+    ],
+    "next": "用上下方向鍵選 HTTPS，再按 Enter。如果選到 SSH 而出現金鑰問題，可按 Ctrl+C 結束這次登入，再重新輸入 gh auth login。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。節錄選單，省略部分版本顯示的操作提示。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-win-menu-git",
+    "os": "windows",
+    "label": "回答 Yes",
+    "title": "若有這一題：讓 Git 使用這次的登入資料",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> gh auth login",
+        "kind": "command"
+      },
+      {
+        "text": "? Where do you use GitHub? GitHub.com",
+        "kind": "output"
+      },
+      {
+        "text": "? What is your preferred protocol for Git operations on this host? HTTPS",
+        "kind": "output"
+      },
+      {
+        "text": "? Authenticate Git with your GitHub credentials? (Y/n)",
+        "kind": "focus"
+      }
+    ],
+    "next": "輸入 Y，再按 Enter。若電腦已經設定好，這題可能直接跳過，繼續看下一題即可。若此處顯示找不到 git，先完成 Git 安裝與 git --version 檢查。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-win-menu-method",
+    "os": "windows",
+    "label": "選哪個",
+    "title": "登入方式：選 Login with a web browser",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> gh auth login",
+        "kind": "command"
+      },
+      {
+        "text": "? Where do you use GitHub? GitHub.com",
+        "kind": "output"
+      },
+      {
+        "text": "? What is your preferred protocol for Git operations on this host? HTTPS",
+        "kind": "output"
+      },
+      {
+        "text": "? Authenticate Git with your GitHub credentials? Yes",
+        "kind": "output"
+      },
+      {
+        "text": "? How would you like to authenticate GitHub CLI?",
+        "kind": "prompt"
+      },
+      {
+        "text": "> Login with a web browser",
+        "kind": "focus"
+      },
+      {
+        "text": "  Paste an authentication token",
+        "kind": "output"
+      }
+    ],
+    "next": "選 Login with a web browser，再按 Enter。下一步會在終端機顯示一次性驗證碼。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。節錄選單，省略部分版本顯示的操作提示；前面的 Git 授權題可能因既有設定而跳過。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-win-code",
+    "os": "windows",
+    "label": "等待 Enter",
+    "title": "新版：驗證碼已複製，按 Enter 開啟瀏覽器",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> gh auth login",
+        "kind": "command"
+      },
+      {
+        "text": "! One-time code (AB12-CD34) copied to clipboard",
+        "kind": "focus"
+      },
+      {
+        "text": "Press Enter to open https://github.com/login/device in your browser...",
+        "kind": "prompt"
+      }
+    ],
+    "next": "按 Enter 開啟 GitHub 網頁，確認是自己的帳號，將你自己終端機的代碼貼進網頁，依畫面繼續並授權。不要輸入示意圖的 AB12-CD34；完成後回到終端機等候登入結果。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。節錄代碼階段，省略前面的選單。GitHub CLI 2.101.0 起預設複製代碼；瀏覽器中的登入、二階段驗證及授權頁面依帳號狀況不同。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-win-code-old",
+    "os": "windows",
+    "label": "先複製代碼",
+    "title": "另一種畫面：先複製你自己的代碼，再按 Enter",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> gh auth login",
+        "kind": "command"
+      },
+      {
+        "text": "! First copy your one-time code: AB12-CD34",
+        "kind": "focus"
+      },
+      {
+        "text": "Press Enter to open https://github.com/login/device in your browser...",
+        "kind": "prompt"
+      }
+    ],
+    "next": "先選取並複製你終端機中的一次性代碼，再按 Enter。瀏覽器開啟後，確認帳號並貼上該代碼。如果瀏覽器沒自動開啟，在瀏覽器開啟終端機顯示的 GitHub 網址。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。節錄代碼階段。舊版、停用自動複製或複製失敗時可能顯示此畫面；部分版本的網址提示較短。代碼過期時，重新執行登入，使用新顯示的代碼。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-win-login-ok",
+    "os": "windows",
+    "label": "成功",
+    "title": "回到終端機，確認已完成登入",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> gh auth login",
+        "kind": "command"
+      },
+      {
+        "text": "✓ Authentication complete.",
+        "kind": "success"
+      },
+      {
+        "text": "- gh config set -h github.com git_protocol https",
+        "kind": "output"
+      },
+      {
+        "text": "✓ Configured git protocol",
+        "kind": "success"
+      },
+      {
+        "text": "✓ Logged in as teacher-demo",
+        "kind": "focus"
+      },
+      {
+        "text": "PS C:\\Users\\teacher>",
+        "kind": "prompt"
+      }
+    ],
+    "next": "確認 Logged in as 後面是自己的 GitHub 帳號，接著輸入 gh auth status 做最後確認。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。節錄登入完成階段，省略前面的選單與代碼。中間的 gh config set 是工具顯示的處理紀錄，不是要你再輸入一次的指令。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-win-status-ok",
+    "os": "windows",
+    "label": "成功",
+    "title": "登入狀態正常，且是你要使用的帳號",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> gh auth status",
+        "kind": "command"
+      },
+      {
+        "text": "github.com",
+        "kind": "output"
+      },
+      {
+        "text": "  ✓ Logged in to github.com account teacher-demo (keyring)",
+        "kind": "success"
+      },
+      {
+        "text": "  - Active account: true",
+        "kind": "focus"
+      },
+      {
+        "text": "  - Git operations protocol: https",
+        "kind": "output"
+      },
+      {
+        "text": "PS C:\\Users\\teacher>",
+        "kind": "prompt"
+      }
+    ],
+    "next": "確認帳號是自己的，且 Active account 為 true。這一關就完成了；若有多個帳號，請看目前啟用的那一個。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。節錄主要狀態，省略 Token 與 Token scopes。括號內的儲存位置可能是 keyring 或設定檔路徑，不能要求和示意圖一樣。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-win-status-missing",
+    "os": "windows",
+    "label": "尚未登入",
+    "title": "工具已安裝，但還沒有登入任何 GitHub 帳號",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> gh auth status",
+        "kind": "command"
+      },
+      {
+        "text": "You are not logged into any GitHub hosts. To log in, run: gh auth login",
+        "kind": "error"
+      },
+      {
+        "text": "PS C:\\Users\\teacher>",
+        "kind": "prompt"
+      }
+    ],
+    "next": "輸入 gh auth login，依前面的選單與瀏覽器步驟完成登入，再跑一次 gh auth status。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-win-status-invalid",
+    "os": "windows",
+    "label": "需要重新登入",
+    "title": "曾經登入過，但目前的登入資料無法通過檢查",
+    "lines": [
+      {
+        "text": "PS C:\\Users\\teacher> gh auth status",
+        "kind": "command"
+      },
+      {
+        "text": "github.com",
+        "kind": "output"
+      },
+      {
+        "text": "  X Failed to log in to github.com account teacher-demo (keyring)",
+        "kind": "error"
+      },
+      {
+        "text": "  - Active account: true",
+        "kind": "output"
+      },
+      {
+        "text": "  - The token in keyring is invalid.",
+        "kind": "error"
+      },
+      {
+        "text": "PS C:\\Users\\teacher>",
+        "kind": "prompt"
+      }
+    ],
+    "next": "先確認網路正常。回本教材「登入 GitHub」頁，重新執行 gh auth login，以自己的帳號完成瀏覽器授權，再查 gh auth status。若出現不同問題或帳號選擇，截圖問老師。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。節錄重新驗證指引，省略移除帳號的提示。訊息不能單獨證明密碼過期；若是 Timeout 類訊息，先檢查網路，不必立即重做登入。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-mac-menu-host",
+    "os": "mac",
+    "label": "選哪個",
+    "title": "第一題：選 GitHub.com",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % gh auth login",
+        "kind": "command"
+      },
+      {
+        "text": "? Where do you use GitHub?  [Use arrows to move, type to filter]",
+        "kind": "prompt"
+      },
+      {
+        "text": "> GitHub.com",
+        "kind": "focus"
+      },
+      {
+        "text": "  Other",
+        "kind": "output"
+      }
+    ],
+    "next": "用鍵盤上下方向鍵選 GitHub.com，再按 Enter。不要用滑鼠點終端機裡的選項。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。選項樣式可能因 GitHub CLI 的無障礙設定而顯示為數字選單；選擇 GitHub.com 的原則相同。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-mac-menu-protocol",
+    "os": "mac",
+    "label": "選哪個",
+    "title": "第二題：選 HTTPS",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % gh auth login",
+        "kind": "command"
+      },
+      {
+        "text": "? Where do you use GitHub? GitHub.com",
+        "kind": "output"
+      },
+      {
+        "text": "? What is your preferred protocol for Git operations on this host?",
+        "kind": "prompt"
+      },
+      {
+        "text": "> HTTPS",
+        "kind": "focus"
+      },
+      {
+        "text": "  SSH",
+        "kind": "output"
+      }
+    ],
+    "next": "用上下方向鍵選 HTTPS，再按 Enter。如果選到 SSH 而出現金鑰問題，可按 Ctrl+C 結束這次登入，再重新輸入 gh auth login。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。節錄選單，省略部分版本顯示的操作提示。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-mac-menu-git",
+    "os": "mac",
+    "label": "回答 Yes",
+    "title": "若有這一題：讓 Git 使用這次的登入資料",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % gh auth login",
+        "kind": "command"
+      },
+      {
+        "text": "? Where do you use GitHub? GitHub.com",
+        "kind": "output"
+      },
+      {
+        "text": "? What is your preferred protocol for Git operations on this host? HTTPS",
+        "kind": "output"
+      },
+      {
+        "text": "? Authenticate Git with your GitHub credentials? (Y/n)",
+        "kind": "focus"
+      }
+    ],
+    "next": "輸入 Y，再按 Enter。若電腦已經設定好，這題可能直接跳過，繼續看下一題即可。若此處顯示找不到 git，先完成 Git 安裝與 git --version 檢查。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-mac-menu-method",
+    "os": "mac",
+    "label": "選哪個",
+    "title": "登入方式：選 Login with a web browser",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % gh auth login",
+        "kind": "command"
+      },
+      {
+        "text": "? Where do you use GitHub? GitHub.com",
+        "kind": "output"
+      },
+      {
+        "text": "? What is your preferred protocol for Git operations on this host? HTTPS",
+        "kind": "output"
+      },
+      {
+        "text": "? Authenticate Git with your GitHub credentials? Yes",
+        "kind": "output"
+      },
+      {
+        "text": "? How would you like to authenticate GitHub CLI?",
+        "kind": "prompt"
+      },
+      {
+        "text": "> Login with a web browser",
+        "kind": "focus"
+      },
+      {
+        "text": "  Paste an authentication token",
+        "kind": "output"
+      }
+    ],
+    "next": "選 Login with a web browser，再按 Enter。下一步會在終端機顯示一次性驗證碼。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。節錄選單，省略部分版本顯示的操作提示；前面的 Git 授權題可能因既有設定而跳過。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-mac-code",
+    "os": "mac",
+    "label": "等待 Enter",
+    "title": "新版：驗證碼已複製，按 Enter 開啟瀏覽器",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % gh auth login",
+        "kind": "command"
+      },
+      {
+        "text": "! One-time code (AB12-CD34) copied to clipboard",
+        "kind": "focus"
+      },
+      {
+        "text": "Press Enter to open https://github.com/login/device in your browser...",
+        "kind": "prompt"
+      }
+    ],
+    "next": "按 Enter 開啟 GitHub 網頁，確認是自己的帳號，將你自己終端機的代碼貼進網頁，依畫面繼續並授權。不要輸入示意圖的 AB12-CD34；完成後回到終端機等候登入結果。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。節錄代碼階段，省略前面的選單。GitHub CLI 2.101.0 起預設複製代碼；瀏覽器中的登入、二階段驗證及授權頁面依帳號狀況不同。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-mac-code-old",
+    "os": "mac",
+    "label": "先複製代碼",
+    "title": "另一種畫面：先複製你自己的代碼，再按 Enter",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % gh auth login",
+        "kind": "command"
+      },
+      {
+        "text": "! First copy your one-time code: AB12-CD34",
+        "kind": "focus"
+      },
+      {
+        "text": "Press Enter to open https://github.com/login/device in your browser...",
+        "kind": "prompt"
+      }
+    ],
+    "next": "先選取並複製你終端機中的一次性代碼，再按 Enter。瀏覽器開啟後，確認帳號並貼上該代碼。如果瀏覽器沒自動開啟，在瀏覽器開啟終端機顯示的 GitHub 網址。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。節錄代碼階段。舊版、停用自動複製或複製失敗時可能顯示此畫面；部分版本的網址提示較短。代碼過期時，重新執行登入，使用新顯示的代碼。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-mac-login-ok",
+    "os": "mac",
+    "label": "成功",
+    "title": "回到終端機，確認已完成登入",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % gh auth login",
+        "kind": "command"
+      },
+      {
+        "text": "✓ Authentication complete.",
+        "kind": "success"
+      },
+      {
+        "text": "- gh config set -h github.com git_protocol https",
+        "kind": "output"
+      },
+      {
+        "text": "✓ Configured git protocol",
+        "kind": "success"
+      },
+      {
+        "text": "✓ Logged in as teacher-demo",
+        "kind": "focus"
+      },
+      {
+        "text": "teacher@Mac ~ %",
+        "kind": "prompt"
+      }
+    ],
+    "next": "確認 Logged in as 後面是自己的 GitHub 帳號，接著輸入 gh auth status 做最後確認。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。節錄登入完成階段，省略前面的選單與代碼。中間的 gh config set 是工具顯示的處理紀錄，不是要你再輸入一次的指令。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-mac-status-ok",
+    "os": "mac",
+    "label": "成功",
+    "title": "登入狀態正常，且是你要使用的帳號",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % gh auth status",
+        "kind": "command"
+      },
+      {
+        "text": "github.com",
+        "kind": "output"
+      },
+      {
+        "text": "  ✓ Logged in to github.com account teacher-demo (keyring)",
+        "kind": "success"
+      },
+      {
+        "text": "  - Active account: true",
+        "kind": "focus"
+      },
+      {
+        "text": "  - Git operations protocol: https",
+        "kind": "output"
+      },
+      {
+        "text": "teacher@Mac ~ %",
+        "kind": "prompt"
+      }
+    ],
+    "next": "確認帳號是自己的，且 Active account 為 true。這一關就完成了；若有多個帳號，請看目前啟用的那一個。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。節錄主要狀態，省略 Token 與 Token scopes。括號內的儲存位置可能是 keyring 或設定檔路徑，不能要求和示意圖一樣。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-mac-status-missing",
+    "os": "mac",
+    "label": "尚未登入",
+    "title": "工具已安裝，但還沒有登入任何 GitHub 帳號",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % gh auth status",
+        "kind": "command"
+      },
+      {
+        "text": "You are not logged into any GitHub hosts. To log in, run: gh auth login",
+        "kind": "error"
+      },
+      {
+        "text": "teacher@Mac ~ %",
+        "kind": "prompt"
+      }
+    ],
+    "next": "輸入 gh auth login，依前面的選單與瀏覽器步驟完成登入，再跑一次 gh auth status。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-mac-status-invalid",
+    "os": "mac",
+    "label": "需要重新登入",
+    "title": "曾經登入過，但目前的登入資料無法通過檢查",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % gh auth status",
+        "kind": "command"
+      },
+      {
+        "text": "github.com",
+        "kind": "output"
+      },
+      {
+        "text": "  X Failed to log in to github.com account teacher-demo (keyring)",
+        "kind": "error"
+      },
+      {
+        "text": "  - Active account: true",
+        "kind": "output"
+      },
+      {
+        "text": "  - The token in keyring is invalid.",
+        "kind": "error"
+      },
+      {
+        "text": "teacher@Mac ~ %",
+        "kind": "prompt"
+      }
+    ],
+    "next": "先確認網路正常。回本教材「登入 GitHub」頁，重新執行 gh auth login，以自己的帳號完成瀏覽器授權，再查 gh auth status。若出現不同問題或帳號選擇，截圖問老師。",
+    "note": "畫面示意；帳號、路徑、版本號與代碼均為範例。英文或中文訊息、符號及版面可能因版本而不同。節錄重新驗證指引，省略移除帳號的提示。訊息不能單獨證明密碼過期；若是 Timeout 類訊息，先檢查網路，不必立即重做登入。",
+    "excerpt": true
+  },
+  {
+    "id": "git-mac-ok",
+    "os": "mac",
+    "label": "檢查成功",
+    "title": "看到 Git 版本號就完成",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % git --version",
+        "kind": "command"
+      },
+      {
+        "text": "git version 2.39.5 (Apple Git-154)",
+        "kind": "success"
+      },
+      {
+        "text": "teacher@Mac ~ % ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "Git 已可以使用，繼續下一步。版本數字、Apple Git 編號可以不同；不用再安裝一份。",
+    "excerpt": true
+  },
+  {
+    "id": "git-mac-missing",
+    "os": "mac",
+    "label": "需要安裝・節錄",
+    "title": "Mac 提醒你安裝命令列工具",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % git --version",
+        "kind": "command"
+      },
+      {
+        "text": "xcode-select: note: No developer tools were found, requesting install.",
+        "kind": "focus"
+      },
+      {
+        "text": "teacher@Mac ~ % ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "留意另外跳出的 Apple 安裝視窗，按「安裝」並同意授權；完成前先不要做下一步。沒看到視窗，再執行 xcode-select --install。",
+    "excerpt": true
+  },
+  {
+    "id": "git-mac-broken",
+    "os": "mac",
+    "label": "工具路徑失效・節錄",
+    "title": "有錯誤，先別把它當成功",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % git --version",
+        "kind": "command"
+      },
+      {
+        "text": "xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun",
+        "kind": "error"
+      },
+      {
+        "text": "teacher@Mac ~ % ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "先執行 xcode-select --install；若說已安裝，檢查系統「軟體更新」。仍失敗就附 macOS 版本與完整錯誤到群組，不要刪系統開發工具資料夾。",
+    "excerpt": true
+  },
+  {
+    "id": "xcode-install",
+    "os": "mac",
+    "label": "已提出要求",
+    "title": "還要完成 Apple 的安裝視窗",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % xcode-select --install",
+        "kind": "command"
+      },
+      {
+        "text": "xcode-select: note: install requested for command line developer tools",
+        "kind": "focus"
+      },
+      {
+        "text": "teacher@Mac ~ % ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "這行只代表已提出安裝要求，不是安裝完成。到跳出的系統視窗按「安裝」、同意授權並等待完成，再輸入 git --version。",
+    "excerpt": true
+  },
+  {
+    "id": "xcode-existing",
+    "os": "mac",
+    "label": "已經有工具",
+    "title": "已安裝，不必反覆重跑",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % xcode-select --install",
+        "kind": "command"
+      },
+      {
+        "text": "xcode-select: error: command line tools are already installed, use \"Software Update\" in System Settings to install updates",
+        "kind": "focus"
+      },
+      {
+        "text": "teacher@Mac ~ % ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "先輸入 git --version。有版本號就完成；仍出錯再檢查「系統設定 → 一般 → 軟體更新」。不同 macOS 的文字可能略有差異。",
+    "excerpt": true
+  },
+  {
+    "id": "brew-version",
+    "os": "mac",
+    "label": "檢查成功",
+    "title": "Homebrew 後面有版本數字",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % brew --version",
+        "kind": "command"
+      },
+      {
+        "text": "Homebrew 7.0.0",
+        "kind": "success"
+      },
+      {
+        "text": "teacher@Mac ~ % ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "Homebrew 指令已可使用，可以繼續安裝 gh。版本可以不同，不必剛好是圖中的 7.0.0。",
+    "excerpt": true
+  },
+  {
+    "id": "brew-missing",
+    "os": "mac",
+    "label": "找不到指令",
+    "title": "找不到 brew，不一定是沒裝",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % brew --version",
+        "kind": "command"
+      },
+      {
+        "text": "zsh: command not found: brew",
+        "kind": "error"
+      },
+      {
+        "text": "teacher@Mac ~ % ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "第一次使用者依教材安裝 Homebrew；剛安裝過的人先補做自己畫面的 Next steps，再重新開啟終端機檢查。",
+    "excerpt": true
+  },
+  {
+    "id": "brew-password",
+    "os": "mac",
+    "label": "等待密碼・節錄",
+    "title": "打密碼時，看不到字是正常的",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"",
+        "kind": "command"
+      },
+      {
+        "text": "==> Checking for `sudo` access (which may request your password)...",
+        "kind": "output"
+      },
+      {
+        "text": "Password:",
+        "kind": "focus"
+      }
+    ],
+    "next": "輸入自己的 Mac 管理員帳號密碼，再按 Return。畫面不會顯示字或星號，游標可能不動；這時不要把下一段指令貼進來。",
+    "excerpt": true
+  },
+  {
+    "id": "brew-confirm",
+    "os": "mac",
+    "label": "等待確認・節錄",
+    "title": "看到這一行，再按 Return",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"",
+        "kind": "command"
+      },
+      {
+        "text": "...",
+        "kind": "muted"
+      },
+      {
+        "text": "Press RETURN/ENTER to continue or any other key to abort:",
+        "kind": "focus"
+      }
+    ],
+    "next": "想繼續安裝就按一次 Return。這時正在等你確認，還不是下載中；按其他鍵會中止。",
+    "excerpt": true
+  },
+  {
+    "id": "brew-downloading",
+    "os": "mac",
+    "label": "正在下載・節錄",
+    "title": "正在安裝，先耐心等待",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"",
+        "kind": "command"
+      },
+      {
+        "text": "...",
+        "kind": "muted"
+      },
+      {
+        "text": "==> Downloading and installing Homebrew...",
+        "kind": "focus"
+      },
+      {
+        "text": "remote: Enumerating objects: 12000, done.",
+        "kind": "output"
+      },
+      {
+        "text": "remote: Counting objects: 100% (12000/12000), done.",
+        "kind": "output"
+      },
+      {
+        "text": "Receiving objects:  42% (5040/12000)",
+        "kind": "output"
+      }
+    ],
+    "next": "下載數字與進度依電腦不同；還沒回到可輸入的位置時先等，不要貼下一段。若畫面要求密碼或 Return，就先完成該要求。",
+    "excerpt": true
+  },
+  {
+    "id": "brew-installed",
+    "os": "mac",
+    "label": "腳本完成・節錄",
+    "title": "看到成功，再做 Next steps",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"",
+        "kind": "command"
+      },
+      {
+        "text": "...",
+        "kind": "muted"
+      },
+      {
+        "text": "==> Installation successful!",
+        "kind": "success"
+      },
+      {
+        "text": "...",
+        "kind": "muted"
+      },
+      {
+        "text": "==> Next steps:",
+        "kind": "focus"
+      },
+      {
+        "text": "- Run these commands in your terminal to add Homebrew to your PATH:",
+        "kind": "output"
+      },
+      {
+        "text": "    echo >> /Users/teacher/.zprofile",
+        "kind": "output"
+      },
+      {
+        "text": "    echo 'eval \"$(/opt/homebrew/bin/brew shellenv zsh)\"' >> /Users/teacher/.zprofile",
+        "kind": "output"
+      },
+      {
+        "text": "    eval \"$(/opt/homebrew/bin/brew shellenv zsh)\"",
+        "kind": "output"
+      },
+      {
+        "text": "teacher@Mac ~ % ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "向上看本人畫面的 Next steps，照列出的完整指令設定 PATH；再輸入 brew --version，看到版本號才打勾。",
+    "excerpt": true
+  },
+  {
+    "id": "brew-failed",
+    "os": "mac",
+    "label": "下載失敗・節錄",
+    "title": "出現錯誤，不是安裝完成",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"",
+        "kind": "command"
+      },
+      {
+        "text": "curl: (6) Could not resolve host: raw.githubusercontent.com",
+        "kind": "error"
+      },
+      {
+        "text": "teacher@Mac ~ % ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "檢查網路是否正常、是否被組織網路阻擋；確認後重試。回到提示符只代表這次指令結束，不代表安裝成功。",
+    "excerpt": true
+  },
+  {
+    "id": "brew-unsupported",
+    "os": "mac",
+    "label": "不支援這個新裝環境",
+    "title": "Intel Mac 不照 Apple Silicon 新裝",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"",
+        "kind": "command"
+      },
+      {
+        "text": "Homebrew on macOS is only supported on Apple Silicon processors!",
+        "kind": "error"
+      },
+      {
+        "text": "teacher@Mac ~ % ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "目前官方新安裝腳本不接受這個環境。先到「關於這台 Mac」查看晶片；Intel Mac 請附系統版本到群組安排，勿反覆重跑或硬改安裝腳本。",
+    "excerpt": true
+  },
+  {
+    "id": "brew-shellenv-arm",
+    "os": "mac",
+    "label": "設定後沒有輸出也正常",
+    "title": "Apple Silicon：三行設定後回到提示符",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % echo >> ~/.zprofile",
+        "kind": "command"
+      },
+      {
+        "text": "teacher@Mac ~ % echo 'eval \"$(/opt/homebrew/bin/brew shellenv zsh)\"' >> ~/.zprofile",
+        "kind": "command"
+      },
+      {
+        "text": "teacher@Mac ~ % eval \"$(/opt/homebrew/bin/brew shellenv zsh)\"",
+        "kind": "command"
+      },
+      {
+        "text": "teacher@Mac ~ % ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "三行設定正常時通常沒有文字回覆；接著輸入 brew --version 確認。這是 zsh 範例，請優先照本人安裝畫面的 Next steps，不要兩種路徑都貼。",
+    "excerpt": true
+  },
+  {
+    "id": "brew-shellenv-intel",
+    "os": "mac",
+    "label": "設定後沒有輸出也正常",
+    "title": "既有 Intel Homebrew：三行設定後回到提示符",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % echo >> ~/.zprofile",
+        "kind": "command"
+      },
+      {
+        "text": "teacher@Mac ~ % echo 'eval \"$(/usr/local/bin/brew shellenv zsh)\"' >> ~/.zprofile",
+        "kind": "command"
+      },
+      {
+        "text": "teacher@Mac ~ % eval \"$(/usr/local/bin/brew shellenv zsh)\"",
+        "kind": "command"
+      },
+      {
+        "text": "teacher@Mac ~ % ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "此圖僅供已安裝在 /usr/local 的 Intel Homebrew 使用，不是 Intel 新裝承諾。三行設定正常時通常沒有文字回覆；接著輸入 brew --version 確認。這是 zsh 範例，請優先照本人安裝畫面的 Next steps，不要兩種路徑都貼。",
+    "excerpt": true
+  },
+  {
+    "id": "brew-shellenv-missing",
+    "os": "mac",
+    "label": "路徑不存在",
+    "title": "這個位置找不到 Homebrew",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % eval \"$(/opt/homebrew/bin/brew shellenv zsh)\"",
+        "kind": "command"
+      },
+      {
+        "text": "zsh: no such file or directory: /opt/homebrew/bin/brew",
+        "kind": "error"
+      },
+      {
+        "text": "teacher@Mac ~ % ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "先確認 Homebrew 安裝有沒有完成，再核對本人 Next steps 的路徑。不要把 /opt/homebrew 與 /usr/local 兩套都反覆貼上。",
+    "excerpt": true
+  },
+  {
+    "id": "brew-gh-installing",
+    "os": "mac",
+    "label": "正在安裝・節錄",
+    "title": "gh 正在下載與解壓縮",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % brew install gh",
+        "kind": "command"
+      },
+      {
+        "text": "...",
+        "kind": "muted"
+      },
+      {
+        "text": "==> Pouring gh--2.101.0.arm64_sequoia.bottle.tar.gz",
+        "kind": "focus"
+      }
+    ],
+    "next": "Pouring 表示正在解壓安裝，還不是完成。先等到指令結束，再輸入 gh --version 確认；檔名、系統代號與版本會不同。",
+    "excerpt": true
+  },
+  {
+    "id": "brew-gh-installed",
+    "os": "mac",
+    "label": "安裝摘要・節錄",
+    "title": "裝完 gh，還要查一次版本",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % brew install gh",
+        "kind": "command"
+      },
+      {
+        "text": "...",
+        "kind": "muted"
+      },
+      {
+        "text": "/opt/homebrew/Cellar/gh/2.101.0: ... files, ...MB",
+        "kind": "success"
+      },
+      {
+        "text": "teacher@Mac ~ % ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "這是安裝摘要示意，檔案數與容量已省略。現在輸入 gh --version，看到 gh version 和版本數字再繼續登入。",
+    "excerpt": true
+  },
+  {
+    "id": "brew-gh-existing",
+    "os": "mac",
+    "label": "已經安裝",
+    "title": "已經有 gh，不必重新安裝",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % brew install gh",
+        "kind": "command"
+      },
+      {
+        "text": "Warning: gh 2.101.0 is already installed and up-to-date.",
+        "kind": "focus"
+      },
+      {
+        "text": "...",
+        "kind": "muted"
+      },
+      {
+        "text": "teacher@Mac ~ % ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "這不是需要重裝的錯誤。直接輸入 gh --version 驗證；有版本號就繼續 gh 登入步驟。",
+    "excerpt": true
+  },
+  {
+    "id": "brew-gh-failed",
+    "os": "mac",
+    "label": "下載失敗・節錄",
+    "title": "gh 下載沒有完成",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % brew install gh",
+        "kind": "command"
+      },
+      {
+        "text": "...",
+        "kind": "muted"
+      },
+      {
+        "text": "curl: (6) Could not resolve host: ghcr.io",
+        "kind": "error"
+      },
+      {
+        "text": "Error: gh: Failed to download resource \"gh\"",
+        "kind": "error"
+      },
+      {
+        "text": "teacher@Mac ~ % ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "先檢查網路與組織限制，保留完整錯誤；網路恢復後再試 brew install gh。不要因為看到提示符就判定安裝成功。",
+    "excerpt": true
+  },
+  {
+    "id": "brew-git-installed",
+    "os": "mac",
+    "label": "安裝摘要・節錄",
+    "title": "Homebrew 裝完 Git 的樣子",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % brew install git",
+        "kind": "command"
+      },
+      {
+        "text": "...",
+        "kind": "muted"
+      },
+      {
+        "text": "/opt/homebrew/Cellar/git/2.55.0: ... files, ...MB",
+        "kind": "success"
+      },
+      {
+        "text": "teacher@Mac ~ % ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "檔案數與容量已省略，版本數字也可能不同。最後 git --version 有版本號就可使用；原本 Apple Git 正常的人不用為了版本不同再裝一份。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-mac-version",
+    "os": "mac",
+    "label": "檢查成功",
+    "title": "看到 gh version 就能做登入",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % gh --version",
+        "kind": "command"
+      },
+      {
+        "text": "gh version 2.101.0 (2026-09-15)",
+        "kind": "success"
+      },
+      {
+        "text": "https://github.com/cli/cli/releases/tag/v2.101.0",
+        "kind": "output"
+      },
+      {
+        "text": "teacher@Mac ~ % ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "gh 已可使用，繼續下一頁的 gh auth login。版本與日期可以不同；這一步只檢查安裝，還沒完成 GitHub 登入。",
+    "excerpt": true
+  },
+  {
+    "id": "gh-mac-missing",
+    "os": "mac",
+    "label": "找不到指令",
+    "title": "找不到 gh，先查安裝與 PATH",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % gh --version",
+        "kind": "command"
+      },
+      {
+        "text": "zsh: command not found: gh",
+        "kind": "error"
+      },
+      {
+        "text": "teacher@Mac ~ % ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "先查 brew --version。brew 也找不到就回 Homebrew／Next steps；brew 正常則執行 brew install gh，等完成後重新檢查。",
+    "excerpt": true
+  },
+  {
+    "id": "brew-git-installing",
+    "os": "mac",
+    "label": "正在安裝・節錄",
+    "title": "git 正在下載與解壓縮",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % brew install git",
+        "kind": "command"
+      },
+      {
+        "text": "...",
+        "kind": "muted"
+      },
+      {
+        "text": "==> Pouring git--2.55.0.arm64_sequoia.bottle.tar.gz",
+        "kind": "focus"
+      }
+    ],
+    "next": "Pouring 表示正在解壓安裝，還不是完成。先等到指令結束，再輸入 git --version 確认；檔名、系統代號與版本會不同。",
+    "excerpt": true
+  },
+  {
+    "id": "brew-git-existing",
+    "os": "mac",
+    "label": "已經安裝",
+    "title": "已經有 git，不必重新安裝",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % brew install git",
+        "kind": "command"
+      },
+      {
+        "text": "Warning: git 2.55.0 is already installed and up-to-date.",
+        "kind": "focus"
+      },
+      {
+        "text": "...",
+        "kind": "muted"
+      },
+      {
+        "text": "teacher@Mac ~ % ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "直接輸入 git --version 驗證。有版本號即完成 Git 檢查；接著進入下一個 gh／GitHub 登入任務。",
+    "excerpt": true
+  },
+  {
+    "id": "brew-git-failed",
+    "os": "mac",
+    "label": "下載失敗・節錄",
+    "title": "git 下載沒有完成",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % brew install git",
+        "kind": "command"
+      },
+      {
+        "text": "...",
+        "kind": "muted"
+      },
+      {
+        "text": "curl: (6) Could not resolve host: ghcr.io",
+        "kind": "error"
+      },
+      {
+        "text": "Error: git: Failed to download resource \"git\"",
+        "kind": "error"
+      },
+      {
+        "text": "teacher@Mac ~ % ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "先檢查網路與組織限制，保留完整錯誤；網路恢復後再試 brew install git。不要因為看到提示符就判定安裝成功。",
+    "excerpt": true
+  },
+  {
+    "id": "brew-shellenv-intel-missing",
+    "os": "mac",
+    "label": "路徑不存在",
+    "title": "既有 Intel 路徑找不到 Homebrew",
+    "lines": [
+      {
+        "text": "teacher@Mac ~ % eval \"$(/usr/local/bin/brew shellenv zsh)\"",
+        "kind": "command"
+      },
+      {
+        "text": "zsh: no such file or directory: /usr/local/bin/brew",
+        "kind": "error"
+      },
+      {
+        "text": "teacher@Mac ~ % ",
+        "kind": "prompt"
+      }
+    ],
+    "next": "先確認 Homebrew 安裝有沒有完成，再核對本人 Next steps 的路徑。不要把 /opt/homebrew 與 /usr/local 兩套都反覆貼上。",
+    "excerpt": true
+  }
+]

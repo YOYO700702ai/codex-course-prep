@@ -119,6 +119,38 @@
   :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
   @media(max-width:640px){.slide{padding:64px 6vw 32px}.option-list .card{padding:1em}.troubleshooting details{padding:.9em 1em}}
   @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+  /* Terminal picture guides: each command has a local, selectable output example. */
+  .step>div:last-child{min-width:0;flex:1}
+  .cmd{white-space:pre-wrap;font:clamp(15px,1.3vw,19px)/1.7 'Cascadia Mono',Consolas,ui-monospace,monospace;overflow-wrap:anywhere}
+  .num{width:38px;min-width:38px}
+  .terminal-welcome{display:grid;grid-template-columns:minmax(260px,.8fr) 1.2fr;align-items:center;gap:24px}
+  .terminal-welcome img{width:100%;height:auto;border-radius:16px}
+  .terminal-gallery{border:1px solid #52677e;border-radius:14px;padding:18px;margin:18px 0 28px;background:#162237;max-width:960px}
+  .gallery-hint{font-size:16px;margin:0 0 12px;line-height:1.6;color:#d6e2f0}
+  .gallery-hint small{font-size:14px;color:#bdcadd}
+  .scene-choices{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+  .scene-choice{font:inherit;font-size:15px;min-height:44px;border:1px solid #7890ac;border-radius:8px;background:#0f172a;color:#d9e6f4;padding:8px 12px;cursor:pointer}
+  .scene-choice[aria-pressed="true"]{background:#ffe0a1;color:#172237;border-color:#ffe0a1;font-weight:700}
+  .terminal-figure{margin:0}.terminal-figure[hidden]{display:none}
+  .terminal-figure figcaption{font-size:18px;line-height:1.5;margin-bottom:10px;color:#f8e6bc}
+  .figure-zoom{display:block;position:relative;width:100%;padding:0;border:0;border-radius:12px;background:#111;color:inherit;cursor:zoom-in;text-align:left}
+  .figure-zoom img{display:block;width:100%;height:auto;border-radius:12px}.figure-zoom span{display:block;padding:8px 12px;background:#2e3f56;font:14px 'Microsoft JhengHei',sans-serif;border-radius:0 0 10px 10px;text-align:right}
+  .figure-next{border-left:4px solid #38bdf8;padding:10px 14px;font-size:clamp(16px,1.5vw,20px);margin:14px 0 8px!important;color:#eaf2fc}
+  .figure-transcript{margin:12px 0 0!important;padding:0!important;border:0!important;background:none!important}
+  .figure-transcript summary,.path-extra>summary{cursor:pointer;line-height:1.6;font-size:16px!important;min-height:44px;padding:8px 0}
+  .figure-transcript pre{font:15px/1.7 ui-monospace,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;background:#0b1220;padding:14px;border-radius:8px;color:#dce9fb}
+  .path-extra{padding:12px 18px;border:1px solid #475569;border-radius:12px}
+  #figure-dialog{padding:18px;border:1px solid #9bb4cc;border-radius:14px;background:#142239;color:#f5f8fc;width:min(1120px,96vw);max-height:94vh}
+  #figure-dialog::backdrop{background:rgba(0,0,0,.8)}
+  .dialog-controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;position:sticky;top:-18px;background:#142239;padding:6px 0 14px;z-index:1}
+  .dialog-controls button{font:inherit;min-height:44px;padding:8px 14px;border:1px solid #7e9ab8;border-radius:8px;background:#253b56;color:white;cursor:pointer}
+  #dialog-title{font-size:18px;flex:1;min-width:140px;margin:0}
+  .dialog-image-wrap{overflow:auto;max-height:64vh;background:#111;border-radius:10px}
+  #dialog-image{display:block;width:100%;height:auto}.dialog-image-wrap.actual #dialog-image{width:820px;max-width:none}
+  #dialog-next{font-size:17px;line-height:1.7}
+  @media(max-width:640px){.terminal-welcome{grid-template-columns:1fr}.terminal-welcome img{max-width:480px}.terminal-gallery{padding:10px;margin:16px 0 24px}.step:has(.terminal-gallery){display:block}.step:has(.terminal-gallery)>.num{margin:12px 0}.scene-choices{gap:6px}.scene-choice{font-size:14px;padding:7px 9px}.figure-next{padding:8px 10px}.terminal-figure figcaption{font-size:17px}.gallery-hint{font-size:15px}.dialog-image-wrap.actual #dialog-image{width:540px}}
+
 </style>
 </head>
 <body>
@@ -249,7 +281,15 @@
     </div>
   </section>
 
-  <section class="slide" id="git-intro">
+  <section class="slide" id="terminal-first-look"><span class="tag">課前操作圖解</span><h2>第一次看終端機，先認識這個畫面</h2>
+<p>終端機就是一個「用文字告訴電腦要做什麼」的視窗。<b>這份教材每段都附終端機輸出對照圖，你只要複製、貼上、按 Enter，再對照回應。</b></p><p>Windows 搜尋 <b>PowerShell</b>；Mac 用 ⌘＋空白鍵搜尋<b>終端機</b>。黑底、藍底或白底都可能，不用調成跟圖一樣。</p>
+<div class="terminal-gallery" data-gallery="terminal-gallery-22"><p class="gallery-hint">執行後，選和你相近的畫面；不用把每種狀況都做出來。安裝／登入可依序看圖。<br><small>以下皆為輸出對照示意；版本、帳號、語言、配色可能不同，部分長輸出已節錄。</small></p><div class="scene-choices" role="group" aria-label="可能出現的畫面"><button type="button" class="scene-choice" aria-pressed="true" aria-controls="terminal-gallery-22-0" data-scene="0">Windows 剛開啟</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-22-1" data-scene="1">Mac 剛開啟</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-22-2" data-scene="2">Windows 已貼上</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-22-3" data-scene="3">Mac 已貼上</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-22-4" data-scene="4">Windows 等待補字</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-22-5" data-scene="5">Mac 等待補字</button></div><figure id="terminal-gallery-22-0" class="terminal-figure"  data-scene-id="win-empty"><figcaption><b>看到這樣，代表視窗正在等你輸入</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：看到這樣，代表視窗正在等你輸入"><picture><source media="(max-width:640px)" srcset="assets/terminal/win-empty-mobile.png"><img src="assets/terminal/win-empty-wide.png" alt="看到這樣，代表視窗正在等你輸入。前面的名稱與符號是電腦自己顯示的，不用刪除、不用照打。在最後面的游標位置貼上指令。" loading="lazy" decoding="async" data-wide="assets/terminal/win-empty-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>前面的名稱與符號是電腦自己顯示的，不用刪除、不用照打。在最後面的游標位置貼上指令。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; </pre></details></figure><figure id="terminal-gallery-22-1" class="terminal-figure" hidden data-scene-id="mac-empty"><figcaption><b>看到這樣，代表視窗正在等你輸入</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：看到這樣，代表視窗正在等你輸入"><picture><source media="(max-width:640px)" srcset="assets/terminal/mac-empty-mobile.png"><img src="assets/terminal/mac-empty-wide.png" alt="看到這樣，代表視窗正在等你輸入。前面的名稱與符號是電腦自己顯示的，不用刪除、不用照打。在最後面的游標位置貼上指令。" loading="lazy" decoding="async" data-wide="assets/terminal/mac-empty-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>前面的名稱與符號是電腦自己顯示的，不用刪除、不用照打。在最後面的游標位置貼上指令。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % </pre></details></figure><figure id="terminal-gallery-22-2" class="terminal-figure" hidden data-scene-id="win-pasted"><figcaption><b>文字出現後，還要按 Enter／Return</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：文字出現後，還要按 Enter／Return"><picture><source media="(max-width:640px)" srcset="assets/terminal/win-pasted-mobile.png"><img src="assets/terminal/win-pasted-wide.png" alt="文字出現後，還要按 Enter／Return。按一次 Enter（Mac 叫 Return）。「複製」按鈕只把文字放到剪貼簿，不會替你執行。" loading="lazy" decoding="async" data-wide="assets/terminal/win-pasted-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>按一次 Enter（Mac 叫 Return）。「複製」按鈕只把文字放到剪貼簿，不會替你執行。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; git --version</pre></details></figure><figure id="terminal-gallery-22-3" class="terminal-figure" hidden data-scene-id="mac-pasted"><figcaption><b>文字出現後，還要按 Enter／Return</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：文字出現後，還要按 Enter／Return"><picture><source media="(max-width:640px)" srcset="assets/terminal/mac-pasted-mobile.png"><img src="assets/terminal/mac-pasted-wide.png" alt="文字出現後，還要按 Enter／Return。按一次 Enter（Mac 叫 Return）。「複製」按鈕只把文字放到剪貼簿，不會替你執行。" loading="lazy" decoding="async" data-wide="assets/terminal/mac-pasted-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>按一次 Enter（Mac 叫 Return）。「複製」按鈕只把文字放到剪貼簿，不會替你執行。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % git --version</pre></details></figure><figure id="terminal-gallery-22-4" class="terminal-figure" hidden data-scene-id="win-unfinished"><figcaption><b>引號不成對，電腦還在等後半段</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：引號不成對，電腦還在等後半段"><picture><source media="(max-width:640px)" srcset="assets/terminal/win-unfinished-mobile.png"><img src="assets/terminal/win-unfinished-wide.png" alt="引號不成對，電腦還在等後半段。按 Ctrl＋C 取消這次尚未完成的輸入，回到原來提示字元，再從教材完整複製一次。這是鍵盤快捷鍵，不用打 Ctrl+C 這串文字。" loading="lazy" decoding="async" data-wide="assets/terminal/win-unfinished-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>按 Ctrl＋C 取消這次尚未完成的輸入，回到原來提示字元，再從教材完整複製一次。這是鍵盤快捷鍵，不用打 Ctrl+C 這串文字。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; git --version &quot;
+&gt;&gt; </pre></details></figure><figure id="terminal-gallery-22-5" class="terminal-figure" hidden data-scene-id="mac-unfinished"><figcaption><b>引號不成對，電腦還在等後半段</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：引號不成對，電腦還在等後半段"><picture><source media="(max-width:640px)" srcset="assets/terminal/mac-unfinished-mobile.png"><img src="assets/terminal/mac-unfinished-wide.png" alt="引號不成對，電腦還在等後半段。按 Ctrl＋C 取消這次尚未完成的輸入，回到原來提示字元，再從教材完整複製一次。這是鍵盤快捷鍵，不用打 Ctrl+C 這串文字。" loading="lazy" decoding="async" data-wide="assets/terminal/mac-unfinished-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>按 Ctrl＋C 取消這次尚未完成的輸入，回到原來提示字元，再從教材完整複製一次。這是鍵盤快捷鍵，不用打 Ctrl+C 這串文字。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % git --version &quot;
+dquote&gt; </pre></details></figure></div>
+<div class="card"><p><b>只複製黃色指令框。</b>圖中的路徑、提示字元、回應文字不用打。Windows 用 Ctrl＋V 貼上，Mac 用 ⌘＋V，再按 Enter／Return。</p><p>看到一大串英文先不用全懂，找圖說指出的關鍵字。每張圖可<b>點一下放大</b>，也有可閱讀的文字版。</p></div>
+<a class="jumpbtn" href="#git-intro" onclick="show('git-intro');return false;">認識畫面了 → 開始安裝 Git</a>
+</section>
+<section class="slide" id="git-intro">
     <span class="tag">任務 ④ · 安裝 Git</span>
     <h2>先裝好 Git，上課再學存版本</h2>
     <p>Git 會記錄你存下的修改版本，方便比較前後差異、回到先前的內容。<b>課前請照本教材自己安裝、自己檢查，不需要先會使用 AI。</b></p>
@@ -258,6 +298,7 @@
       <p style="margin:.2em 0"><b>Git</b>：在電腦裡記錄作品版本。<b>GitHub</b>：線上存放與分享作品。<b>gh</b>：操作 GitHub 的指令工具；下一個任務才安裝。</p>
       <p class="muted" style="margin:.3em 0">這次先把工具準備好。作者姓名／信箱設定、建立版本紀錄（commit）與回復舊版，留到課堂跟老師一起做；安裝 Git 本身不會自動備份作品。</p>
     </div>
+    <p><a class="jumpbtn" href="#terminal-first-look" onclick="show('terminal-first-look');return false;">第一次用終端機？先看畫面導覽</a></p>
     <div class="pathbtns">
       <a class="pathbtn" href="#git-windows" onclick="show('git-windows');return false;"><b>Windows 安裝</b><span class="muted">下載 .exe → 選關鍵設定 → 驗證</span></a>
       <a class="pathbtn" href="#git-mac" onclick="show('git-mac');return false;"><b>Mac 安裝</b><span class="muted">安裝 Apple 命令列工具 → 驗證</span></a>
@@ -293,10 +334,18 @@
     <span class="tag">任務 ④ · Windows · 3 / 3</span>
     <h2>驗證安裝；卡在哪裡就展開哪題</h2>
     <p><b>先完全關閉舊 PowerShell／Windows Terminal。</b>再按 Windows 開始按鈕，搜尋「PowerShell」並開啟；點下方「複製」，到 PowerShell 按 <kbd>Ctrl</kbd>＋<kbd>V</kbd> 貼上，再按 <kbd>Enter</kbd>：</p>
-    <code class="cmd">git --version</code>
+    <code class="cmd">git --version</code><div class="terminal-gallery" data-gallery="terminal-gallery-1"><p class="gallery-hint">執行後，選和你相近的畫面；不用把每種狀況都做出來。安裝／登入可依序看圖。<br><small>以下皆為輸出對照示意；版本、帳號、語言、配色可能不同，部分長輸出已節錄。</small></p><div class="scene-choices" role="group" aria-label="可能出現的畫面"><button type="button" class="scene-choice" aria-pressed="true" aria-controls="terminal-gallery-1-0" data-scene="0">成功</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-1-1" data-scene="1">找不到</button></div><figure id="terminal-gallery-1-0" class="terminal-figure"  data-scene-id="git-win-ok"><figcaption><b>看到 Git 版本號，就代表這個視窗能使用 Git</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：看到 Git 版本號，就代表這個視窗能使用 Git"><picture><source media="(max-width:640px)" srcset="assets/terminal/git-win-ok-mobile.png"><img src="assets/terminal/git-win-ok-wide.png" alt="看到 Git 版本號，就代表這個視窗能使用 Git。看到 git version 加上一串版本號即可繼續。版本號不必和示意圖相同。" loading="lazy" decoding="async" data-wide="assets/terminal/git-win-ok-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>看到 git version 加上一串版本號即可繼續。版本號不必和示意圖相同。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; git --version
+git version 2.55.0.windows.3
+PS C:\Users\teacher&gt;</pre></details></figure><figure id="terminal-gallery-1-1" class="terminal-figure" hidden data-scene-id="git-win-missing"><figcaption><b>這個 PowerShell 視窗還找不到 Git</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：這個 PowerShell 視窗還找不到 Git"><picture><source media="(max-width:640px)" srcset="assets/terminal/git-win-missing-mobile.png"><img src="assets/terminal/git-win-missing-wide.png" alt="這個 PowerShell 視窗還找不到 Git。如果剛完成安裝，關閉整個終端機視窗，再重新開啟 PowerShell，重跑 git --version。仍失敗時，用本頁下方「git 無法辨識」問題中的 where.exe git 指令檢查。" loading="lazy" decoding="async" data-wide="assets/terminal/git-win-missing-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>如果剛完成安裝，關閉整個終端機視窗，再重新開啟 PowerShell，重跑 git --version。仍失敗時，用本頁下方「git 無法辨識」問題中的 where.exe git 指令檢查。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; git --version
+git : The term &#x27;git&#x27; is not recognized as the name of a cmdlet, function, script file, or operable program.
+PS C:\Users\teacher&gt;</pre></details></figure></div>
     <p>看到 <b>git version</b> 後面接著版本數字，就代表 Git 安裝檢查成功。數字不必與老師一樣；下一頁會再帶你確認完成標準。</p>
     <div class="troubleshooting">
-      <details><summary>出現「git 無法辨識」／not recognized／找不到指令</summary><p>① 確認安裝器已到 Finish。② 關掉舊視窗，從開始選單重開 PowerShell。③ 在新視窗輸入 <code>where.exe git</code>，應顯示 Git 路徑。仍找不到時，重新執行官方安裝器，確認 PATH 選項為「Git from the command line and also from 3rd-party software」；完成後重新開啟 PowerShell，再輸入 <code>git --version</code>；必要時重新啟動電腦。先不要自己刪改整段 PATH。</p></details>
+      <details><summary>出現「git 無法辨識」／not recognized／找不到指令</summary><p>① 確認安裝器已到 Finish。② 關掉舊視窗，從開始選單重開 PowerShell。③ 在新視窗貼上下面指令，按 Enter，確認能否找到 Git 路徑：</p><code class="cmd" >where.exe git</code><div class="terminal-gallery" data-gallery="terminal-gallery-2"><p class="gallery-hint">執行後，選和你相近的畫面；不用把每種狀況都做出來。安裝／登入可依序看圖。<br><small>以下皆為輸出對照示意；版本、帳號、語言、配色可能不同，部分長輸出已節錄。</small></p><div class="scene-choices" role="group" aria-label="可能出現的畫面"><button type="button" class="scene-choice" aria-pressed="true" aria-controls="terminal-gallery-2-0" data-scene="0">找到路徑</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-2-1" data-scene="1">找不到</button></div><figure id="terminal-gallery-2-0" class="terminal-figure"  data-scene-id="where-git-ok"><figcaption><b>找到 Git 的程式位置</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：找到 Git 的程式位置"><picture><source media="(max-width:640px)" srcset="assets/terminal/where-git-ok-mobile.png"><img src="assets/terminal/where-git-ok-wide.png" alt="找到 Git 的程式位置。找到路徑後，再跑 git --version 確認能啟動；路徑與示意圖不同也可能正常。若出現多個路徑或版本指令仍失敗，截圖交給講師。" loading="lazy" decoding="async" data-wide="assets/terminal/where-git-ok-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>找到路徑後，再跑 git --version 確認能啟動；路徑與示意圖不同也可能正常。若出現多個路徑或版本指令仍失敗，截圖交給講師。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; where.exe git
+C:\Program Files\Git\cmd\git.exe
+PS C:\Users\teacher&gt;</pre></details></figure><figure id="terminal-gallery-2-1" class="terminal-figure" hidden data-scene-id="where-git-missing"><figcaption><b>目前搜尋路徑裡沒有找到 Git</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：目前搜尋路徑裡沒有找到 Git"><picture><source media="(max-width:640px)" srcset="assets/terminal/where-git-missing-mobile.png"><img src="assets/terminal/where-git-missing-wide.png" alt="目前搜尋路徑裡沒有找到 Git。先確認 Git 安裝已完成，再關閉並重開整個終端機。如果仍找不到，回安裝步驟確認 Git 可供命令列使用，或截圖請講師協助。" loading="lazy" decoding="async" data-wide="assets/terminal/where-git-missing-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>先確認 Git 安裝已完成，再關閉並重開整個終端機。如果仍找不到，回安裝步驟確認 Git 可供命令列使用，或截圖請講師協助。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; where.exe git
+INFO: Could not find files for the given pattern(s).
+PS C:\Users\teacher&gt;</pre></details></figure></div><p>仍找不到時，重新執行官方安裝器，確認 PATH 選項為「Git from the command line and also from 3rd-party software」；完成後重新開啟 PowerShell，再輸入 <code>git --version</code>；必要時重新啟動電腦。先不要自己刪改整段 PATH。</p></details>
       <details><summary>Git Bash 可以用，PowerShell 卻找不到 Git</summary><p>先完全關閉 Windows Terminal／PowerShell，再從開始選單重新開啟 PowerShell，輸入 <code>git --version</code>。仍找不到時，重跑官方安裝器，確認 PATH 選「Git from the command line and also from 3rd-party software」，不要選成只在 Git Bash 使用。完成後再重開 PowerShell；仍失敗就截圖到群組。</p></details>
       <details><summary>跳出 SmartScreen／Windows 已保護您的電腦／防毒警告</summary><p>先取消，確認下載起點是本教材的 Git 官方頁，而不是廣告或陌生附件。可在安裝檔「內容 → 數位簽章」檢查簽章是否有效。不確定時截圖詢問；學校／公司電腦請管理者協助。不要為了安裝關閉防毒或解除組織限制。</p></details>
       <details><summary>要求管理員密碼／Access denied／公司不准安裝</summary><p>由有權限的本人或設備管理者協助。不要猜密碼，也不要把密碼傳到群組。沒有權限時先回報，讓老師安排設備或課堂協助，不必下載來路不明的免安裝包。</p></details>
@@ -310,10 +359,26 @@
   <section class="slide" id="git-mac">
     <span class="tag">任務 ④ · Mac · 1 / 2</span>
     <h2>Mac：安裝 Apple 命令列工具</h2>
-    <div class="step"><div class="num">1</div><div><p style="margin:0">按 <kbd>⌘</kbd>＋<kbd>空白鍵</kbd>，搜尋「終端機」並開啟。點下方「複製」，到終端機按 <kbd>⌘</kbd>＋<kbd>V</kbd> 貼上，再按 <kbd>Return</kbd>：</p><code class="cmd">git --version</code><p>已有 <b>git version</b> 加版本號：表示這台 Mac 的 Git 已可使用；顯示 Apple Git 也可以，不用追求與 Windows 相同的版本。</p></div></div>
-    <div class="step"><div class="num">2</div><div><p style="margin:0">如果跳出安裝「<b>Command Line Developer Tools／命令列開發者工具</b>」的視窗，按<b>安裝</b>並同意授權。沒有跳出、也沒有版本號時，輸入：</p><code class="cmd">xcode-select --install</code><p class="muted">這組 Apple 工具包含 Git。本課只需要命令列工具，<b>不用為了 Git 下載完整 Xcode</b>。</p></div></div>
+    <div class="step"><div class="num">1</div><div><p style="margin:0">按 <kbd>⌘</kbd>＋<kbd>空白鍵</kbd>，搜尋「終端機」並開啟。點下方「複製」，到終端機按 <kbd>⌘</kbd>＋<kbd>V</kbd> 貼上，再按 <kbd>Return</kbd>：</p><code class="cmd">git --version</code><div class="terminal-gallery" data-gallery="terminal-gallery-3"><p class="gallery-hint">執行後，選和你相近的畫面；不用把每種狀況都做出來。安裝／登入可依序看圖。<br><small>以下皆為輸出對照示意；版本、帳號、語言、配色可能不同，部分長輸出已節錄。</small></p><div class="scene-choices" role="group" aria-label="可能出現的畫面"><button type="button" class="scene-choice" aria-pressed="true" aria-controls="terminal-gallery-3-0" data-scene="0">檢查成功</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-3-1" data-scene="1">需要安裝・節錄</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-3-2" data-scene="2">工具路徑失效・節錄</button></div><figure id="terminal-gallery-3-0" class="terminal-figure"  data-scene-id="git-mac-ok"><figcaption><b>看到 Git 版本號就完成</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：看到 Git 版本號就完成"><picture><source media="(max-width:640px)" srcset="assets/terminal/git-mac-ok-mobile.png"><img src="assets/terminal/git-mac-ok-wide.png" alt="看到 Git 版本號就完成。Git 已可以使用，繼續下一步。版本數字、Apple Git 編號可以不同；不用再安裝一份。" loading="lazy" decoding="async" data-wide="assets/terminal/git-mac-ok-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>Git 已可以使用，繼續下一步。版本數字、Apple Git 編號可以不同；不用再安裝一份。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % git --version
+git version 2.39.5 (Apple Git-154)
+teacher@Mac ~ % </pre></details></figure><figure id="terminal-gallery-3-1" class="terminal-figure" hidden data-scene-id="git-mac-missing"><figcaption><b>Mac 提醒你安裝命令列工具</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：Mac 提醒你安裝命令列工具"><picture><source media="(max-width:640px)" srcset="assets/terminal/git-mac-missing-mobile.png"><img src="assets/terminal/git-mac-missing-wide.png" alt="Mac 提醒你安裝命令列工具。留意另外跳出的 Apple 安裝視窗，按「安裝」並同意授權；完成前先不要做下一步。沒看到視窗，再執行 xcode-select --install。" loading="lazy" decoding="async" data-wide="assets/terminal/git-mac-missing-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>留意另外跳出的 Apple 安裝視窗，按「安裝」並同意授權；完成前先不要做下一步。沒看到視窗，再執行 xcode-select --install。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % git --version
+xcode-select: note: No developer tools were found, requesting install.
+teacher@Mac ~ % </pre></details></figure><figure id="terminal-gallery-3-2" class="terminal-figure" hidden data-scene-id="git-mac-broken"><figcaption><b>有錯誤，先別把它當成功</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：有錯誤，先別把它當成功"><picture><source media="(max-width:640px)" srcset="assets/terminal/git-mac-broken-mobile.png"><img src="assets/terminal/git-mac-broken-wide.png" alt="有錯誤，先別把它當成功。先執行 xcode-select --install；若說已安裝，檢查系統「軟體更新」。仍失敗就附 macOS 版本與完整錯誤到群組，不要刪系統開發工具資料夾。" loading="lazy" decoding="async" data-wide="assets/terminal/git-mac-broken-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>先執行 xcode-select --install；若說已安裝，檢查系統「軟體更新」。仍失敗就附 macOS 版本與完整錯誤到群組，不要刪系統開發工具資料夾。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % git --version
+xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
+teacher@Mac ~ % </pre></details></figure></div><p>已有 <b>git version</b> 加版本號：表示這台 Mac 的 Git 已可使用，<b>直接跳過下面安裝步驟 2～3</b>；顯示 Apple Git 也可以，不用追求與 Windows 相同的版本。</p></div></div>
+    <div class="step"><div class="num">2</div><div><p style="margin:0">如果跳出安裝「<b>Command Line Developer Tools／命令列開發者工具</b>」的視窗，按<b>安裝</b>並同意授權。沒有跳出、也沒有版本號時，輸入：</p><code class="cmd">xcode-select --install</code><div class="terminal-gallery" data-gallery="terminal-gallery-4"><p class="gallery-hint">執行後，選和你相近的畫面；不用把每種狀況都做出來。安裝／登入可依序看圖。<br><small>以下皆為輸出對照示意；版本、帳號、語言、配色可能不同，部分長輸出已節錄。</small></p><div class="scene-choices" role="group" aria-label="可能出現的畫面"><button type="button" class="scene-choice" aria-pressed="true" aria-controls="terminal-gallery-4-0" data-scene="0">已提出要求</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-4-1" data-scene="1">已經有工具</button></div><figure id="terminal-gallery-4-0" class="terminal-figure"  data-scene-id="xcode-install"><figcaption><b>還要完成 Apple 的安裝視窗</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：還要完成 Apple 的安裝視窗"><picture><source media="(max-width:640px)" srcset="assets/terminal/xcode-install-mobile.png"><img src="assets/terminal/xcode-install-wide.png" alt="還要完成 Apple 的安裝視窗。這行只代表已提出安裝要求，不是安裝完成。到跳出的系統視窗按「安裝」、同意授權並等待完成，再輸入 git --version。" loading="lazy" decoding="async" data-wide="assets/terminal/xcode-install-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>這行只代表已提出安裝要求，不是安裝完成。到跳出的系統視窗按「安裝」、同意授權並等待完成，再輸入 git --version。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % xcode-select --install
+xcode-select: note: install requested for command line developer tools
+teacher@Mac ~ % </pre></details></figure><figure id="terminal-gallery-4-1" class="terminal-figure" hidden data-scene-id="xcode-existing"><figcaption><b>已安裝，不必反覆重跑</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：已安裝，不必反覆重跑"><picture><source media="(max-width:640px)" srcset="assets/terminal/xcode-existing-mobile.png"><img src="assets/terminal/xcode-existing-wide.png" alt="已安裝，不必反覆重跑。先輸入 git --version。有版本號就完成；仍出錯再檢查「系統設定 → 一般 → 軟體更新」。不同 macOS 的文字可能略有差異。" loading="lazy" decoding="async" data-wide="assets/terminal/xcode-existing-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>先輸入 git --version。有版本號就完成；仍出錯再檢查「系統設定 → 一般 → 軟體更新」。不同 macOS 的文字可能略有差異。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % xcode-select --install
+xcode-select: error: command line tools are already installed, use &quot;Software Update&quot; in System Settings to install updates
+teacher@Mac ~ % </pre></details></figure></div><p class="muted">這組 Apple 工具包含 Git。本課只需要命令列工具，<b>不用為了 Git 下載完整 Xcode</b>。</p></div></div>
     <div class="step"><div class="num">3</div><div><p style="margin:0">保持網路連線與足夠空間，等系統顯示安裝完成。所需時間依網路與套件大小而異，<b>不一定幾分鐘就結束</b>。</p><p class="muted">如需密碼，由本人輸入 Mac 的登入密碼；若是在終端機輸入，沒有文字或星號回顯是正常的。輸入完按 Enter，不要把密碼貼給 AI 或群組。</p></div></div>
-    <div class="step"><div class="num">4</div><div><p style="margin:0">安裝完成後，按 <kbd>⌘</kbd>＋<kbd>Q</kbd> 結束終端機，再重新開啟，貼上這行並按 Return：</p><code class="cmd">git --version</code><p>看到 <b>git version</b> 與版本數字，就完成 Git 安裝檢查。</p></div></div>
+    <div class="step"><div class="num">4</div><div><p style="margin:0">安裝完成後，按 <kbd>⌘</kbd>＋<kbd>Q</kbd> 結束終端機，再重新開啟，貼上這行並按 Return：</p><code class="cmd">git --version</code><div class="terminal-gallery" data-gallery="terminal-gallery-5"><p class="gallery-hint">執行後，選和你相近的畫面；不用把每種狀況都做出來。安裝／登入可依序看圖。<br><small>以下皆為輸出對照示意；版本、帳號、語言、配色可能不同，部分長輸出已節錄。</small></p><div class="scene-choices" role="group" aria-label="可能出現的畫面"><button type="button" class="scene-choice" aria-pressed="true" aria-controls="terminal-gallery-5-0" data-scene="0">檢查成功</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-5-1" data-scene="1">需要安裝・節錄</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-5-2" data-scene="2">工具路徑失效・節錄</button></div><figure id="terminal-gallery-5-0" class="terminal-figure"  data-scene-id="git-mac-ok"><figcaption><b>看到 Git 版本號就完成</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：看到 Git 版本號就完成"><picture><source media="(max-width:640px)" srcset="assets/terminal/git-mac-ok-mobile.png"><img src="assets/terminal/git-mac-ok-wide.png" alt="看到 Git 版本號就完成。Git 已可以使用，繼續下一步。版本數字、Apple Git 編號可以不同；不用再安裝一份。" loading="lazy" decoding="async" data-wide="assets/terminal/git-mac-ok-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>Git 已可以使用，繼續下一步。版本數字、Apple Git 編號可以不同；不用再安裝一份。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % git --version
+git version 2.39.5 (Apple Git-154)
+teacher@Mac ~ % </pre></details></figure><figure id="terminal-gallery-5-1" class="terminal-figure" hidden data-scene-id="git-mac-missing"><figcaption><b>Mac 提醒你安裝命令列工具</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：Mac 提醒你安裝命令列工具"><picture><source media="(max-width:640px)" srcset="assets/terminal/git-mac-missing-mobile.png"><img src="assets/terminal/git-mac-missing-wide.png" alt="Mac 提醒你安裝命令列工具。留意另外跳出的 Apple 安裝視窗，按「安裝」並同意授權；完成前先不要做下一步。沒看到視窗，再執行 xcode-select --install。" loading="lazy" decoding="async" data-wide="assets/terminal/git-mac-missing-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>留意另外跳出的 Apple 安裝視窗，按「安裝」並同意授權；完成前先不要做下一步。沒看到視窗，再執行 xcode-select --install。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % git --version
+xcode-select: note: No developer tools were found, requesting install.
+teacher@Mac ~ % </pre></details></figure><figure id="terminal-gallery-5-2" class="terminal-figure" hidden data-scene-id="git-mac-broken"><figcaption><b>有錯誤，先別把它當成功</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：有錯誤，先別把它當成功"><picture><source media="(max-width:640px)" srcset="assets/terminal/git-mac-broken-mobile.png"><img src="assets/terminal/git-mac-broken-wide.png" alt="有錯誤，先別把它當成功。先執行 xcode-select --install；若說已安裝，檢查系統「軟體更新」。仍失敗就附 macOS 版本與完整錯誤到群組，不要刪系統開發工具資料夾。" loading="lazy" decoding="async" data-wide="assets/terminal/git-mac-broken-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>先執行 xcode-select --install；若說已安裝，檢查系統「軟體更新」。仍失敗就附 macOS 版本與完整錯誤到群組，不要刪系統開發工具資料夾。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % git --version
+xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
+teacher@Mac ~ % </pre></details></figure></div><p>看到 <b>git version</b> 與版本數字，就完成 Git 安裝檢查。</p></div></div>
     <p class="muted">官方說明：<a href="https://git-scm.com/install/mac" target="_blank" rel="noopener">Git：macOS 安裝方式</a> · <a href="https://developer.apple.com/documentation/xcode/installing-the-command-line-tools" target="_blank" rel="noopener">Apple：命令列工具</a></p>
   </section>
 
@@ -326,7 +391,19 @@
       <details><summary>「目前無法取得軟體」／找不到可安裝的工具</summary><p>先確認網路，並到「軟體更新」檢查與目前 macOS 相容的工具。若仍找不到，請附 macOS 版本與錯誤到群組；進階處理可以由老師依 Apple 官方下載頁選相容套件，別下載陌生網站的舊安裝檔。</p></details>
       <details><summary>macOS 更新後出現 invalid active developer path／xcrun 錯誤</summary><p>可能是原有命令列工具需更新，或開發工具位置失效。先執行 <code>xcode-select --install</code>，若已安裝則檢查「軟體更新」，完成後重試 <code>git --version</code>。仍失敗時請老師協助診斷路徑；不要自行刪除系統開發工具資料夾，也不必為了排錯直接重裝整台電腦。</p></details>
       <details><summary>沒有管理員權限／學校或公司電腦禁止安裝</summary><p>請設備管理者協助；不要分享登入密碼，也不要嘗試繞過管理限制。把系統版本和錯誤截圖傳到群組，老師會協助安排。</p></details>
-      <details><summary>已經有 Homebrew，需要再裝一份 Git 嗎？</summary><p>若 <code>git --version</code> 正常，本課可以直接使用。若 Homebrew 已正常運作但仍缺 Git，可用 <code>brew install git</code> 安裝後重開終端機；不要為了修 Git 同時重複裝好多套。Homebrew 本身有問題，留到下一個 gh 任務的說明處理。</p></details>
+      <details><summary>已經有 Homebrew，需要再裝一份 Git 嗎？</summary><p>若 <code>git --version</code> 正常，本課可以直接使用。若 Homebrew 已正常運作但仍缺 Git，才使用下面這行安裝，按 Return、等完成後重開終端機：</p><code class="cmd" >brew install git</code><div class="terminal-gallery" data-gallery="terminal-gallery-6"><p class="gallery-hint">執行後，選和你相近的畫面；不用把每種狀況都做出來。安裝／登入可依序看圖。<br><small>以下皆為輸出對照示意；版本、帳號、語言、配色可能不同，部分長輸出已節錄。</small></p><div class="scene-choices" role="group" aria-label="可能出現的畫面"><button type="button" class="scene-choice" aria-pressed="true" aria-controls="terminal-gallery-6-0" data-scene="0">正在安裝・節錄</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-6-1" data-scene="1">安裝摘要・節錄</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-6-2" data-scene="2">已經安裝</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-6-3" data-scene="3">下載失敗・節錄</button></div><figure id="terminal-gallery-6-0" class="terminal-figure"  data-scene-id="brew-git-installing"><figcaption><b>git 正在下載與解壓縮</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：git 正在下載與解壓縮"><picture><source media="(max-width:640px)" srcset="assets/terminal/brew-git-installing-mobile.png"><img src="assets/terminal/brew-git-installing-wide.png" alt="git 正在下載與解壓縮。Pouring 表示正在解壓安裝，還不是完成。先等到指令結束，再輸入 git --version 確认；檔名、系統代號與版本會不同。" loading="lazy" decoding="async" data-wide="assets/terminal/brew-git-installing-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>Pouring 表示正在解壓安裝，還不是完成。先等到指令結束，再輸入 git --version 確认；檔名、系統代號與版本會不同。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % brew install git
+...
+==&gt; Pouring git--2.55.0.arm64_sequoia.bottle.tar.gz</pre></details></figure><figure id="terminal-gallery-6-1" class="terminal-figure" hidden data-scene-id="brew-git-installed"><figcaption><b>Homebrew 裝完 Git 的樣子</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：Homebrew 裝完 Git 的樣子"><picture><source media="(max-width:640px)" srcset="assets/terminal/brew-git-installed-mobile.png"><img src="assets/terminal/brew-git-installed-wide.png" alt="Homebrew 裝完 Git 的樣子。檔案數與容量已省略，版本數字也可能不同。最後 git --version 有版本號就可使用；原本 Apple Git 正常的人不用為了版本不同再裝一份。" loading="lazy" decoding="async" data-wide="assets/terminal/brew-git-installed-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>檔案數與容量已省略，版本數字也可能不同。最後 git --version 有版本號就可使用；原本 Apple Git 正常的人不用為了版本不同再裝一份。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % brew install git
+...
+/opt/homebrew/Cellar/git/2.55.0: ... files, ...MB
+teacher@Mac ~ % </pre></details></figure><figure id="terminal-gallery-6-2" class="terminal-figure" hidden data-scene-id="brew-git-existing"><figcaption><b>已經有 git，不必重新安裝</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：已經有 git，不必重新安裝"><picture><source media="(max-width:640px)" srcset="assets/terminal/brew-git-existing-mobile.png"><img src="assets/terminal/brew-git-existing-wide.png" alt="已經有 git，不必重新安裝。直接輸入 git --version 驗證。有版本號即完成 Git 檢查；接著進入下一個 gh／GitHub 登入任務。" loading="lazy" decoding="async" data-wide="assets/terminal/brew-git-existing-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>直接輸入 git --version 驗證。有版本號即完成 Git 檢查；接著進入下一個 gh／GitHub 登入任務。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % brew install git
+Warning: git 2.55.0 is already installed and up-to-date.
+...
+teacher@Mac ~ % </pre></details></figure><figure id="terminal-gallery-6-3" class="terminal-figure" hidden data-scene-id="brew-git-failed"><figcaption><b>git 下載沒有完成</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：git 下載沒有完成"><picture><source media="(max-width:640px)" srcset="assets/terminal/brew-git-failed-mobile.png"><img src="assets/terminal/brew-git-failed-wide.png" alt="git 下載沒有完成。先檢查網路與組織限制，保留完整錯誤；網路恢復後再試 brew install git。不要因為看到提示符就判定安裝成功。" loading="lazy" decoding="async" data-wide="assets/terminal/brew-git-failed-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>先檢查網路與組織限制，保留完整錯誤；網路恢復後再試 brew install git。不要因為看到提示符就判定安裝成功。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % brew install git
+...
+curl: (6) Could not resolve host: ghcr.io
+Error: git: Failed to download resource &quot;git&quot;
+teacher@Mac ~ % </pre></details></figure></div><p>不要為了修 Git 同時重複裝好多套。Homebrew 本身有問題，留到下一個 gh 任務的說明處理。</p></details>
       <details><summary>安裝完重開終端機，仍然沒有版本號</summary><p>確認下載及安裝已完成，再把 <code>git --version</code> 複製貼上，按 Return。若仍跳出安裝提示或錯誤，先看本頁對應的訊息；找不到相同狀況時，把 macOS 版本及完整錯誤截圖傳到群組，不要反覆安裝不同來源的 Git。</p></details>
     </div>
     <p><a class="jumpbtn" href="#git-ready" onclick="show('git-ready');return false;">已看到版本號 → 確認安裝完成</a></p>
@@ -344,14 +421,22 @@
     </div></div>
     <div class="step"><div class="num">2</div><div>
       <p style="margin:0"><b>複製這一行，貼到剛開啟的視窗</b></p>
-      <code class="cmd" id="git-manual-check">git --version</code>
+      <code class="cmd" id="git-manual-check">git --version</code><div class="terminal-gallery" data-gallery="terminal-gallery-7"><p class="gallery-hint">執行後，選和你相近的畫面；不用把每種狀況都做出來。安裝／登入可依序看圖。<br><small>以下皆為輸出對照示意；版本、帳號、語言、配色可能不同，部分長輸出已節錄。</small></p><div class="scene-choices" role="group" aria-label="可能出現的畫面"><button type="button" class="scene-choice" aria-pressed="true" aria-controls="terminal-gallery-7-0" data-scene="0">Windows 有版本號</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-7-1" data-scene="1">Windows 找不到</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-7-2" data-scene="2">Mac 有版本號</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-7-3" data-scene="3">Mac 需要安裝</button></div><figure id="terminal-gallery-7-0" class="terminal-figure"  data-scene-id="git-win-ok"><figcaption><b>看到 Git 版本號，就代表這個視窗能使用 Git</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：看到 Git 版本號，就代表這個視窗能使用 Git"><picture><source media="(max-width:640px)" srcset="assets/terminal/git-win-ok-mobile.png"><img src="assets/terminal/git-win-ok-wide.png" alt="看到 Git 版本號，就代表這個視窗能使用 Git。看到 git version 加上一串版本號即可繼續。版本號不必和示意圖相同。" loading="lazy" decoding="async" data-wide="assets/terminal/git-win-ok-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>看到 git version 加上一串版本號即可繼續。版本號不必和示意圖相同。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; git --version
+git version 2.55.0.windows.3
+PS C:\Users\teacher&gt;</pre></details></figure><figure id="terminal-gallery-7-1" class="terminal-figure" hidden data-scene-id="git-win-missing"><figcaption><b>這個 PowerShell 視窗還找不到 Git</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：這個 PowerShell 視窗還找不到 Git"><picture><source media="(max-width:640px)" srcset="assets/terminal/git-win-missing-mobile.png"><img src="assets/terminal/git-win-missing-wide.png" alt="這個 PowerShell 視窗還找不到 Git。如果剛完成安裝，關閉整個終端機視窗，再重新開啟 PowerShell，重跑 git --version。仍失敗時，用本頁下方「git 無法辨識」問題中的 where.exe git 指令檢查。" loading="lazy" decoding="async" data-wide="assets/terminal/git-win-missing-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>如果剛完成安裝，關閉整個終端機視窗，再重新開啟 PowerShell，重跑 git --version。仍失敗時，用本頁下方「git 無法辨識」問題中的 where.exe git 指令檢查。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; git --version
+git : The term &#x27;git&#x27; is not recognized as the name of a cmdlet, function, script file, or operable program.
+PS C:\Users\teacher&gt;</pre></details></figure><figure id="terminal-gallery-7-2" class="terminal-figure" hidden data-scene-id="git-mac-ok"><figcaption><b>看到 Git 版本號就完成</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：看到 Git 版本號就完成"><picture><source media="(max-width:640px)" srcset="assets/terminal/git-mac-ok-mobile.png"><img src="assets/terminal/git-mac-ok-wide.png" alt="看到 Git 版本號就完成。Git 已可以使用，繼續下一步。版本數字、Apple Git 編號可以不同；不用再安裝一份。" loading="lazy" decoding="async" data-wide="assets/terminal/git-mac-ok-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>Git 已可以使用，繼續下一步。版本數字、Apple Git 編號可以不同；不用再安裝一份。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % git --version
+git version 2.39.5 (Apple Git-154)
+teacher@Mac ~ % </pre></details></figure><figure id="terminal-gallery-7-3" class="terminal-figure" hidden data-scene-id="git-mac-missing"><figcaption><b>Mac 提醒你安裝命令列工具</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：Mac 提醒你安裝命令列工具"><picture><source media="(max-width:640px)" srcset="assets/terminal/git-mac-missing-mobile.png"><img src="assets/terminal/git-mac-missing-wide.png" alt="Mac 提醒你安裝命令列工具。留意另外跳出的 Apple 安裝視窗，按「安裝」並同意授權；完成前先不要做下一步。沒看到視窗，再執行 xcode-select --install。" loading="lazy" decoding="async" data-wide="assets/terminal/git-mac-missing-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>留意另外跳出的 Apple 安裝視窗，按「安裝」並同意授權；完成前先不要做下一步。沒看到視窗，再執行 xcode-select --install。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % git --version
+xcode-select: note: No developer tools were found, requesting install.
+teacher@Mac ~ % </pre></details></figure></div>
       <p style="margin:.3em 0">按上方「複製」→ 切到 PowerShell／終端機 → Windows 按 <kbd>Ctrl</kbd>＋<kbd>V</kbd>，Mac 按 <kbd>⌘</kbd>＋<kbd>V</kbd> → 再按 <kbd>Enter / Return</kbd>。</p>
       <p class="muted">請貼到 PowerShell／終端機，不是瀏覽器網址列或聊天輸入框。這行指令只查看版本，不會更改你的檔案。</p>
     </div></div>
     <div class="step"><div class="num">3</div><div>
       <p style="margin:0"><b>看回應有沒有「git version」與版本數字</b></p>
-      <p class="muted">例如 Windows 可能看到下面這樣；這是回應範例，不用輸入：</p>
-      <samp class="sample-output">git version 2.55.0.windows.3</samp>
+      <p class="muted">上方對照圖就是執行後可能看到的畫面；回應不用再輸入一次。</p>
+      <p><b>請對照上方指令下面的 Windows／Mac 圖。</b>圖中的版本號是範例，不用複製回終端機。</p>
       <p>你的數字不同也可以；Mac 後面可能寫著 <b>Apple Git</b>。只要正常回傳版本號，就通過。</p>
     </div></div>
     <div class="step"><div class="num">4</div><div>
@@ -385,190 +470,236 @@
     </div>
   </section>
 
-  <section class="slide" id="gh-mac-start">
-    <span class="tag">任務 ⑤ · 🍎 Mac · Step 1~2</span>
-    <h2>打開終端機 + 確認 Homebrew</h2>
-    <div class="step"><div class="num">1</div><div>
-      <p style="margin:0"><b>打開終端機</b></p>
-      <p class="muted" style="margin:.2em 0">按 <kbd>⌘</kbd>+<kbd>空白鍵</kbd> → 輸入「終端機」→ Enter<br>（或：應用程式 → 工具程式 → 終端機）</p>
-    </div></div>
-    <div class="step"><div class="num">2</div><div>
-      <p style="margin:0"><b>確認有沒有 Homebrew</b>，輸入：</p>
-      <code class="cmd">brew --version</code>
-      <p style="margin:.4em 0 .2em">✅ 看到 <code>Homebrew 4.x.x</code> → 翻下一頁（Step 3）</p>
-      <p style="margin:.2em 0">❌ 看到 <code>command not found</code> → 先裝 Homebrew，整段貼進去按 Enter：</p>
-      <code class="cmd">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code>
-      <div class="card" style="margin:.4em 0;padding:.8em 1em;background:#3a1f0a;border-color:#fbbf24;border-width:2px">
-        <p style="margin:0 0 .3em;color:#fbbf24;font-size:1.05em"><b>🛑 重要：貼上後一定要看完這段再動手！</b></p>
-        <p style="margin:.3em 0"><b>Homebrew 下載要 3~10 分鐘</b>，跟一般安裝程式不同，<b style="color:#fbbf24">終端機不會有進度條</b>，畫面看起來像「卡住」一樣，但其實正在跑。</p>
-        <p style="margin:.3em 0">👉 看到這些字代表<b>正在下載</b>，<b style="color:#fbbf24">不要按任何鍵、不要貼任何東西</b>：</p>
-        <p style="margin:.2em 0 .2em 1em;font-family:ui-monospace,Menlo,monospace;font-size:.88em;color:#94a3b8">==&gt; Downloading and installing Homebrew...<br>remote: Enumerating objects: 340833, done.<br>remote: Counting objects: 100% ...</p>
-        <p style="margin:.3em 0">⏳ <b>耐心等</b>，等到終端機回到一般提示字（最後一行有 <code>使用者名稱@電腦 ~ %</code>）才算跑完。</p>
-        <p style="margin:.3em 0;color:#fca5a5">⚠️ 太早貼下一步指令會出現 <code>command not found</code> 或 <code>no such file or directory</code>，Homebrew 還沒裝好就跑下一步當然會錯。</p>
-      </div>
-      <div class="card" style="margin:.4em 0;padding:.7em 1em;background:#0b1220">
-        <p style="margin:0 0 .3em"><b>⌛ 安裝過程中會發生這些事，照著做就好：</b></p>
-        <p style="margin:.2em 0">1️⃣ 螢幕問你密碼 → 輸入 <b>Mac 開機密碼</b> 按 Enter（<b>打字不會顯示是正常的</b>，安心打）</p>
-        <p style="margin:.2em 0">📌 看到 <code>Press RETURN/ENTER to continue or any other key to abort:</code> → <b style="color:#fbbf24">只能按 Enter 鍵！</b>按其他鍵會中止安裝</p>
-        <p style="margin:.2em 0">2️⃣ 跑完最後會看到 <code>==&gt; Next steps:</code>，下面列出 <b>2~3 行指令</b>。直接把下面這組整段貼進終端機按 Enter 即可：</p>
-        <p style="margin:.4em 0 .15em">🍎 <b>Apple Silicon Mac（M1 / M2 / M3 / M4，2020 年後幾乎都是）</b></p>
-        <code class="cmd">echo &gt;&gt; ~/.zprofile
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' &gt;&gt; ~/.zprofile
-eval "$(/opt/homebrew/bin/brew shellenv)"</code>
-        <p style="margin:.4em 0 .15em">💻 <b>Intel Mac（2019 年以前的舊款）</b></p>
-        <code class="cmd">echo &gt;&gt; ~/.zprofile
-echo 'eval "$(/usr/local/bin/brew shellenv)"' &gt;&gt; ~/.zprofile
-eval "$(/usr/local/bin/brew shellenv)"</code>
-        <p class="muted" style="margin:.2em 0">不確定自己是哪種？左上角 蘋果圖示 → 關於這台 Mac，看「晶片」那行：寫 <b>Apple M…</b> 是 Apple Silicon；寫 <b>Intel</b> 就是 Intel。</p>
-        <p style="margin:.4em 0 .2em">3️⃣ <b>把終端機關掉，重新打開一個新的</b>，再跑一次 <code>brew --version</code> 確認看到版本號。</p>
-      </div>
-    </div></div>
-  </section>
+  <section class="slide" id="gh-mac-start"><span class="tag">任務 ⑤ · Mac · 1 / 6</span><h2>Mac：先看看有沒有 Homebrew</h2>
+<p>按 ⌘＋空白鍵，搜尋「終端機」並開啟。<b>Homebrew 是幫你安裝 gh 的工具</b>，先檢查一次。</p>
+<p>按「複製」→ 切到終端機 → ⌘＋V → 按 Return：</p><code class="cmd" >brew --version</code><div class="terminal-gallery" data-gallery="terminal-gallery-8"><p class="gallery-hint">執行後，選和你相近的畫面；不用把每種狀況都做出來。安裝／登入可依序看圖。<br><small>以下皆為輸出對照示意；版本、帳號、語言、配色可能不同，部分長輸出已節錄。</small></p><div class="scene-choices" role="group" aria-label="可能出現的畫面"><button type="button" class="scene-choice" aria-pressed="true" aria-controls="terminal-gallery-8-0" data-scene="0">檢查成功</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-8-1" data-scene="1">找不到指令</button></div><figure id="terminal-gallery-8-0" class="terminal-figure"  data-scene-id="brew-version"><figcaption><b>Homebrew 後面有版本數字</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：Homebrew 後面有版本數字"><picture><source media="(max-width:640px)" srcset="assets/terminal/brew-version-mobile.png"><img src="assets/terminal/brew-version-wide.png" alt="Homebrew 後面有版本數字。Homebrew 指令已可使用，可以繼續安裝 gh。版本可以不同，不必剛好是圖中的 7.0.0。" loading="lazy" decoding="async" data-wide="assets/terminal/brew-version-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>Homebrew 指令已可使用，可以繼續安裝 gh。版本可以不同，不必剛好是圖中的 7.0.0。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % brew --version
+Homebrew 7.0.0
+teacher@Mac ~ % </pre></details></figure><figure id="terminal-gallery-8-1" class="terminal-figure" hidden data-scene-id="brew-missing"><figcaption><b>找不到 brew，不一定是沒裝</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：找不到 brew，不一定是沒裝"><picture><source media="(max-width:640px)" srcset="assets/terminal/brew-missing-mobile.png"><img src="assets/terminal/brew-missing-wide.png" alt="找不到 brew，不一定是沒裝。第一次使用者依教材安裝 Homebrew；剛安裝過的人先補做自己畫面的 Next steps，再重新開啟終端機檢查。" loading="lazy" decoding="async" data-wide="assets/terminal/brew-missing-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>第一次使用者依教材安裝 Homebrew；剛安裝過的人先補做自己畫面的 Next steps，再重新開啟終端機檢查。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % brew --version
+zsh: command not found: brew
+teacher@Mac ~ % </pre></details></figure></div>
+<div class="card"><p><b>看到 Homebrew 與版本數字：</b>不用再安裝 Homebrew。<a class="jumpbtn" href="#gh-mac-install" onclick="show('gh-mac-install');return false;">直接安裝 gh</a></p><p><b>看到 command not found：</b>可能還沒安裝，也可能安裝後未完成路徑設定。剛裝完的人先回看本人的 Next steps；從沒裝過的人繼續下一頁。</p></div>
+<p>先看「蘋果選單 → 關於這台 Mac」的<b>晶片／處理器</b>與 macOS 版本。寫 Apple M… 是 Apple Silicon；寫 Intel 就是 Intel，不能靠購買年份猜。</p>
+<p class="muted">目前官方一般新裝路線以 Apple Silicon、macOS 15 以上為主。Intel 已有可用 Homebrew 者可往下驗證 gh；Intel 尚未安裝或系統不支援者，請附機型與系統版本到課程群組，由老師確認可用安裝方式。</p>
+<p class="source-links">依據 <a href="https://docs.brew.sh/Installation" target="_blank" rel="noopener">Homebrew 官方安裝條件</a>（2026-09-26 核對）。</p>
+</section>
 
-  <section class="slide" id="gh-mac-install">
-    <span class="tag">任務 ⑤ · 🍎 Mac · Step 3</span>
-    <h2>安裝 GitHub CLI</h2>
-    <div class="step"><div class="num">3</div><div>
-      <p style="margin:0">在終端機輸入：</p>
-      <code class="cmd">brew install gh</code>
-      <p class="muted" style="margin:.2em 0">會跑一段時間（下載 + 安裝），等它跑完出現提示符號就好。</p>
-      <p style="margin:.6em 0 .2em">✅ <b>裝完驗證</b>：</p>
-      <code class="cmd">gh --version</code>
-      <p class="muted" style="margin:.2em 0">看到 <code>gh version 2.x.x</code> = 安裝成功 ✅ → 翻下一頁開始登入。</p>
-    </div></div>
-  </section>
+  <section class="slide" id="gh-mac-homebrew"><span class="tag">任務 ⑤ · Mac · 2 / 6</span><h2>Homebrew：每一種停住，都有不同意思</h2>
+<p><b>只有尚未安裝、且符合官方條件的人才做這頁。</b>先完成 Git／Apple 命令列工具，再將整段複製到終端機，按 Return。</p><code class="cmd" >/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</code><div class="terminal-gallery" data-gallery="terminal-gallery-9"><p class="gallery-hint">執行後，選和你相近的畫面；不用把每種狀況都做出來。安裝／登入可依序看圖。<br><small>以下皆為輸出對照示意；版本、帳號、語言、配色可能不同，部分長輸出已節錄。</small></p><div class="scene-choices" role="group" aria-label="可能出現的畫面"><button type="button" class="scene-choice" aria-pressed="true" aria-controls="terminal-gallery-9-0" data-scene="0">等待密碼・節錄</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-9-1" data-scene="1">等待確認・節錄</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-9-2" data-scene="2">正在下載・節錄</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-9-3" data-scene="3">腳本完成・節錄</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-9-4" data-scene="4">下載失敗・節錄</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-9-5" data-scene="5">不支援這個新裝環境</button></div><figure id="terminal-gallery-9-0" class="terminal-figure"  data-scene-id="brew-password"><figcaption><b>打密碼時，看不到字是正常的</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：打密碼時，看不到字是正常的"><picture><source media="(max-width:640px)" srcset="assets/terminal/brew-password-mobile.png"><img src="assets/terminal/brew-password-wide.png" alt="打密碼時，看不到字是正常的。輸入自己的 Mac 管理員帳號密碼，再按 Return。畫面不會顯示字或星號，游標可能不動；這時不要把下一段指令貼進來。" loading="lazy" decoding="async" data-wide="assets/terminal/brew-password-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>輸入自己的 Mac 管理員帳號密碼，再按 Return。畫面不會顯示字或星號，游標可能不動；這時不要把下一段指令貼進來。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % /bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+==&gt; Checking for `sudo` access (which may request your password)...
+Password:</pre></details></figure><figure id="terminal-gallery-9-1" class="terminal-figure" hidden data-scene-id="brew-confirm"><figcaption><b>看到這一行，再按 Return</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：看到這一行，再按 Return"><picture><source media="(max-width:640px)" srcset="assets/terminal/brew-confirm-mobile.png"><img src="assets/terminal/brew-confirm-wide.png" alt="看到這一行，再按 Return。想繼續安裝就按一次 Return。這時正在等你確認，還不是下載中；按其他鍵會中止。" loading="lazy" decoding="async" data-wide="assets/terminal/brew-confirm-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>想繼續安裝就按一次 Return。這時正在等你確認，還不是下載中；按其他鍵會中止。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % /bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+...
+Press RETURN/ENTER to continue or any other key to abort:</pre></details></figure><figure id="terminal-gallery-9-2" class="terminal-figure" hidden data-scene-id="brew-downloading"><figcaption><b>正在安裝，先耐心等待</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：正在安裝，先耐心等待"><picture><source media="(max-width:640px)" srcset="assets/terminal/brew-downloading-mobile.png"><img src="assets/terminal/brew-downloading-wide.png" alt="正在安裝，先耐心等待。下載數字與進度依電腦不同；還沒回到可輸入的位置時先等，不要貼下一段。若畫面要求密碼或 Return，就先完成該要求。" loading="lazy" decoding="async" data-wide="assets/terminal/brew-downloading-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>下載數字與進度依電腦不同；還沒回到可輸入的位置時先等，不要貼下一段。若畫面要求密碼或 Return，就先完成該要求。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % /bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+...
+==&gt; Downloading and installing Homebrew...
+remote: Enumerating objects: 12000, done.
+remote: Counting objects: 100% (12000/12000), done.
+Receiving objects:  42% (5040/12000)</pre></details></figure><figure id="terminal-gallery-9-3" class="terminal-figure" hidden data-scene-id="brew-installed"><figcaption><b>看到成功，再做 Next steps</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：看到成功，再做 Next steps"><picture><source media="(max-width:640px)" srcset="assets/terminal/brew-installed-mobile.png"><img src="assets/terminal/brew-installed-wide.png" alt="看到成功，再做 Next steps。向上看本人畫面的 Next steps，照列出的完整指令設定 PATH；再輸入 brew --version，看到版本號才打勾。" loading="lazy" decoding="async" data-wide="assets/terminal/brew-installed-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>向上看本人畫面的 Next steps，照列出的完整指令設定 PATH；再輸入 brew --version，看到版本號才打勾。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % /bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+...
+==&gt; Installation successful!
+...
+==&gt; Next steps:
+- Run these commands in your terminal to add Homebrew to your PATH:
+    echo &gt;&gt; /Users/teacher/.zprofile
+    echo &#x27;eval &quot;$(/opt/homebrew/bin/brew shellenv zsh)&quot;&#x27; &gt;&gt; /Users/teacher/.zprofile
+    eval &quot;$(/opt/homebrew/bin/brew shellenv zsh)&quot;
+teacher@Mac ~ % </pre></details></figure><figure id="terminal-gallery-9-4" class="terminal-figure" hidden data-scene-id="brew-failed"><figcaption><b>出現錯誤，不是安裝完成</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：出現錯誤，不是安裝完成"><picture><source media="(max-width:640px)" srcset="assets/terminal/brew-failed-mobile.png"><img src="assets/terminal/brew-failed-wide.png" alt="出現錯誤，不是安裝完成。檢查網路是否正常、是否被組織網路阻擋；確認後重試。回到提示符只代表這次指令結束，不代表安裝成功。" loading="lazy" decoding="async" data-wide="assets/terminal/brew-failed-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>檢查網路是否正常、是否被組織網路阻擋；確認後重試。回到提示符只代表這次指令結束，不代表安裝成功。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % /bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+curl: (6) Could not resolve host: raw.githubusercontent.com
+teacher@Mac ~ % </pre></details></figure><figure id="terminal-gallery-9-5" class="terminal-figure" hidden data-scene-id="brew-unsupported"><figcaption><b>Intel Mac 不照 Apple Silicon 新裝</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：Intel Mac 不照 Apple Silicon 新裝"><picture><source media="(max-width:640px)" srcset="assets/terminal/brew-unsupported-mobile.png"><img src="assets/terminal/brew-unsupported-wide.png" alt="Intel Mac 不照 Apple Silicon 新裝。目前官方新安裝腳本不接受這個環境。先到「關於這台 Mac」查看晶片；Intel Mac 請附系統版本到群組安排，勿反覆重跑或硬改安裝腳本。" loading="lazy" decoding="async" data-wide="assets/terminal/brew-unsupported-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>目前官方新安裝腳本不接受這個環境。先到「關於這台 Mac」查看晶片；Intel Mac 請附系統版本到群組安排，勿反覆重跑或硬改安裝腳本。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % /bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+Homebrew on macOS is only supported on Apple Silicon processors!
+teacher@Mac ~ % </pre></details></figure></div>
+<div class="card"><p><b>照下方順序辨認畫面：</b>可能先問密碼 → 問是否繼續 → 下載安裝 → 顯示 Installation successful! 與 Next steps。部分問題會因電腦狀態跳過。</p><p><b>Password:</b> 要輸入自己的 Mac 管理員帳號密碼；不顯示文字、圓點、星號是正常的，打完按 Return。不是 GitHub 密碼，也不用把密碼傳給任何人。</p><p><b>Press RETURN/ENTER…</b> 是在等你確認，要繼續才按 Return。<b>Downloading…</b> 則先等下載，不要貼下一步指令。時間依網路與電腦而異。</p></div>
+<p>看到明確錯誤就先處理。<b>回到 % 只代表指令結束，不能單憑這個判定成功。</b>成功後到下一頁完成 Next steps，再查版本。</p>
+<p class="source-links">下載來源：<a href="https://brew.sh/" target="_blank" rel="noopener">Homebrew 官方網站</a></p>
+</section>
+<section class="slide" id="gh-mac-path"><span class="tag">任務 ⑤ · Mac · 3 / 6</span><h2>Next steps：沒有回應，也可能是正常的</h2>
+<p><b>優先照你自己的安裝完成畫面：</b>找到 Next steps 下方「Add Homebrew to your PATH」的指令，複製它列出的整組到終端機，按 Return。使用者名稱、路徑與設定檔名稱會因人而異。</p>
+<p>下面是<b>一般 zsh 終端機</b>的參考，兩組只用符合自己電腦的一組。若你的 Next steps 寫別的路徑或 .bash_profile，請用你自己的畫面，不要硬套範例。</p>
+<h3>Apple Silicon，已成功安裝在 /opt/homebrew</h3><code class="cmd" >echo &gt;&gt; ~/.zprofile
+echo &#x27;eval &quot;$(/opt/homebrew/bin/brew shellenv zsh)&quot;&#x27; &gt;&gt; ~/.zprofile
+eval &quot;$(/opt/homebrew/bin/brew shellenv zsh)&quot;</code><div class="terminal-gallery" data-gallery="terminal-gallery-10"><p class="gallery-hint">執行後，選和你相近的畫面；不用把每種狀況都做出來。安裝／登入可依序看圖。<br><small>以下皆為輸出對照示意；版本、帳號、語言、配色可能不同，部分長輸出已節錄。</small></p><div class="scene-choices" role="group" aria-label="可能出現的畫面"><button type="button" class="scene-choice" aria-pressed="true" aria-controls="terminal-gallery-10-0" data-scene="0">設定後沒有輸出也正常</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-10-1" data-scene="1">路徑不存在</button></div><figure id="terminal-gallery-10-0" class="terminal-figure"  data-scene-id="brew-shellenv-arm"><figcaption><b>Apple Silicon：三行設定後回到提示符</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：Apple Silicon：三行設定後回到提示符"><picture><source media="(max-width:640px)" srcset="assets/terminal/brew-shellenv-arm-mobile.png"><img src="assets/terminal/brew-shellenv-arm-wide.png" alt="Apple Silicon：三行設定後回到提示符。三行設定正常時通常沒有文字回覆；接著輸入 brew --version 確認。這是 zsh 範例，請優先照本人安裝畫面的 Next steps，不要兩種路徑都貼。" loading="lazy" decoding="async" data-wide="assets/terminal/brew-shellenv-arm-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>三行設定正常時通常沒有文字回覆；接著輸入 brew --version 確認。這是 zsh 範例，請優先照本人安裝畫面的 Next steps，不要兩種路徑都貼。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % echo &gt;&gt; ~/.zprofile
+teacher@Mac ~ % echo &#x27;eval &quot;$(/opt/homebrew/bin/brew shellenv zsh)&quot;&#x27; &gt;&gt; ~/.zprofile
+teacher@Mac ~ % eval &quot;$(/opt/homebrew/bin/brew shellenv zsh)&quot;
+teacher@Mac ~ % </pre></details></figure><figure id="terminal-gallery-10-1" class="terminal-figure" hidden data-scene-id="brew-shellenv-missing"><figcaption><b>這個位置找不到 Homebrew</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：這個位置找不到 Homebrew"><picture><source media="(max-width:640px)" srcset="assets/terminal/brew-shellenv-missing-mobile.png"><img src="assets/terminal/brew-shellenv-missing-wide.png" alt="這個位置找不到 Homebrew。先確認 Homebrew 安裝有沒有完成，再核對本人 Next steps 的路徑。不要把 /opt/homebrew 與 /usr/local 兩套都反覆貼上。" loading="lazy" decoding="async" data-wide="assets/terminal/brew-shellenv-missing-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>先確認 Homebrew 安裝有沒有完成，再核對本人 Next steps 的路徑。不要把 /opt/homebrew 與 /usr/local 兩套都反覆貼上。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % eval &quot;$(/opt/homebrew/bin/brew shellenv zsh)&quot;
+zsh: no such file or directory: /opt/homebrew/bin/brew
+teacher@Mac ~ % </pre></details></figure></div>
+<details class="path-extra"><summary>既有 Intel Homebrew：/usr/local 路徑範例</summary><p>只供原本已成功安裝在這個路徑的 Intel 電腦使用；這段不會安裝 Homebrew，也不是 Intel 的新裝解法。</p><code class="cmd" >echo &gt;&gt; ~/.zprofile
+echo &#x27;eval &quot;$(/usr/local/bin/brew shellenv zsh)&quot;&#x27; &gt;&gt; ~/.zprofile
+eval &quot;$(/usr/local/bin/brew shellenv zsh)&quot;</code><div class="terminal-gallery" data-gallery="terminal-gallery-11"><p class="gallery-hint">執行後，選和你相近的畫面；不用把每種狀況都做出來。安裝／登入可依序看圖。<br><small>以下皆為輸出對照示意；版本、帳號、語言、配色可能不同，部分長輸出已節錄。</small></p><div class="scene-choices" role="group" aria-label="可能出現的畫面"><button type="button" class="scene-choice" aria-pressed="true" aria-controls="terminal-gallery-11-0" data-scene="0">設定後沒有輸出也正常</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-11-1" data-scene="1">路徑不存在</button></div><figure id="terminal-gallery-11-0" class="terminal-figure"  data-scene-id="brew-shellenv-intel"><figcaption><b>既有 Intel Homebrew：三行設定後回到提示符</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：既有 Intel Homebrew：三行設定後回到提示符"><picture><source media="(max-width:640px)" srcset="assets/terminal/brew-shellenv-intel-mobile.png"><img src="assets/terminal/brew-shellenv-intel-wide.png" alt="既有 Intel Homebrew：三行設定後回到提示符。此圖僅供已安裝在 /usr/local 的 Intel Homebrew 使用，不是 Intel 新裝承諾。三行設定正常時通常沒有文字回覆；接著輸入 brew --version 確認。這是 zsh 範例，請優先照本人安裝畫面的 Next steps，不要兩種路徑都貼。" loading="lazy" decoding="async" data-wide="assets/terminal/brew-shellenv-intel-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>此圖僅供已安裝在 /usr/local 的 Intel Homebrew 使用，不是 Intel 新裝承諾。三行設定正常時通常沒有文字回覆；接著輸入 brew --version 確認。這是 zsh 範例，請優先照本人安裝畫面的 Next steps，不要兩種路徑都貼。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % echo &gt;&gt; ~/.zprofile
+teacher@Mac ~ % echo &#x27;eval &quot;$(/usr/local/bin/brew shellenv zsh)&quot;&#x27; &gt;&gt; ~/.zprofile
+teacher@Mac ~ % eval &quot;$(/usr/local/bin/brew shellenv zsh)&quot;
+teacher@Mac ~ % </pre></details></figure><figure id="terminal-gallery-11-1" class="terminal-figure" hidden data-scene-id="brew-shellenv-intel-missing"><figcaption><b>既有 Intel 路徑找不到 Homebrew</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：既有 Intel 路徑找不到 Homebrew"><picture><source media="(max-width:640px)" srcset="assets/terminal/brew-shellenv-intel-missing-mobile.png"><img src="assets/terminal/brew-shellenv-intel-missing-wide.png" alt="既有 Intel 路徑找不到 Homebrew。先確認 Homebrew 安裝有沒有完成，再核對本人 Next steps 的路徑。不要把 /opt/homebrew 與 /usr/local 兩套都反覆貼上。" loading="lazy" decoding="async" data-wide="assets/terminal/brew-shellenv-intel-missing-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>先確認 Homebrew 安裝有沒有完成，再核對本人 Next steps 的路徑。不要把 /opt/homebrew 與 /usr/local 兩套都反覆貼上。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % eval &quot;$(/usr/local/bin/brew shellenv zsh)&quot;
+zsh: no such file or directory: /usr/local/bin/brew
+teacher@Mac ~ % </pre></details></figure></div></details>
+<p><b>三行設定可能完全沒有印出成功文字。</b>看到下一個 %、且沒有錯誤時，不要反覆貼；關閉終端機後重新開啟，再複製下面這行、按 Return 驗證：</p><code class="cmd" >brew --version</code><div class="terminal-gallery" data-gallery="terminal-gallery-12"><p class="gallery-hint">執行後，選和你相近的畫面；不用把每種狀況都做出來。安裝／登入可依序看圖。<br><small>以下皆為輸出對照示意；版本、帳號、語言、配色可能不同，部分長輸出已節錄。</small></p><div class="scene-choices" role="group" aria-label="可能出現的畫面"><button type="button" class="scene-choice" aria-pressed="true" aria-controls="terminal-gallery-12-0" data-scene="0">檢查成功</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-12-1" data-scene="1">找不到指令</button></div><figure id="terminal-gallery-12-0" class="terminal-figure"  data-scene-id="brew-version"><figcaption><b>Homebrew 後面有版本數字</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：Homebrew 後面有版本數字"><picture><source media="(max-width:640px)" srcset="assets/terminal/brew-version-mobile.png"><img src="assets/terminal/brew-version-wide.png" alt="Homebrew 後面有版本數字。Homebrew 指令已可使用，可以繼續安裝 gh。版本可以不同，不必剛好是圖中的 7.0.0。" loading="lazy" decoding="async" data-wide="assets/terminal/brew-version-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>Homebrew 指令已可使用，可以繼續安裝 gh。版本可以不同，不必剛好是圖中的 7.0.0。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % brew --version
+Homebrew 7.0.0
+teacher@Mac ~ % </pre></details></figure><figure id="terminal-gallery-12-1" class="terminal-figure" hidden data-scene-id="brew-missing"><figcaption><b>找不到 brew，不一定是沒裝</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：找不到 brew，不一定是沒裝"><picture><source media="(max-width:640px)" srcset="assets/terminal/brew-missing-mobile.png"><img src="assets/terminal/brew-missing-wide.png" alt="找不到 brew，不一定是沒裝。第一次使用者依教材安裝 Homebrew；剛安裝過的人先補做自己畫面的 Next steps，再重新開啟終端機檢查。" loading="lazy" decoding="async" data-wide="assets/terminal/brew-missing-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>第一次使用者依教材安裝 Homebrew；剛安裝過的人先補做自己畫面的 Next steps，再重新開啟終端機檢查。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % brew --version
+zsh: command not found: brew
+teacher@Mac ~ % </pre></details></figure></div>
+<p>看到版本數字才繼續。仍是 command not found 或 no such file：先核對是否安裝完成、Next steps 路徑是否正確；找不到原因就截圖問老師。</p>
+</section>
+<section class="slide" id="gh-mac-install"><span class="tag">任務 ⑤ · Mac · 4 / 6</span><h2>安裝 gh，再親自查一次版本</h2>
+<h3>① 安裝：一次只執行這一段</h3><p>按複製 → 終端機按 ⌘＋V → Return：</p><code class="cmd" >brew install gh</code><div class="terminal-gallery" data-gallery="terminal-gallery-13"><p class="gallery-hint">執行後，選和你相近的畫面；不用把每種狀況都做出來。安裝／登入可依序看圖。<br><small>以下皆為輸出對照示意；版本、帳號、語言、配色可能不同，部分長輸出已節錄。</small></p><div class="scene-choices" role="group" aria-label="可能出現的畫面"><button type="button" class="scene-choice" aria-pressed="true" aria-controls="terminal-gallery-13-0" data-scene="0">正在安裝・節錄</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-13-1" data-scene="1">安裝摘要・節錄</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-13-2" data-scene="2">已經安裝</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-13-3" data-scene="3">下載失敗・節錄</button></div><figure id="terminal-gallery-13-0" class="terminal-figure"  data-scene-id="brew-gh-installing"><figcaption><b>gh 正在下載與解壓縮</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：gh 正在下載與解壓縮"><picture><source media="(max-width:640px)" srcset="assets/terminal/brew-gh-installing-mobile.png"><img src="assets/terminal/brew-gh-installing-wide.png" alt="gh 正在下載與解壓縮。Pouring 表示正在解壓安裝，還不是完成。先等到指令結束，再輸入 gh --version 確认；檔名、系統代號與版本會不同。" loading="lazy" decoding="async" data-wide="assets/terminal/brew-gh-installing-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>Pouring 表示正在解壓安裝，還不是完成。先等到指令結束，再輸入 gh --version 確认；檔名、系統代號與版本會不同。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % brew install gh
+...
+==&gt; Pouring gh--2.101.0.arm64_sequoia.bottle.tar.gz</pre></details></figure><figure id="terminal-gallery-13-1" class="terminal-figure" hidden data-scene-id="brew-gh-installed"><figcaption><b>裝完 gh，還要查一次版本</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：裝完 gh，還要查一次版本"><picture><source media="(max-width:640px)" srcset="assets/terminal/brew-gh-installed-mobile.png"><img src="assets/terminal/brew-gh-installed-wide.png" alt="裝完 gh，還要查一次版本。這是安裝摘要示意，檔案數與容量已省略。現在輸入 gh --version，看到 gh version 和版本數字再繼續登入。" loading="lazy" decoding="async" data-wide="assets/terminal/brew-gh-installed-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>這是安裝摘要示意，檔案數與容量已省略。現在輸入 gh --version，看到 gh version 和版本數字再繼續登入。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % brew install gh
+...
+/opt/homebrew/Cellar/gh/2.101.0: ... files, ...MB
+teacher@Mac ~ % </pre></details></figure><figure id="terminal-gallery-13-2" class="terminal-figure" hidden data-scene-id="brew-gh-existing"><figcaption><b>已經有 gh，不必重新安裝</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：已經有 gh，不必重新安裝"><picture><source media="(max-width:640px)" srcset="assets/terminal/brew-gh-existing-mobile.png"><img src="assets/terminal/brew-gh-existing-wide.png" alt="已經有 gh，不必重新安裝。這不是需要重裝的錯誤。直接輸入 gh --version 驗證；有版本號就繼續 gh 登入步驟。" loading="lazy" decoding="async" data-wide="assets/terminal/brew-gh-existing-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>這不是需要重裝的錯誤。直接輸入 gh --version 驗證；有版本號就繼續 gh 登入步驟。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % brew install gh
+Warning: gh 2.101.0 is already installed and up-to-date.
+...
+teacher@Mac ~ % </pre></details></figure><figure id="terminal-gallery-13-3" class="terminal-figure" hidden data-scene-id="brew-gh-failed"><figcaption><b>gh 下載沒有完成</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：gh 下載沒有完成"><picture><source media="(max-width:640px)" srcset="assets/terminal/brew-gh-failed-mobile.png"><img src="assets/terminal/brew-gh-failed-wide.png" alt="gh 下載沒有完成。先檢查網路與組織限制，保留完整錯誤；網路恢復後再試 brew install gh。不要因為看到提示符就判定安裝成功。" loading="lazy" decoding="async" data-wide="assets/terminal/brew-gh-failed-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>先檢查網路與組織限制，保留完整錯誤；網路恢復後再試 brew install gh。不要因為看到提示符就判定安裝成功。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % brew install gh
+...
+curl: (6) Could not resolve host: ghcr.io
+Error: gh: Failed to download resource &quot;gh&quot;
+teacher@Mac ~ % </pre></details></figure></div>
+<p>下載、更新或安裝時先等待。看到摘要並回到 %，再做下面的版本檢查；如果已經是最新版，也可以直接查版本。出現 Error／failed 就先看圖說，暫停下一步。</p>
+<h3>② 驗證：安裝結束後才執行</h3><code class="cmd" >gh --version</code><div class="terminal-gallery" data-gallery="terminal-gallery-14"><p class="gallery-hint">執行後，選和你相近的畫面；不用把每種狀況都做出來。安裝／登入可依序看圖。<br><small>以下皆為輸出對照示意；版本、帳號、語言、配色可能不同，部分長輸出已節錄。</small></p><div class="scene-choices" role="group" aria-label="可能出現的畫面"><button type="button" class="scene-choice" aria-pressed="true" aria-controls="terminal-gallery-14-0" data-scene="0">檢查成功</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-14-1" data-scene="1">找不到指令</button></div><figure id="terminal-gallery-14-0" class="terminal-figure"  data-scene-id="gh-mac-version"><figcaption><b>看到 gh version 就能做登入</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：看到 gh version 就能做登入"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-mac-version-mobile.png"><img src="assets/terminal/gh-mac-version-wide.png" alt="看到 gh version 就能做登入。gh 已可使用，繼續下一頁的 gh auth login。版本與日期可以不同；這一步只檢查安裝，還沒完成 GitHub 登入。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-mac-version-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>gh 已可使用，繼續下一頁的 gh auth login。版本與日期可以不同；這一步只檢查安裝，還沒完成 GitHub 登入。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % gh --version
+gh version 2.101.0 (2026-09-15)
+https://github.com/cli/cli/releases/tag/v2.101.0
+teacher@Mac ~ % </pre></details></figure><figure id="terminal-gallery-14-1" class="terminal-figure" hidden data-scene-id="gh-mac-missing"><figcaption><b>找不到 gh，先查安裝與 PATH</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：找不到 gh，先查安裝與 PATH"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-mac-missing-mobile.png"><img src="assets/terminal/gh-mac-missing-wide.png" alt="找不到 gh，先查安裝與 PATH。先查 brew --version。brew 也找不到就回 Homebrew／Next steps；brew 正常則執行 brew install gh，等完成後重新檢查。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-mac-missing-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>先查 brew --version。brew 也找不到就回 Homebrew／Next steps；brew 正常則執行 brew install gh，等完成後重新檢查。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % gh --version
+zsh: command not found: gh
+teacher@Mac ~ % </pre></details></figure></div><p>看到 <b>gh version</b> 和數字，才到下一頁登入。若找不到 gh，先重開終端機；仍失敗時回看安裝輸出，或截圖詢問老師。</p>
+</section>
 
-  <section class="slide" id="gh-mac-login">
-    <span class="tag">任務 ⑤ · 🍎 Mac · Step 4</span>
-    <h2>登入 GitHub（最關鍵的一步）</h2>
-    <div class="step"><div class="num">4</div><div>
-      <p style="margin:0">在終端機輸入：</p>
-      <code class="cmd">gh auth login</code>
-      <p style="margin:.4em 0 .2em">接著它會問幾個問題，用<b>方向鍵 + Enter</b> 照下面選：</p>
-      <div class="card" style="margin:.4em 0;padding:.8em 1em">
-        <p style="margin:.15em 0">❓ <b>Where do you use GitHub?</b> → 選 <code>GitHub.com</code></p>
-        <p style="margin:.15em 0">❓ <b>What is your preferred protocol?</b> → 選 <code>HTTPS</code></p>
-        <p style="margin:.15em 0">❓ <b>Authenticate Git with your GitHub credentials?</b> → 選 <code>Yes</code></p>
-        <p style="margin:.15em 0">❓ <b>How would you like to authenticate?</b> → 選 <code>Login with a web browser</code></p>
-      </div>
-      <p style="margin:.2em 0">終端機會顯示 <b>8 碼驗證碼</b>（例：<code>AB12-CD34</code>），並提示 <i>Press Enter to open github.com in your browser</i>。</p>
-      <p style="margin:.2em 0">⚠️ 按 Enter 後做兩件事：</p>
-      <p style="margin:.1em 0 .1em 1.2em">1. 瀏覽器跳出 → <b>貼上 8 碼</b> → 點 <b>Continue</b></p>
-      <p style="margin:.1em 0 .1em 1.2em">2. 點 <b>Authorize</b>（授權）</p>
-      <p class="muted" style="margin:.2em 0">完成後瀏覽器會顯示「Congratulations, you're all set!」，回終端機會看到 ✓ Logged in as 你的帳號。</p>
-    </div></div>
-  </section>
+  <section class="slide" id="gh-mac-login"><span class="tag">任務 ⑤ · Mac · 5 / 6</span><h2>登入 GitHub：每一題都有對照圖</h2>
+<p>按複製 → 切到 終端機 → ⌘＋V，再按 Return。<b>這行只執行一次，接下來在同一個視窗回答問題；換看下一張圖時，不必重貼指令。</b></p><code class="cmd" >gh auth login</code><div class="terminal-gallery" data-gallery="terminal-gallery-15"><p class="gallery-hint">執行後，選和你相近的畫面；不用把每種狀況都做出來。安裝／登入可依序看圖。<br><small>以下皆為輸出對照示意；版本、帳號、語言、配色可能不同，部分長輸出已節錄。</small></p><div class="scene-choices" role="group" aria-label="可能出現的畫面"><button type="button" class="scene-choice" aria-pressed="true" aria-controls="terminal-gallery-15-0" data-scene="0">① GitHub.com</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-15-1" data-scene="1">② HTTPS</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-15-2" data-scene="2">③ 輸入 Y</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-15-3" data-scene="3">④ 瀏覽器登入</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-15-4" data-scene="4">⑤ 本次驗證碼</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-15-5" data-scene="5">⑤ 舊版畫面</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-15-6" data-scene="6">⑥ 登入完成</button></div><figure id="terminal-gallery-15-0" class="terminal-figure"  data-scene-id="gh-mac-menu-host"><figcaption><b>第一題：選 GitHub.com</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：第一題：選 GitHub.com"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-mac-menu-host-mobile.png"><img src="assets/terminal/gh-mac-menu-host-wide.png" alt="第一題：選 GitHub.com。用鍵盤上下方向鍵選 GitHub.com，再按 Enter。不要用滑鼠點終端機裡的選項。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-mac-menu-host-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>用鍵盤上下方向鍵選 GitHub.com，再按 Enter。不要用滑鼠點終端機裡的選項。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % gh auth login
+? Where do you use GitHub?  [Use arrows to move, type to filter]
+&gt; GitHub.com
+  Other</pre></details></figure><figure id="terminal-gallery-15-1" class="terminal-figure" hidden data-scene-id="gh-mac-menu-protocol"><figcaption><b>第二題：選 HTTPS</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：第二題：選 HTTPS"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-mac-menu-protocol-mobile.png"><img src="assets/terminal/gh-mac-menu-protocol-wide.png" alt="第二題：選 HTTPS。用上下方向鍵選 HTTPS，再按 Enter。如果選到 SSH 而出現金鑰問題，可按 Ctrl+C 結束這次登入，再重新輸入 gh auth login。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-mac-menu-protocol-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>用上下方向鍵選 HTTPS，再按 Enter。如果選到 SSH 而出現金鑰問題，可按 Ctrl+C 結束這次登入，再重新輸入 gh auth login。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % gh auth login
+? Where do you use GitHub? GitHub.com
+? What is your preferred protocol for Git operations on this host?
+&gt; HTTPS
+  SSH</pre></details></figure><figure id="terminal-gallery-15-2" class="terminal-figure" hidden data-scene-id="gh-mac-menu-git"><figcaption><b>若有這一題：讓 Git 使用這次的登入資料</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：若有這一題：讓 Git 使用這次的登入資料"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-mac-menu-git-mobile.png"><img src="assets/terminal/gh-mac-menu-git-wide.png" alt="若有這一題：讓 Git 使用這次的登入資料。輸入 Y，再按 Enter。若電腦已經設定好，這題可能直接跳過，繼續看下一題即可。若此處顯示找不到 git，先完成 Git 安裝與 git --version 檢查。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-mac-menu-git-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>輸入 Y，再按 Enter。若電腦已經設定好，這題可能直接跳過，繼續看下一題即可。若此處顯示找不到 git，先完成 Git 安裝與 git --version 檢查。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % gh auth login
+? Where do you use GitHub? GitHub.com
+? What is your preferred protocol for Git operations on this host? HTTPS
+? Authenticate Git with your GitHub credentials? (Y/n)</pre></details></figure><figure id="terminal-gallery-15-3" class="terminal-figure" hidden data-scene-id="gh-mac-menu-method"><figcaption><b>登入方式：選 Login with a web browser</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：登入方式：選 Login with a web browser"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-mac-menu-method-mobile.png"><img src="assets/terminal/gh-mac-menu-method-wide.png" alt="登入方式：選 Login with a web browser。選 Login with a web browser，再按 Enter。下一步會在終端機顯示一次性驗證碼。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-mac-menu-method-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>選 Login with a web browser，再按 Enter。下一步會在終端機顯示一次性驗證碼。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % gh auth login
+? Where do you use GitHub? GitHub.com
+? What is your preferred protocol for Git operations on this host? HTTPS
+? Authenticate Git with your GitHub credentials? Yes
+? How would you like to authenticate GitHub CLI?
+&gt; Login with a web browser
+  Paste an authentication token</pre></details></figure><figure id="terminal-gallery-15-4" class="terminal-figure" hidden data-scene-id="gh-mac-code"><figcaption><b>新版：驗證碼已複製，按 Enter 開啟瀏覽器</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：新版：驗證碼已複製，按 Enter 開啟瀏覽器"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-mac-code-mobile.png"><img src="assets/terminal/gh-mac-code-wide.png" alt="新版：驗證碼已複製，按 Enter 開啟瀏覽器。按 Enter 開啟 GitHub 網頁，確認是自己的帳號，將你自己終端機的代碼貼進網頁，依畫面繼續並授權。不要輸入示意圖的 AB12-CD34；完成後回到終端機等候登入結果。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-mac-code-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>按 Enter 開啟 GitHub 網頁，確認是自己的帳號，將你自己終端機的代碼貼進網頁，依畫面繼續並授權。不要輸入示意圖的 AB12-CD34；完成後回到終端機等候登入結果。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % gh auth login
+! One-time code (AB12-CD34) copied to clipboard
+Press Enter to open https://github.com/login/device in your browser...</pre></details></figure><figure id="terminal-gallery-15-5" class="terminal-figure" hidden data-scene-id="gh-mac-code-old"><figcaption><b>另一種畫面：先複製你自己的代碼，再按 Enter</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：另一種畫面：先複製你自己的代碼，再按 Enter"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-mac-code-old-mobile.png"><img src="assets/terminal/gh-mac-code-old-wide.png" alt="另一種畫面：先複製你自己的代碼，再按 Enter。先選取並複製你終端機中的一次性代碼，再按 Enter。瀏覽器開啟後，確認帳號並貼上該代碼。如果瀏覽器沒自動開啟，在瀏覽器開啟終端機顯示的 GitHub 網址。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-mac-code-old-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>先選取並複製你終端機中的一次性代碼，再按 Enter。瀏覽器開啟後，確認帳號並貼上該代碼。如果瀏覽器沒自動開啟，在瀏覽器開啟終端機顯示的 GitHub 網址。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % gh auth login
+! First copy your one-time code: AB12-CD34
+Press Enter to open https://github.com/login/device in your browser...</pre></details></figure><figure id="terminal-gallery-15-6" class="terminal-figure" hidden data-scene-id="gh-mac-login-ok"><figcaption><b>回到終端機，確認已完成登入</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：回到終端機，確認已完成登入"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-mac-login-ok-mobile.png"><img src="assets/terminal/gh-mac-login-ok-wide.png" alt="回到終端機，確認已完成登入。確認 Logged in as 後面是自己的 GitHub 帳號，接著輸入 gh auth status 做最後確認。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-mac-login-ok-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>確認 Logged in as 後面是自己的 GitHub 帳號，接著輸入 gh auth status 做最後確認。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % gh auth login
+✓ Authentication complete.
+- gh config set -h github.com git_protocol https
+✓ Configured git protocol
+✓ Logged in as teacher-demo
+teacher@Mac ~ %</pre></details></figure></div>
+<div class="card"><p><b>選單題：</b>按鍵盤 ↑／↓，把箭頭移到圖中的選項，再按 Enter。<b>(Y/n) 題：</b>輸入 Y，再按 Enter。</p><p>依序選 <b>GitHub.com → HTTPS → Yes → Login with a web browser</b>。已設定的題目可能跳過，不必讓題數跟圖完全相同。</p></div>
+<h3>驗證碼出現後，換到瀏覽器</h3><ol><li>圖中的 <b>AB12-CD34 是無效範例</b>。使用自己終端機本次顯示的碼；新版本可能已自動複製，舊版本需要自行選取並複製。</li><li>回終端機按 Enter，開啟 GitHub。若瀏覽器沒有自動開啟，手動打開 <a href="https://github.com/login/device" target="_blank" rel="noopener">github.com/login/device</a>。</li><li>若要求登入，先登入自己的 GitHub 帳號。貼上本次驗證碼 → Continue → 確認是自己的帳號，再按 Authorize GitHub CLI。</li><li>瀏覽器顯示完成後，回 終端機，找到 <b>Logged in as</b> 與自己的帳號，再到下一頁檢查。</li></ol>
+<div class="card"><p><b>驗證碼過期／按到取消：</b>回終端機，若尚在等待就按 Ctrl＋C，回到提示字元後重新執行上方登入指令，取新的碼。若問是否重新登入，確認帳號後選 Yes。瀏覽器登入完成前，終端機等待是正常的。</p><p>若跳出權限／組織限制或反覆失敗，截下錯誤訊息問老師。不要公開登入碼、密碼或 token。</p></div>
+<p class="source-links"><a href="https://cli.github.com/manual/gh_auth_login" target="_blank" rel="noopener">GitHub CLI 官方登入說明</a></p>
+</section>
 
-  <section class="slide" id="gh-mac-done">
-    <span class="tag">任務 ⑤ · 🍎 Mac · Step 5</span>
-    <h2>驗證 + 常見坑</h2>
-    <div class="step"><div class="num">5</div><div>
-      <p style="margin:0">🧪 <b>最終驗證</b>，輸入：</p>
-      <code class="cmd">gh auth status</code>
-      <p style="margin:.4em 0 .2em">畫面長這樣 = 大功告成 🎉（重點看<b>第一行的綠色 ✓</b>）：</p>
-      <div class="card" style="margin:.3em 0;padding:.7em 1em;background:#0b1220">
-        <p style="margin:.1em 0;font-family:ui-monospace,Menlo,monospace;font-size:.9em;color:#e2e8f0">github.com</p>
-        <p style="margin:.1em 0;font-family:ui-monospace,Menlo,monospace;font-size:.9em;color:var(--ok)">　✓ Logged in to github.com account 你的帳號</p>
-        <p style="margin:.1em 0;font-family:ui-monospace,Menlo,monospace;font-size:.9em;color:#94a3b8">　- Active account: true</p>
-        <p style="margin:.1em 0;font-family:ui-monospace,Menlo,monospace;font-size:.9em;color:#94a3b8">　- Git operations protocol: https</p>
-        <p style="margin:.1em 0;font-family:ui-monospace,Menlo,monospace;font-size:.9em;color:#94a3b8">　- Token: gho_***</p>
-      </div>
-      <p class="muted" style="margin:.2em 0">⚠️ 只有第一行是綠色 ✓，其他 <code>-</code> 開頭的灰色文字是正常資訊，<b>不是錯誤</b>。</p>
-    </div></div>
-    <div class="card" style="border-color:#ef4444;background:#1a0e0e">
-      <p style="margin:0 0 .3em"><b>💡 常見坑</b></p>
-      <p style="margin:.2em 0">🔴 <b>裝完 Homebrew、重開終端機還是 <code>command not found</code></b> <span style="color:#fca5a5">（每屆都有人踩）</span></p>
-      <p class="muted" style="margin:.1em 0 .3em 1.6em;font-size:.9em">→ 你 <b>沒有跑「Next steps」那兩行指令</b>。Homebrew 雖然裝好了，但終端機還不知道它在哪。<a class="jumpbtn" href="#" onclick="show('gh-mac-start');return false;">↩ 回 Step 2 補做 Next steps</a></p>
-      <p class="muted" style="margin:.1em 0 .4em 1.6em;font-size:.9em">→ 簡單版：直接複製下面兩行貼進終端機按 Enter（Apple Silicon Mac 用）：</p>
-      <code class="cmd" style="margin-left:1.6em">echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' &gt;&gt; ~/.zprofile
-eval "$(/opt/homebrew/bin/brew shellenv)"</code>
-      <p class="muted" style="margin:.2em 0 .4em 1.6em;font-size:.9em">→ 如果你是 Intel Mac（2019 年以前），把 <code>/opt/homebrew/</code> 改成 <code>/usr/local/</code></p>
-      <p style="margin:.4em 0"><b style="color:#fbbf24">📌 一句話解釋</b>：「<i>Homebrew 已經裝好了，但你的終端機還不知道它在哪裡。上面那兩行就是『告訴終端機 Homebrew 的位置』。</i>」</p>
-      <p style="margin:.4em 0">🔴 <b>卡在 web browser 那步</b> → 重新輸入 <code>gh auth login</code>，仍選 <b>Login with a web browser</b>，取得新的驗證碼再試。<a class="jumpbtn" href="#gh-mac-login" onclick="show('gh-mac-login');return false;">↩ 回 Step 4 重做</a>。再次失敗時，截下錯誤畫面到群組詢問；不用自行產生或貼上 token。</p>
-      <p style="margin:.2em 0">🔴 <b>gh auth status 顯示 not logged in</b> → 重跑 <code>gh auth login</code> 一次 <a class="jumpbtn" href="#" onclick="show('gh-mac-login');return false;">↩ 回 Step 4 重做</a></p>
-    </div>
-  </section>
+  <section class="slide" id="gh-mac-done"><span class="tag">任務 ⑤ · Mac · 6 / 6</span><h2>最後確認：看文字，不用猜顏色</h2>
+<p>按複製 → 切到 終端機 → ⌘＋V，再按 Return：</p><code class="cmd" >gh auth status</code><div class="terminal-gallery" data-gallery="terminal-gallery-16"><p class="gallery-hint">執行後，選和你相近的畫面；不用把每種狀況都做出來。安裝／登入可依序看圖。<br><small>以下皆為輸出對照示意；版本、帳號、語言、配色可能不同，部分長輸出已節錄。</small></p><div class="scene-choices" role="group" aria-label="可能出現的畫面"><button type="button" class="scene-choice" aria-pressed="true" aria-controls="terminal-gallery-16-0" data-scene="0">成功</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-16-1" data-scene="1">尚未登入</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-16-2" data-scene="2">需要重新登入</button></div><figure id="terminal-gallery-16-0" class="terminal-figure"  data-scene-id="gh-mac-status-ok"><figcaption><b>登入狀態正常，且是你要使用的帳號</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：登入狀態正常，且是你要使用的帳號"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-mac-status-ok-mobile.png"><img src="assets/terminal/gh-mac-status-ok-wide.png" alt="登入狀態正常，且是你要使用的帳號。確認帳號是自己的，且 Active account 為 true。這一關就完成了；若有多個帳號，請看目前啟用的那一個。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-mac-status-ok-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>確認帳號是自己的，且 Active account 為 true。這一關就完成了；若有多個帳號，請看目前啟用的那一個。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % gh auth status
+github.com
+  ✓ Logged in to github.com account teacher-demo (keyring)
+  - Active account: true
+  - Git operations protocol: https
+teacher@Mac ~ %</pre></details></figure><figure id="terminal-gallery-16-1" class="terminal-figure" hidden data-scene-id="gh-mac-status-missing"><figcaption><b>工具已安裝，但還沒有登入任何 GitHub 帳號</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：工具已安裝，但還沒有登入任何 GitHub 帳號"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-mac-status-missing-mobile.png"><img src="assets/terminal/gh-mac-status-missing-wide.png" alt="工具已安裝，但還沒有登入任何 GitHub 帳號。輸入 gh auth login，依前面的選單與瀏覽器步驟完成登入，再跑一次 gh auth status。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-mac-status-missing-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>輸入 gh auth login，依前面的選單與瀏覽器步驟完成登入，再跑一次 gh auth status。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % gh auth status
+You are not logged into any GitHub hosts. To log in, run: gh auth login
+teacher@Mac ~ %</pre></details></figure><figure id="terminal-gallery-16-2" class="terminal-figure" hidden data-scene-id="gh-mac-status-invalid"><figcaption><b>曾經登入過，但目前的登入資料無法通過檢查</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：曾經登入過，但目前的登入資料無法通過檢查"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-mac-status-invalid-mobile.png"><img src="assets/terminal/gh-mac-status-invalid-wide.png" alt="曾經登入過，但目前的登入資料無法通過檢查。先確認網路正常。回本教材「登入 GitHub」頁，重新執行 gh auth login，以自己的帳號完成瀏覽器授權，再查 gh auth status。若出現不同問題或帳號選擇，截圖問老師。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-mac-status-invalid-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>先確認網路正常。回本教材「登入 GitHub」頁，重新執行 gh auth login，以自己的帳號完成瀏覽器授權，再查 gh auth status。若出現不同問題或帳號選擇，截圖問老師。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>teacher@Mac ~ % gh auth status
+github.com
+  X Failed to log in to github.com account teacher-demo (keyring)
+  - Active account: true
+  - The token in keyring is invalid.
+teacher@Mac ~ %</pre></details></figure></div>
+<div class="card"><p><b>完成標準：</b>找到 <b>Logged in to github.com account</b>，後面是自己的 GitHub 帳號，並有 <b>Active account: true</b>。圖中的 teacher 是範例。</p><p>github.com 與 - 開頭的幾行是一般資訊；Token 後的星號代表遮住內容，不是錯誤。<b>回應的顏色可能不同，不必找「第一行綠勾」。</b></p></div>
+<p>如果顯示未登入，<a class="jumpbtn" href="#gh-mac-login" onclick="show('gh-mac-login');return false;">回登入步驟</a>；憑證失效或帳號不對也先回登入步驟，以自己的帳號重新完成瀏覽器授權。若電腦有多個帳號、不確定要保留哪一個，截圖詢問老師。</p>
+<p>Homebrew 找不到指令：<a class="jumpbtn" href="#gh-mac-path" onclick="show('gh-mac-path');return false;">核對本人 Next steps</a>。不一定只是漏做設定，也可能尚未安裝完成或用了不同路徑。</p><p><a class="jumpbtn" href="#prep-checklist" onclick="show('prep-checklist');return false;">看到自己的登入狀態 → 最後檢核</a></p>
+</section>
 
-  <section class="slide" id="gh-windows-start">
-    <span class="tag">任務 ⑤ · 🪟 Windows · Step 1~2</span>
-    <h2>打開 PowerShell + 確認 winget</h2>
-    <div class="step"><div class="num">1</div><div>
-      <p style="margin:0"><b>打開 PowerShell（終端機）</b></p>
-      <p class="muted" style="margin:.2em 0">按 <kbd>Win</kbd>+<kbd>X</kbd> → 選「<b>Windows PowerShell</b>」或「<b>終端機</b>」<br>（或：開始選單搜尋「PowerShell」→ Enter）</p>
-    </div></div>
-    <div class="step"><div class="num">2</div><div>
-      <p style="margin:0"><b>確認有沒有 winget</b>（Windows 內建套件管理工具），輸入：</p>
-      <code class="cmd">winget --version</code>
-      <p style="margin:.4em 0 .2em">✅ 看到 <code>v1.x.x</code> 之類的版本號 → 翻下一頁（Step 3）</p>
-      <p style="margin:.2em 0">❌ 看到 <code>無法辨識 'winget'</code> → 你的是 <b>Windows 10 舊版</b>，兩種解法：</p>
-      <p style="margin:.1em 0 .1em 1.2em">A. 開 Microsoft Store 搜尋「<b>App Installer</b>」更新（最簡單）</p>
-      <p style="margin:.1em 0 .1em 1.2em">B. 直接到 <a class="url" href="https://cli.github.com" target="_blank" rel="noopener">cli.github.com</a> 下載 <code>.msi</code> 安裝檔，裝完跳到 Step 3 後段驗證</p>
-    </div></div>
-  </section>
+  <section class="slide" id="gh-windows-start"><span class="tag">任務 ⑤ · Windows · 1 / 4</span><h2>Windows：開 PowerShell，先查 winget</h2>
+<p>按開始按鈕，搜尋 <b>PowerShell</b> 並開啟，一般權限就可以。也可從 Windows Terminal 裡開 PowerShell 分頁。</p>
+<p>按下方複製 → 切到 PowerShell → Ctrl＋V → 按 Enter：</p><code class="cmd" >winget --version</code><div class="terminal-gallery" data-gallery="terminal-gallery-17"><p class="gallery-hint">執行後，選和你相近的畫面；不用把每種狀況都做出來。安裝／登入可依序看圖。<br><small>以下皆為輸出對照示意；版本、帳號、語言、配色可能不同，部分長輸出已節錄。</small></p><div class="scene-choices" role="group" aria-label="可能出現的畫面"><button type="button" class="scene-choice" aria-pressed="true" aria-controls="terminal-gallery-17-0" data-scene="0">成功</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-17-1" data-scene="1">找不到</button></div><figure id="terminal-gallery-17-0" class="terminal-figure"  data-scene-id="winget-ok"><figcaption><b>看到 v 開頭的版本號，代表 WinGet 可以使用</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：看到 v 開頭的版本號，代表 WinGet 可以使用"><picture><source media="(max-width:640px)" srcset="assets/terminal/winget-ok-mobile.png"><img src="assets/terminal/winget-ok-wide.png" alt="看到 v 開頭的版本號，代表 WinGet 可以使用。接著執行安裝 GitHub CLI 的指令。這是 WinGet 的版本號，和 Git 或 GitHub CLI 的版本不同。" loading="lazy" decoding="async" data-wide="assets/terminal/winget-ok-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>接著執行安裝 GitHub CLI 的指令。這是 WinGet 的版本號，和 Git 或 GitHub CLI 的版本不同。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; winget --version
+v1.29.380
+PS C:\Users\teacher&gt;</pre></details></figure><figure id="terminal-gallery-17-1" class="terminal-figure" hidden data-scene-id="winget-missing"><figcaption><b>PowerShell 找不到 WinGet</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：PowerShell 找不到 WinGet"><picture><source media="(max-width:640px)" srcset="assets/terminal/winget-missing-mobile.png"><img src="assets/terminal/winget-missing-wide.png" alt="PowerShell 找不到 WinGet。開啟 Microsoft Store，搜尋並安裝或更新 Microsoft 的「應用程式安裝程式／App Installer」，再重開終端機檢查。若學校電腦限制商店，依課程的 GitHub CLI 官方安裝檔備案處理。" loading="lazy" decoding="async" data-wide="assets/terminal/winget-missing-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>開啟 Microsoft Store，搜尋並安裝或更新 Microsoft 的「應用程式安裝程式／App Installer」，再重開終端機檢查。若學校電腦限制商店，依課程的 GitHub CLI 官方安裝檔備案處理。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; winget --version
+winget : The term &#x27;winget&#x27; is not recognized as the name of a cmdlet, function, script file, or operable program.
+PS C:\Users\teacher&gt;</pre></details></figure></div>
+<div class="card"><p><b>看到 v 與版本數字：</b>下一頁安裝 gh。</p><p><b>找不到 winget：</b>不代表你做錯，也不能直接判斷 Windows 太舊。可開 Microsoft Store 更新「App Installer／應用程式安裝程式」，重開 PowerShell 後再試。</p><p>如果 winget 仍不能用，直接到 <a href="https://cli.github.com" target="_blank" rel="noopener">GitHub CLI 官網</a> 選 Windows，下載符合電腦架構的 <b>.msi</b> 並安裝。裝完重開 PowerShell，跳到下一頁的「② 驗證」。</p></div>
+<p class="source-links"><a href="https://learn.microsoft.com/windows/package-manager/winget/" target="_blank" rel="noopener">Microsoft：WinGet 與 App Installer</a></p>
+</section>
 
-  <section class="slide" id="gh-windows-install">
-    <span class="tag">任務 ⑤ · 🪟 Windows · Step 3</span>
-    <h2>安裝 GitHub CLI</h2>
-    <div class="step"><div class="num">3</div><div>
-      <p style="margin:0">在 PowerShell 輸入：</p>
-      <code class="cmd">winget install --id GitHub.cli -e</code>
-      <p class="muted" style="margin:.2em 0">第一次跑會問「是否同意來源條款？」→ 輸入 <b>Y</b> 按 Enter。會跑一段時間，等它跑完出現提示符號。</p>
-      <p style="margin:.6em 0 .2em">⚠️ <b>關鍵動作</b>：</p>
-      <div class="card" style="margin:.3em 0;padding:.7em 1em;border-color:var(--accent)">
-        <p style="margin:0"><b>把 PowerShell 整個關掉，重新打開一個新的</b><br>
-        <span class="muted">不重開的話，新裝的 <code>gh</code> 不會被認到，會一直「找不到指令」。</span></p>
-      </div>
-      <p style="margin:.6em 0 .2em">✅ <b>裝完驗證</b>（在新開的 PowerShell）：</p>
-      <code class="cmd">gh --version</code>
-      <p class="muted" style="margin:.2em 0">看到 <code>gh version 2.x.x</code> = 安裝成功 ✅ → 翻下一頁開始登入。</p>
-    </div></div>
-  </section>
+  <section class="slide" id="gh-windows-install"><span class="tag">任務 ⑤ · Windows · 2 / 4</span><h2>安裝 gh：等裝完，再重開視窗</h2>
+<h3>① 安裝（若已用 .msi 裝好，跳到②）</h3><p>複製 → PowerShell 按 Ctrl＋V → Enter：</p><code class="cmd" >winget install --id GitHub.cli -e</code><div class="terminal-gallery" data-gallery="terminal-gallery-18"><p class="gallery-hint">執行後，選和你相近的畫面；不用把每種狀況都做出來。安裝／登入可依序看圖。<br><small>以下皆為輸出對照示意；版本、帳號、語言、配色可能不同，部分長輸出已節錄。</small></p><div class="scene-choices" role="group" aria-label="可能出現的畫面"><button type="button" class="scene-choice" aria-pressed="true" aria-controls="terminal-gallery-18-0" data-scene="0">等待回答</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-18-1" data-scene="1">安裝中</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-18-2" data-scene="2">成功</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-18-3" data-scene="3">已經裝過</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-18-4" data-scene="4">未完成</button></div><figure id="terminal-gallery-18-0" class="terminal-figure"  data-scene-id="winget-agree"><figcaption><b>出現條款問題時，先閱讀，再輸入 Y 並按 Enter</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：出現條款問題時，先閱讀，再輸入 Y 並按 Enter"><picture><source media="(max-width:640px)" srcset="assets/terminal/winget-agree-mobile.png"><img src="assets/terminal/winget-agree-wide.png" alt="出現條款問題時，先閱讀，再輸入 Y 並按 Enter。閱讀終端機上方的來源條款，願意接受才輸入 Y 並按 Enter；不同版本也可能出現安裝套件的條款問題。" loading="lazy" decoding="async" data-wide="assets/terminal/winget-agree-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>閱讀終端機上方的來源條款，願意接受才輸入 Y 並按 Enter；不同版本也可能出現安裝套件的條款問題。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; winget install --id GitHub.cli -e
+Do you agree to all the source agreements terms?
+[Y] Yes  [N] No:</pre></details></figure><figure id="terminal-gallery-18-1" class="terminal-figure" hidden data-scene-id="winget-installing"><figcaption><b>正在下載或安裝，先等待</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：正在下載或安裝，先等待"><picture><source media="(max-width:640px)" srcset="assets/terminal/winget-installing-mobile.png"><img src="assets/terminal/winget-installing-wide.png" alt="正在下載或安裝，先等待。等待安裝完成。如果跳出 Windows 權限視窗，確認是你剛開始的 GitHub CLI 安裝再允許。尚未看到完成訊息時，不要重複貼上安裝指令。" loading="lazy" decoding="async" data-wide="assets/terminal/winget-installing-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>等待安裝完成。如果跳出 Windows 權限視窗，確認是你剛開始的 GitHub CLI 安裝再允許。尚未看到完成訊息時，不要重複貼上安裝指令。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; winget install --id GitHub.cli -e
+Found GitHub CLI [GitHub.cli] Version 2.101.0
+Successfully verified installer hash
+Starting package install...</pre></details></figure><figure id="terminal-gallery-18-2" class="terminal-figure" hidden data-scene-id="winget-installed"><figcaption><b>看到 Successfully installed，代表安裝程式完成</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：看到 Successfully installed，代表安裝程式完成"><picture><source media="(max-width:640px)" srcset="assets/terminal/winget-installed-mobile.png"><img src="assets/terminal/winget-installed-wide.png" alt="看到 Successfully installed，代表安裝程式完成。關閉整個終端機視窗並重新開啟，再輸入 gh --version。這一步讓新視窗讀取更新後的程式路徑。" loading="lazy" decoding="async" data-wide="assets/terminal/winget-installed-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>關閉整個終端機視窗並重新開啟，再輸入 gh --version。這一步讓新視窗讀取更新後的程式路徑。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; winget install --id GitHub.cli -e
+Successfully installed
+PS C:\Users\teacher&gt;</pre></details></figure><figure id="terminal-gallery-18-3" class="terminal-figure" hidden data-scene-id="winget-existing"><figcaption><b>已裝過且沒有可用更新，不必反覆安裝</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：已裝過且沒有可用更新，不必反覆安裝"><picture><source media="(max-width:640px)" srcset="assets/terminal/winget-existing-mobile.png"><img src="assets/terminal/winget-existing-wide.png" alt="已裝過且沒有可用更新，不必反覆安裝。這個情況代表目前來源沒有更新可裝。重新開啟終端機，輸入 gh --version 檢查即可；若系統另有其他錯誤，依實際訊息處理。" loading="lazy" decoding="async" data-wide="assets/terminal/winget-existing-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>這個情況代表目前來源沒有更新可裝。重新開啟終端機，輸入 gh --version 檢查即可；若系統另有其他錯誤，依實際訊息處理。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; winget install --id GitHub.cli -e
+Found an existing package already installed. Trying to upgrade the installed package...
+No available upgrade found.
+No newer package versions are available from the configured sources.
+PS C:\Users\teacher&gt;</pre></details></figure><figure id="terminal-gallery-18-4" class="terminal-figure" hidden data-scene-id="winget-failed"><figcaption><b>沒有找到符合指令的安裝套件</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：沒有找到符合指令的安裝套件"><picture><source media="(max-width:640px)" srcset="assets/terminal/winget-failed-mobile.png"><img src="assets/terminal/winget-failed-wide.png" alt="沒有找到符合指令的安裝套件。確認指令沒有打錯、網路可以連線。仍失敗就使用 cli.github.com 的官方 Windows 安裝檔備案，裝完重開終端機，再檢查 gh --version。" loading="lazy" decoding="async" data-wide="assets/terminal/winget-failed-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>確認指令沒有打錯、網路可以連線。仍失敗就使用 cli.github.com 的官方 Windows 安裝檔備案，裝完重開終端機，再檢查 gh --version。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; winget install --id GitHub.cli -e
+No package found matching input criteria.
+PS C:\Users\teacher&gt;</pre></details></figure></div>
+<p>首次可能詢問來源條款；閱讀並同意才輸入 <b>Y</b>、按 Enter。若跳出系統權限視窗，核對是 GitHub CLI 安裝程式；需要管理員密碼時請設備管理者協助。</p>
+<p>下載與安裝時先等，不要貼下一行。看到成功訊息，或明確表示已有版本／沒有更新可用，再做版本檢查。出現 failed／錯誤就先處理。</p>
+<h3>② 驗證（請先重開 PowerShell）</h3><p><b>完全關掉 PowerShell／Windows Terminal，再從開始選單開一個新的。</b>安裝器更新的工具位置可能要新視窗才能讀到。</p><code class="cmd" >gh --version</code><div class="terminal-gallery" data-gallery="terminal-gallery-19"><p class="gallery-hint">執行後，選和你相近的畫面；不用把每種狀況都做出來。安裝／登入可依序看圖。<br><small>以下皆為輸出對照示意；版本、帳號、語言、配色可能不同，部分長輸出已節錄。</small></p><div class="scene-choices" role="group" aria-label="可能出現的畫面"><button type="button" class="scene-choice" aria-pressed="true" aria-controls="terminal-gallery-19-0" data-scene="0">成功</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-19-1" data-scene="1">找不到</button></div><figure id="terminal-gallery-19-0" class="terminal-figure"  data-scene-id="gh-win-version"><figcaption><b>GitHub CLI 已能啟動，下一步是登入</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：GitHub CLI 已能啟動，下一步是登入"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-win-version-mobile.png"><img src="assets/terminal/gh-win-version-wide.png" alt="GitHub CLI 已能啟動，下一步是登入。看到 gh version 就可以開始 gh auth login。下面的網址是版本說明，不必另外點開，也不代表你已經登入。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-win-version-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>看到 gh version 就可以開始 gh auth login。下面的網址是版本說明，不必另外點開，也不代表你已經登入。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; gh --version
+gh version 2.101.0 (2026-09-15)
+https://github.com/cli/cli/releases/tag/v2.101.0
+PS C:\Users\teacher&gt;</pre></details></figure><figure id="terminal-gallery-19-1" class="terminal-figure" hidden data-scene-id="gh-win-missing"><figcaption><b>這個 PowerShell 視窗還找不到 GitHub CLI</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：這個 PowerShell 視窗還找不到 GitHub CLI"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-win-missing-mobile.png"><img src="assets/terminal/gh-win-missing-wide.png" alt="這個 PowerShell 視窗還找不到 GitHub CLI。如果剛安裝完成，先關閉整個終端機再重新開啟。如果使用課程工具內的終端機，也先完全關閉並重開該工具；仍失敗再檢查安裝是否完成。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-win-missing-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>如果剛安裝完成，先關閉整個終端機再重新開啟。如果使用課程工具內的終端機，也先完全關閉並重開該工具；仍失敗再檢查安裝是否完成。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; gh --version
+gh : The term &#x27;gh&#x27; is not recognized as the name of a cmdlet, function, script file, or operable program.
+PS C:\Users\teacher&gt;</pre></details></figure></div>
+<p>看到 <b>gh version</b> 與數字，就可以翻下一頁登入。仍找不到 gh 時，確認安裝確實完成；winget 持續失敗則使用 <a href="https://cli.github.com" target="_blank" rel="noopener">官方 .msi 安裝檔</a>。</p>
+</section>
 
-  <section class="slide" id="gh-windows-login">
-    <span class="tag">任務 ⑤ · 🪟 Windows · Step 4</span>
-    <h2>登入 GitHub（最關鍵的一步）</h2>
-    <div class="step"><div class="num">4</div><div>
-      <p style="margin:0">在 PowerShell 輸入：</p>
-      <code class="cmd">gh auth login</code>
-      <p style="margin:.4em 0 .2em">接著它會問幾個問題，用<b>方向鍵 + Enter</b> 照下面選：</p>
-      <div class="card" style="margin:.4em 0;padding:.8em 1em">
-        <p style="margin:.15em 0">❓ <b>Where do you use GitHub?</b> → 選 <code>GitHub.com</code></p>
-        <p style="margin:.15em 0">❓ <b>What is your preferred protocol?</b> → 選 <code>HTTPS</code></p>
-        <p style="margin:.15em 0">❓ <b>Authenticate Git with your GitHub credentials?</b> → 選 <code>Yes</code></p>
-        <p style="margin:.15em 0">❓ <b>How would you like to authenticate?</b> → 選 <code>Login with a web browser</code></p>
-      </div>
-      <p style="margin:.2em 0">PowerShell 會顯示 <b>8 碼驗證碼</b>（例：<code>AB12-CD34</code>），並提示 <i>Press Enter to open github.com in your browser</i>。</p>
-      <p style="margin:.2em 0">⚠️ 按 Enter 後做兩件事：</p>
-      <p style="margin:.1em 0 .1em 1.2em">1. 預設瀏覽器跳出 → <b>貼上 8 碼</b> → 點 <b>Continue</b></p>
-      <p style="margin:.1em 0 .1em 1.2em">2. 點 <b>Authorize</b>（授權）</p>
-      <p class="muted" style="margin:.2em 0">完成後瀏覽器顯示「Congratulations, you're all set!」，回 PowerShell 會看到 ✓ Logged in as 你的帳號。</p>
-    </div></div>
-  </section>
+  <section class="slide" id="gh-windows-login"><span class="tag">任務 ⑤ · Windows · 3 / 4</span><h2>登入 GitHub：每一題都有對照圖</h2>
+<p>按複製 → 切到 PowerShell → Ctrl＋V，再按 Enter。<b>這行只執行一次，接下來在同一個視窗回答問題；換看下一張圖時，不必重貼指令。</b></p><code class="cmd" >gh auth login</code><div class="terminal-gallery" data-gallery="terminal-gallery-20"><p class="gallery-hint">執行後，選和你相近的畫面；不用把每種狀況都做出來。安裝／登入可依序看圖。<br><small>以下皆為輸出對照示意；版本、帳號、語言、配色可能不同，部分長輸出已節錄。</small></p><div class="scene-choices" role="group" aria-label="可能出現的畫面"><button type="button" class="scene-choice" aria-pressed="true" aria-controls="terminal-gallery-20-0" data-scene="0">① GitHub.com</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-20-1" data-scene="1">② HTTPS</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-20-2" data-scene="2">③ 輸入 Y</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-20-3" data-scene="3">④ 瀏覽器登入</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-20-4" data-scene="4">⑤ 本次驗證碼</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-20-5" data-scene="5">⑤ 舊版畫面</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-20-6" data-scene="6">⑥ 登入完成</button></div><figure id="terminal-gallery-20-0" class="terminal-figure"  data-scene-id="gh-win-menu-host"><figcaption><b>第一題：選 GitHub.com</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：第一題：選 GitHub.com"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-win-menu-host-mobile.png"><img src="assets/terminal/gh-win-menu-host-wide.png" alt="第一題：選 GitHub.com。用鍵盤上下方向鍵選 GitHub.com，再按 Enter。不要用滑鼠點終端機裡的選項。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-win-menu-host-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>用鍵盤上下方向鍵選 GitHub.com，再按 Enter。不要用滑鼠點終端機裡的選項。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; gh auth login
+? Where do you use GitHub?  [Use arrows to move, type to filter]
+&gt; GitHub.com
+  Other</pre></details></figure><figure id="terminal-gallery-20-1" class="terminal-figure" hidden data-scene-id="gh-win-menu-protocol"><figcaption><b>第二題：選 HTTPS</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：第二題：選 HTTPS"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-win-menu-protocol-mobile.png"><img src="assets/terminal/gh-win-menu-protocol-wide.png" alt="第二題：選 HTTPS。用上下方向鍵選 HTTPS，再按 Enter。如果選到 SSH 而出現金鑰問題，可按 Ctrl+C 結束這次登入，再重新輸入 gh auth login。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-win-menu-protocol-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>用上下方向鍵選 HTTPS，再按 Enter。如果選到 SSH 而出現金鑰問題，可按 Ctrl+C 結束這次登入，再重新輸入 gh auth login。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; gh auth login
+? Where do you use GitHub? GitHub.com
+? What is your preferred protocol for Git operations on this host?
+&gt; HTTPS
+  SSH</pre></details></figure><figure id="terminal-gallery-20-2" class="terminal-figure" hidden data-scene-id="gh-win-menu-git"><figcaption><b>若有這一題：讓 Git 使用這次的登入資料</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：若有這一題：讓 Git 使用這次的登入資料"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-win-menu-git-mobile.png"><img src="assets/terminal/gh-win-menu-git-wide.png" alt="若有這一題：讓 Git 使用這次的登入資料。輸入 Y，再按 Enter。若電腦已經設定好，這題可能直接跳過，繼續看下一題即可。若此處顯示找不到 git，先完成 Git 安裝與 git --version 檢查。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-win-menu-git-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>輸入 Y，再按 Enter。若電腦已經設定好，這題可能直接跳過，繼續看下一題即可。若此處顯示找不到 git，先完成 Git 安裝與 git --version 檢查。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; gh auth login
+? Where do you use GitHub? GitHub.com
+? What is your preferred protocol for Git operations on this host? HTTPS
+? Authenticate Git with your GitHub credentials? (Y/n)</pre></details></figure><figure id="terminal-gallery-20-3" class="terminal-figure" hidden data-scene-id="gh-win-menu-method"><figcaption><b>登入方式：選 Login with a web browser</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：登入方式：選 Login with a web browser"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-win-menu-method-mobile.png"><img src="assets/terminal/gh-win-menu-method-wide.png" alt="登入方式：選 Login with a web browser。選 Login with a web browser，再按 Enter。下一步會在終端機顯示一次性驗證碼。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-win-menu-method-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>選 Login with a web browser，再按 Enter。下一步會在終端機顯示一次性驗證碼。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; gh auth login
+? Where do you use GitHub? GitHub.com
+? What is your preferred protocol for Git operations on this host? HTTPS
+? Authenticate Git with your GitHub credentials? Yes
+? How would you like to authenticate GitHub CLI?
+&gt; Login with a web browser
+  Paste an authentication token</pre></details></figure><figure id="terminal-gallery-20-4" class="terminal-figure" hidden data-scene-id="gh-win-code"><figcaption><b>新版：驗證碼已複製，按 Enter 開啟瀏覽器</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：新版：驗證碼已複製，按 Enter 開啟瀏覽器"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-win-code-mobile.png"><img src="assets/terminal/gh-win-code-wide.png" alt="新版：驗證碼已複製，按 Enter 開啟瀏覽器。按 Enter 開啟 GitHub 網頁，確認是自己的帳號，將你自己終端機的代碼貼進網頁，依畫面繼續並授權。不要輸入示意圖的 AB12-CD34；完成後回到終端機等候登入結果。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-win-code-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>按 Enter 開啟 GitHub 網頁，確認是自己的帳號，將你自己終端機的代碼貼進網頁，依畫面繼續並授權。不要輸入示意圖的 AB12-CD34；完成後回到終端機等候登入結果。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; gh auth login
+! One-time code (AB12-CD34) copied to clipboard
+Press Enter to open https://github.com/login/device in your browser...</pre></details></figure><figure id="terminal-gallery-20-5" class="terminal-figure" hidden data-scene-id="gh-win-code-old"><figcaption><b>另一種畫面：先複製你自己的代碼，再按 Enter</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：另一種畫面：先複製你自己的代碼，再按 Enter"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-win-code-old-mobile.png"><img src="assets/terminal/gh-win-code-old-wide.png" alt="另一種畫面：先複製你自己的代碼，再按 Enter。先選取並複製你終端機中的一次性代碼，再按 Enter。瀏覽器開啟後，確認帳號並貼上該代碼。如果瀏覽器沒自動開啟，在瀏覽器開啟終端機顯示的 GitHub 網址。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-win-code-old-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>先選取並複製你終端機中的一次性代碼，再按 Enter。瀏覽器開啟後，確認帳號並貼上該代碼。如果瀏覽器沒自動開啟，在瀏覽器開啟終端機顯示的 GitHub 網址。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; gh auth login
+! First copy your one-time code: AB12-CD34
+Press Enter to open https://github.com/login/device in your browser...</pre></details></figure><figure id="terminal-gallery-20-6" class="terminal-figure" hidden data-scene-id="gh-win-login-ok"><figcaption><b>回到終端機，確認已完成登入</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：回到終端機，確認已完成登入"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-win-login-ok-mobile.png"><img src="assets/terminal/gh-win-login-ok-wide.png" alt="回到終端機，確認已完成登入。確認 Logged in as 後面是自己的 GitHub 帳號，接著輸入 gh auth status 做最後確認。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-win-login-ok-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>確認 Logged in as 後面是自己的 GitHub 帳號，接著輸入 gh auth status 做最後確認。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; gh auth login
+✓ Authentication complete.
+- gh config set -h github.com git_protocol https
+✓ Configured git protocol
+✓ Logged in as teacher-demo
+PS C:\Users\teacher&gt;</pre></details></figure></div>
+<div class="card"><p><b>選單題：</b>按鍵盤 ↑／↓，把箭頭移到圖中的選項，再按 Enter。<b>(Y/n) 題：</b>輸入 Y，再按 Enter。</p><p>依序選 <b>GitHub.com → HTTPS → Yes → Login with a web browser</b>。已設定的題目可能跳過，不必讓題數跟圖完全相同。</p></div>
+<h3>驗證碼出現後，換到瀏覽器</h3><ol><li>圖中的 <b>AB12-CD34 是無效範例</b>。使用自己終端機本次顯示的碼；新版本可能已自動複製，舊版本需要自行選取並複製。</li><li>回終端機按 Enter，開啟 GitHub。若瀏覽器沒有自動開啟，手動打開 <a href="https://github.com/login/device" target="_blank" rel="noopener">github.com/login/device</a>。</li><li>若要求登入，先登入自己的 GitHub 帳號。貼上本次驗證碼 → Continue → 確認是自己的帳號，再按 Authorize GitHub CLI。</li><li>瀏覽器顯示完成後，回 PowerShell，找到 <b>Logged in as</b> 與自己的帳號，再到下一頁檢查。</li></ol>
+<div class="card"><p><b>驗證碼過期／按到取消：</b>回終端機，若尚在等待就按 Ctrl＋C，回到提示字元後重新執行上方登入指令，取新的碼。若問是否重新登入，確認帳號後選 Yes。瀏覽器登入完成前，終端機等待是正常的。</p><p>若跳出權限／組織限制或反覆失敗，截下錯誤訊息問老師。不要公開登入碼、密碼或 token。</p></div>
+<p class="source-links"><a href="https://cli.github.com/manual/gh_auth_login" target="_blank" rel="noopener">GitHub CLI 官方登入說明</a></p>
+</section>
 
-  <section class="slide" id="gh-windows-done">
-    <span class="tag">任務 ⑤ · 🪟 Windows · Step 5</span>
-    <h2>驗證 + 常見坑</h2>
-    <div class="step"><div class="num">5</div><div>
-      <p style="margin:0">🧪 <b>最終驗證</b>，輸入：</p>
-      <code class="cmd">gh auth status</code>
-      <p style="margin:.4em 0 .2em">畫面長這樣 = 大功告成 🎉（重點看<b>第一行的綠色 ✓</b>）：</p>
-      <div class="card" style="margin:.3em 0;padding:.7em 1em;background:#0b1220">
-        <p style="margin:.1em 0;font-family:ui-monospace,Menlo,monospace;font-size:.9em;color:#e2e8f0">github.com</p>
-        <p style="margin:.1em 0;font-family:ui-monospace,Menlo,monospace;font-size:.9em;color:var(--ok)">　✓ Logged in to github.com account 你的帳號</p>
-        <p style="margin:.1em 0;font-family:ui-monospace,Menlo,monospace;font-size:.9em;color:#94a3b8">　- Active account: true</p>
-        <p style="margin:.1em 0;font-family:ui-monospace,Menlo,monospace;font-size:.9em;color:#94a3b8">　- Git operations protocol: https</p>
-        <p style="margin:.1em 0;font-family:ui-monospace,Menlo,monospace;font-size:.9em;color:#94a3b8">　- Token: gho_***</p>
-      </div>
-      <p class="muted" style="margin:.2em 0">⚠️ 只有第一行是綠色 ✓，其他 <code>-</code> 開頭的灰色文字是正常資訊，<b>不是錯誤</b>。</p>
-    </div></div>
-    <div class="card" style="border-color:#ef4444;background:#1a0e0e">
-      <p style="margin:0 0 .3em"><b>💡 常見坑</b></p>
-      <p style="margin:.2em 0">🔴 <b>裝完輸入 gh 找不到指令</b> → PowerShell <b>沒重開</b>。整個視窗關掉再打開一個新的。</p>
-      <p style="margin:.2em 0">🔴 <b>winget 一直失敗</b> → 直接到 <a class="url" href="https://cli.github.com" target="_blank" rel="noopener">cli.github.com</a> 下載 <code>.msi</code> 雙擊安裝，再回來跑 <code>gh --version</code>。</p>
-      <p style="margin:.4em 0">🔴 <b>卡在 web browser 那步</b> → 重新輸入 <code>gh auth login</code>，仍選 <b>Login with a web browser</b>，取得新的驗證碼再試。<a class="jumpbtn" href="#gh-windows-login" onclick="show('gh-windows-login');return false;">↩ 回 Step 4 重做</a>。再次失敗時，截下錯誤畫面到群組詢問；不用自行產生或貼上 token。</p>
-      <p style="margin:.2em 0">🔴 <b>gh auth status 顯示 not logged in</b> → 重跑 <code>gh auth login</code> 一次 <a class="jumpbtn" href="#" onclick="show('gh-windows-login');return false;">↩ 回 Step 4 重做</a>。</p>
-    </div>
-  </section>
+  <section class="slide" id="gh-windows-done"><span class="tag">任務 ⑤ · Windows · 4 / 4</span><h2>最後確認：看文字，不用猜顏色</h2>
+<p>按複製 → 切到 PowerShell → Ctrl＋V，再按 Enter：</p><code class="cmd" >gh auth status</code><div class="terminal-gallery" data-gallery="terminal-gallery-21"><p class="gallery-hint">執行後，選和你相近的畫面；不用把每種狀況都做出來。安裝／登入可依序看圖。<br><small>以下皆為輸出對照示意；版本、帳號、語言、配色可能不同，部分長輸出已節錄。</small></p><div class="scene-choices" role="group" aria-label="可能出現的畫面"><button type="button" class="scene-choice" aria-pressed="true" aria-controls="terminal-gallery-21-0" data-scene="0">成功</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-21-1" data-scene="1">尚未登入</button><button type="button" class="scene-choice" aria-pressed="false" aria-controls="terminal-gallery-21-2" data-scene="2">需要重新登入</button></div><figure id="terminal-gallery-21-0" class="terminal-figure"  data-scene-id="gh-win-status-ok"><figcaption><b>登入狀態正常，且是你要使用的帳號</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：登入狀態正常，且是你要使用的帳號"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-win-status-ok-mobile.png"><img src="assets/terminal/gh-win-status-ok-wide.png" alt="登入狀態正常，且是你要使用的帳號。確認帳號是自己的，且 Active account 為 true。這一關就完成了；若有多個帳號，請看目前啟用的那一個。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-win-status-ok-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>確認帳號是自己的，且 Active account 為 true。這一關就完成了；若有多個帳號，請看目前啟用的那一個。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; gh auth status
+github.com
+  ✓ Logged in to github.com account teacher-demo (keyring)
+  - Active account: true
+  - Git operations protocol: https
+PS C:\Users\teacher&gt;</pre></details></figure><figure id="terminal-gallery-21-1" class="terminal-figure" hidden data-scene-id="gh-win-status-missing"><figcaption><b>工具已安裝，但還沒有登入任何 GitHub 帳號</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：工具已安裝，但還沒有登入任何 GitHub 帳號"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-win-status-missing-mobile.png"><img src="assets/terminal/gh-win-status-missing-wide.png" alt="工具已安裝，但還沒有登入任何 GitHub 帳號。輸入 gh auth login，依前面的選單與瀏覽器步驟完成登入，再跑一次 gh auth status。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-win-status-missing-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>輸入 gh auth login，依前面的選單與瀏覽器步驟完成登入，再跑一次 gh auth status。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; gh auth status
+You are not logged into any GitHub hosts. To log in, run: gh auth login
+PS C:\Users\teacher&gt;</pre></details></figure><figure id="terminal-gallery-21-2" class="terminal-figure" hidden data-scene-id="gh-win-status-invalid"><figcaption><b>曾經登入過，但目前的登入資料無法通過檢查</b></figcaption><button class="figure-zoom" type="button" aria-label="放大：曾經登入過，但目前的登入資料無法通過檢查"><picture><source media="(max-width:640px)" srcset="assets/terminal/gh-win-status-invalid-mobile.png"><img src="assets/terminal/gh-win-status-invalid-wide.png" alt="曾經登入過，但目前的登入資料無法通過檢查。先確認網路正常。回本教材「登入 GitHub」頁，重新執行 gh auth login，以自己的帳號完成瀏覽器授權，再查 gh auth status。若出現不同問題或帳號選擇，截圖問老師。" loading="lazy" decoding="async" data-wide="assets/terminal/gh-win-status-invalid-wide.png"></picture><span>點圖放大</span></button><p class="figure-next"><b>你接著做：</b>先確認網路正常。回本教材「登入 GitHub」頁，重新執行 gh auth login，以自己的帳號完成瀏覽器授權，再查 gh auth status。若出現不同問題或帳號選擇，截圖問老師。</p><details class="figure-transcript"><summary>看這張圖的文字版（不用輸入）</summary><pre>PS C:\Users\teacher&gt; gh auth status
+github.com
+  X Failed to log in to github.com account teacher-demo (keyring)
+  - Active account: true
+  - The token in keyring is invalid.
+PS C:\Users\teacher&gt;</pre></details></figure></div>
+<div class="card"><p><b>完成標準：</b>找到 <b>Logged in to github.com account</b>，後面是自己的 GitHub 帳號，並有 <b>Active account: true</b>。圖中的 teacher 是範例。</p><p>github.com 與 - 開頭的幾行是一般資訊；Token 後的星號代表遮住內容，不是錯誤。<b>回應的顏色可能不同，不必找「第一行綠勾」。</b></p></div>
+<p>如果顯示未登入，<a class="jumpbtn" href="#gh-windows-login" onclick="show('gh-windows-login');return false;">回登入步驟</a>；憑證失效或帳號不對也先回登入步驟，以自己的帳號重新完成瀏覽器授權。若電腦有多個帳號、不確定要保留哪一個，截圖詢問老師。</p>
+<p>找不到 gh：關掉整個 PowerShell／Windows Terminal 再重開。仍失敗可從 <a href="https://cli.github.com" target="_blank" rel="noopener">GitHub CLI 官網</a>下載 Windows .msi，完成安裝後再回版本檢查。</p><p><a class="jumpbtn" href="#prep-checklist" onclick="show('prep-checklist');return false;">看到自己的登入狀態 → 最後檢核</a></p>
+</section>
 
   <section class="slide" id="prep-checklist">
     <span class="tag">課前自我檢核</span>
@@ -596,13 +727,13 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
       <div class="card" style="border-color:var(--ok)">
         <p><b>④ Git 版本管理</b></p>
         <p><span class="check">☐</span> 我已依照自己的系統完成 Git 安裝</p>
-        <p><span class="check">☐</span> 我在新開的 PowerShell／終端機輸入 <code>git --version</code>，看到版本號</p>
+        <p><span class="check">☐</span> 我在新開的 PowerShell／終端機輸入 <code>git --version</code>，看到版本號</p><p><a class="jumpbtn" href="#git-ready" onclick="show('git-ready');return false;">看 Git 檢查圖</a></p>
         <p><a class="jumpbtn" href="#git-ready" onclick="show('git-ready');return false;">回到 Git 完成驗證</a></p>
       </div>
       <div class="card">
         <p><b>⑤ 電腦登入 GitHub</b></p>
         <p><span class="check">☐</span> 終端機輸入 <code>gh --version</code> 有版本號</p>
-        <p><span class="check">☐</span> <code>gh auth status</code> 看到 ✓ Logged in</p>
+        <p><span class="check">☐</span> <code>gh auth status</code> 看到自己的 Logged in 帳號</p><p><a class="jumpbtn" href="#gh-windows-done" onclick="show('gh-windows-done');return false;">Windows 對照圖</a><a class="jumpbtn" href="#gh-mac-done" onclick="show('gh-mac-done');return false;">Mac 對照圖</a></p>
       </div>
     </div>
     <div class="card" style="margin-top:1.2em;border-color:var(--accent2)">
@@ -631,6 +762,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
   <button class="nav-btn next" onclick="go(1)">下一頁 →</button>
 </div>
 
+<dialog id="figure-dialog" aria-labelledby="dialog-title"><div class="dialog-controls"><h2 id="dialog-title">終端機對照圖</h2><button type="button" id="dialog-scale" aria-pressed="false">再放大文字</button><button type="button" id="dialog-close">關閉圖片 ×</button></div><div class="dialog-image-wrap"><img id="dialog-image" src="assets/terminal/win-empty-wide.png" alt="待選取的終端機對照圖"></div><p id="dialog-next"></p></dialog>
 <script>
   const slides=[...document.querySelectorAll('.slide')];
   let i=0;
@@ -666,7 +798,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
     show((i+d+slides.length)%slides.length);
   }
   document.addEventListener('keydown',e=>{
-    if(e.target.closest('input,textarea,select,summary,button,a,[contenteditable="true"]'))return;
+    if(document.getElementById('figure-dialog').open||e.target.closest('input,textarea,select,summary,button,a,[contenteditable="true"]'))return;
     if(['ArrowRight',' ','PageDown'].includes(e.key)){e.preventDefault();go(1);}
     if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(-1);}
     if(e.key==='Home'){e.preventDefault();show(0);}
@@ -717,6 +849,34 @@ eval "$(/opt/homebrew/bin/brew shellenv)"</code>
     };
     cmd.appendChild(btn);
   });
+
+  document.querySelectorAll('.terminal-gallery').forEach(gallery=>{
+    gallery.querySelectorAll('.scene-choice').forEach(btn=>btn.addEventListener('click',()=>{
+      gallery.querySelectorAll('.scene-choice').forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));
+      gallery.querySelectorAll('.terminal-figure').forEach((fig,n)=>fig.hidden=n!==Number(btn.dataset.scene));
+    }));
+  });
+  const figureDialog=document.getElementById('figure-dialog');
+  let figureOpener=null;
+  document.querySelectorAll('.figure-zoom').forEach(button=>button.addEventListener('click',()=>{
+    figureOpener=button;
+    const fig=button.closest('figure'), img=button.querySelector('img'), large=document.getElementById('dialog-image');
+    large.src=innerWidth<=640?img.currentSrc:img.dataset.wide;large.alt=img.alt;
+    document.getElementById('dialog-title').textContent=fig.querySelector('figcaption').textContent;
+    document.getElementById('dialog-next').textContent=fig.querySelector('.figure-next').textContent;
+    figureDialog.querySelector('.dialog-image-wrap').classList.remove('actual');
+    document.getElementById('dialog-scale').setAttribute('aria-pressed','false');
+    document.getElementById('dialog-scale').textContent='再放大文字';
+    figureDialog.showModal();document.getElementById('dialog-close').focus();
+  }));
+  document.getElementById('dialog-scale').onclick=()=>{
+    const on=figureDialog.querySelector('.dialog-image-wrap').classList.toggle('actual');
+    document.getElementById('dialog-scale').setAttribute('aria-pressed',String(on));
+    document.getElementById('dialog-scale').textContent=on?'符合畫面寬度':'再放大文字';
+  };
+  document.getElementById('dialog-close').onclick=()=>figureDialog.close();
+  figureDialog.addEventListener('close',()=>figureOpener?.focus());
+
 </script>
 </body>
 </html>
